@@ -1,0 +1,131 @@
+@media screen and (min-width: 1280px) {
+  .container {
+    width: 1280px;
+    height: 80px;
+    margin: auto;
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: inherit;
+  }
+  .header_wallet {
+    display: block;
+    margin-left: 121px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 45px;
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #bdbdbd;
+    margin-right: 85px;
+  }
+
+  .header_title {
+    margin-right: 14px;
+    color: #bdbdbd;
+  }
+  .header_logout {
+    color: #bdbdbd;
+    border: none;
+
+    background-color: white;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .container {
+    width: 768px;
+    height: 80px;
+    margin: auto;
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: inherit;
+  }
+  .header_wallet {
+    display: block;
+    margin-left: 121px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 45px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #bdbdbd;
+    margin-right: 28px;
+  }
+
+  .header_title {
+    margin-right: 14px;
+    color: #bdbdbd;
+  }
+  .header_logout {
+    color: #bdbdbd;
+    border: none;
+
+    background-color: white;
+  }
+}
+@media screen and (max-width: 767px) {
+  .container {
+    width: 320px;
+    height: 86px;
+    margin: auto;
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: inherit;
+  }
+  .header_wallet {
+    display: block;
+    margin-left: 74px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 45px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #bdbdbd;
+    margin-right: 28px;
+  }
+
+  .header_title {
+    margin-right: 10px;
+    color: #bdbdbd;
+  }
+  .header_logout {
+    color: #bdbdbd;
+    border: none;
+
+    background-color: white;
+  }
+}
