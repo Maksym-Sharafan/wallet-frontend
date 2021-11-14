@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { lazy, Suspense } from 'react';
 import AppBar from './components/AppBar/AppBar';
+import RegistrationForm from "./components/RegistrationForm";
+// import ModalComponent from './components/modal/modal_1'
+import AddBtn from './components/addBtn/addBtn'
 import { Route, Routes } from 'react-router-dom';
-
 const HomeView = lazy(() =>
   import('./views/HomeView' /* webpackChunkName: "home-view" */),
 );
