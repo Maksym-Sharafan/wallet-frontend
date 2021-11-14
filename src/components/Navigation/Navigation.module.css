@@ -1,17 +1,5 @@
-.active {
-  width: 77px;
-  font-weight: bold;
-}
-
-.link:focus {
-  width: 77px;
-  font-weight: bold;
-}
-.link:focus {
-  border-bottom: 2 px solid #4040cf;
-}
 @media screen and (min-width: 1280px) {
-  .link {
+  .navigation_link {
     text-decoration: none;
     font-family: Poppins;
     font-style: normal;
@@ -22,24 +10,49 @@
     align-items: center;
     color: #000000;
   }
-  .container {
+  .navigation_container {
     width: 1280px;
     height: 80px;
     margin: auto;
   }
-  .nav_link {
-    margin-left: 85px;
+  .navigation_nav_link {
+    margin-left: 88px;
     padding-top: 40px;
+  }
+
+  .navigation_name_home {
+    margin-bottom: 10px;
+  }
+
+  .navigation_link:focus {
+      font-weight: bold;
+  }
+   .navigation_icon_statistic {
+    width: 18px;
+    height: 18px;
+  }
+  .navigation_icon_home {
+    width: 18px;
+    height: 18px;
+    margin-right: 23px;
+  }
+  .navigation_icon_statistic {
+    width: 18px;
+    height: 18px;
+    margin-right: 23px;
+  }
+  .navigation_icon_dollar {
+    display: none;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-  .container {
+  .navigation_container {
     width: 768px;
     height: 80px;
     margin: auto;
   }
 
-  .link {
+  .navigation_link {
     text-decoration: none;
     font-family: Poppins;
     font-style: normal;
@@ -50,19 +63,45 @@
     align-items: center;
     color: #000000;
   }
-  .nav_link {
-    margin-left: 84px;
+  .navigation_nav_link {
+    margin-left: 43px;
     padding-top: 30px;
+  }
+  .navigation_name_home {
+    margin-bottom: 10px;
+  }
+   .navigation_link:focus {
+   
+    font-weight: bold;
+  }
+   .navigation_icon_statistic {
+    width: 18px;
+    height: 18px;
+  }
+  .navigation_icon_home {
+    width: 18px;
+    height: 18px;
+    margin-right: 23px;
+  }
+  .navigation_icon_statistic {
+    width: 18px;
+    height: 18px;
+    margin-right: 23px;
+  }
+  .navigation_icon_dollar {
+    display: none;
   }
 }
 @media screen and (max-width: 767px) {
-  .container {
+  .navigation_container {
     width: 320px;
     height: 60px;
     margin: auto;
   }
 
-  .link {
+  .navigation_link {
+    display: none;
+    display: flex;
     text-decoration: none;
     font-family: Poppins;
     font-style: normal;
@@ -73,8 +112,33 @@
     align-items: center;
     color: #000000;
   }
-  .nav_link {
-    margin-left: 67px;
+  .navigation_nav_link {
     padding-top: 13px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .navigation_icon_statistic {
+    width: 38px;
+    height: 38px;
+  }
+  .navigation_icon_home {
+    width: 38px;
+    height: 38px;
+  }
+
+  .navigation_icon_statistic {
+    width: 38px;
+    height: 38px;
+  }
+  .navigation_name_home {
+    display: none;
+  }
+  .navigation_name_statistic {
+    display: none;
+  }
+  .navigation_icon_dollar {
+    width: 38px;
+    height: 38px;
   }
 }

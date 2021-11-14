@@ -1,35 +1,34 @@
-// s
 import styles from './styles.module.css';
-import Navigation from '../components/Navigation/Navigation';
+import Icons from '../components/Icons';
 export default function DiagramView() {
   return (
     <>
-          <div class={styles.container}>
-        <div className={styles.row}>
-          <a className={styles.header_wallet}>
+      <div class={styles.navigation_container}>
+        <div className={styles.navigation_row}>
+          <a className={styles.navigation_header_wallet}>
+            <Icons name="wallet" className={styles.navigation_icon_wallet} />
             <p>Wallet</p>
           </a>
-                   <div className={styles.header}>
-            <a className={styles.header_title}>
+          <div className={styles.navigation_header}>
+            <a className={styles.navigation_header_title}>
               <p>Имя</p>
             </a>
-            <a className={styles.header_title}>
+            <a className={styles.navigation_header_title}>
               <p>|</p>
             </a>
-            <button
-              // varient="flat"
-              type="button"
-              className={styles.header_logout}
-            >
+            <Icons
+              name="exit"
+              size="18"
+              className={styles.navigation_icon_exit}
+            />
+            <button type="button" className={styles.navigation_header_logout}>
               Выйти
             </button>
           </div>
-          {/* </form> */}
         </div>
       </div>
 
-      <section className={styles.home_image}>
-             </section>
+      <section className={styles.navigation_home_image}></section>
     </>
   );
 }

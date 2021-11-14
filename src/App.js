@@ -1,33 +1,32 @@
 import * as React from 'react';
-// export default App;
-// import { AppBar } from "@material-ui/core";
+import { lazy, Suspense } from 'react';
 import AppBar from './components/AppBar/AppBar';
-// import { Switch, Route } from "react-router";
-import {
-  BrowserRouter,
-  Switch,
-  Route,
-  Routes,
-  Link,
-  useMatch,
-  useResolvedPath,
-} from 'react-router-dom';
-// import { lazy, Suspense } from "react";
-// import Navigation from "./components/Navigation/Navigation";
-import HomeView from './views/HomeView';
-import DiagramView from './views/DiagramView';
-import NotFoundView from './views/NotFoundView';
+import { Route, Routes } from 'react-router-dom';
 
-// import type { LinkProps } from 'react-router-dom';
-
+const HomeView = lazy(() =>
+  import('./views/HomeView' /* webpackChunkName: "home-view" */),
+);
+const DiagramView = lazy(() =>
+  import('./views/DiagramView' /* webpackChunkName: "diagram-view" */),
+);
+const NotFoundView = lazy(() =>
+  import('./views/NotFoundView' /* webpackChunkName: "notFound-view" */),
+);
+const ExcludeView = lazy(() =>
+  import('./views/ExcludeView' /* webpackChunkName: "exclude-view" */),
+);
 export default function App() {
   return (
     <div>
-      <Routes>
-        <Route path="home" element={<HomeView />} />
-        <Route path="diagram" element={<DiagramView />} />
-        <Route path="*" element={<NotFoundView />} />
-      </Routes>
+      {/* <Suspense fallback={<Loader />}> */}
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="home" index element={<HomeView />} />
+          <Route path="diagram" element={<DiagramView />} />
+          <Route path="exclude" element={<ExcludeView />} />
+          <Route path="*" element={<NotFoundView />} />
+        </Routes>
+      </Suspense>
       <AppBar />
     </div>
   );
