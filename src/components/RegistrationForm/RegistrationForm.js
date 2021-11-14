@@ -1,14 +1,13 @@
 import { Formik, Form } from "formik";
 import { TextField } from "./TextField";
 import * as Yup from "yup";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { authOperations } from "../../redux/auth/auth-operations";
-// import { authSelectors } from "../../redux/auth";
 import { Link } from "react-router-dom";
 
 import styles from "./RegistrationForm.module.css";
 
-export const RegistrationForm = () => {
+const RegistrationForm = () => {
   const dispatch = useDispatch();
   // const isAuth = useSelector(authSelectors.isAuth);
 
@@ -39,7 +38,7 @@ export const RegistrationForm = () => {
       onSubmit={async ({ name, email, password }) => {
         console.log(name, email, password);
         dispatch(authOperations.signup({ name, email, password }));
-        window.location.reload();
+        // window.location.reload();
       }}
     >
       {() => (
