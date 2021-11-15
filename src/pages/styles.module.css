@@ -45,6 +45,11 @@
     height: 40px;
     margin-right: 20px;
   }
+  .navigation_icon_button_exit {
+    /* margin-right: 10px; */
+    border: none;
+    background-color: white;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
@@ -94,6 +99,11 @@
     margin-left: 13px;
     margin-right: 20px;
   }
+  .navigation_icon_button_exit {
+    /* margin-right: 10px; */
+    border: none;
+    background-color: white;
+  }
 }
 @media screen and (max-width: 767px) {
   .navigation_container {
@@ -139,7 +149,9 @@
     height: 30px;
     margin-right: 15px;
   }
-  .navigation_icon_exit {
-    margin-right: 10px;
+  .navigation_icon_button_exit {
+    /* margin-right: 10px; */
+    border: none;
+    background-color: white;
   }
 }

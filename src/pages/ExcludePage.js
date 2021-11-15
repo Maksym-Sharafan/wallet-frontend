@@ -13,11 +13,16 @@ export default function ExcludePage() {
             <p className={styles.navigation_header_title}>Имя</p>
 
             <p className={styles.navigation_header_title}>|</p>
-            <Icons
-              name="exit"
-              size="18"
-              className={styles.navigation_icon_exit}
-            />
+            <button
+              type="button"
+              className={styles.navigation_icon_button_exit}
+            >
+              <Icons
+                name="exit"
+                size="18"
+                className={styles.navigation_icon_exit}
+              />
+            </button>
             <button type="button" className={styles.navigation_header_logout}>
               <p>Выйти</p>
             </button>

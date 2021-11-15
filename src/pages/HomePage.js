@@ -9,17 +9,21 @@ export default function HomePage() {
           <div className={styles.navigation_header_wallet}>
             <Icons name="wallet" className={styles.navigation_icon_wallet} />
             <p>Wallet</p>
-           
           </div>
           <div className={styles.navigation_header}>
-                         <p className={styles.navigation_header_title}>Имя</p>
-                  
-              <p className={styles.navigation_header_title}>|</p>
-                     <Icons
-              name="exit"
-              size="18"
-              className={styles.navigation_icon_exit}
-            />
+            <p className={styles.navigation_header_title}>Имя</p>
+
+            <p className={styles.navigation_header_title}>|</p>
+            <button
+              type="button"
+              className={styles.navigation_icon_button_exit}
+            >
+              <Icons
+                name="exit"
+                size="18"
+                className={styles.navigation_icon_exit}
+              />
+            </button>
             <button type="button" className={styles.navigation_header_logout}>
               <p>Выйти</p>
             </button>
