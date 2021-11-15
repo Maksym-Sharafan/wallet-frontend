@@ -1,6 +1,6 @@
 import styles from './styles.module.css';
 import Icons from '../components/Icons';
-export default function DiagramView() {
+export default function DiagramPage() {
   return (
     <>
       <div class={styles.navigation_container}>

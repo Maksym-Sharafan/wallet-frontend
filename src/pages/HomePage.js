@@ -1,9 +1,10 @@
-import Icons from '../components/Icons';
 import styles from './styles.module.css';
-export default function ExcludeView() {
+import Icons from '../components/Icons';
+
+export default function HomePage() {
   return (
     <>
-      <div className={styles.navigation_container}>
+      <div class={styles.navigation_container}>
         <div className={styles.navigation_row}>
           <a className={styles.navigation_header_wallet}>
             <Icons name="wallet" className={styles.navigation_icon_wallet} />
