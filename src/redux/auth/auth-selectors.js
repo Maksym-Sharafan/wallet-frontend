@@ -1,11 +1,11 @@
-const isLoggedIn = (state) => state.auth.token;
+const IsLoggedIn = (state) => state.auth.token;
 const getUserName = (state) => state.auth.user.name;
 const getError = (state) => state.auth.error;
-const isAuth = (state) => state.auth.isAuth;
+const IsAuth = (state) => state.auth.isAuth;
 
 export const authSelectors = {
-  isLoggedIn,
+  IsLoggedIn,
   getUserName,
   getError,
-  isAuth,
+  IsAuth,
 };

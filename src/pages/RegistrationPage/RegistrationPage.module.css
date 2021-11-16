@@ -1,0 +1,58 @@
+.container {
+  /* position: relative; */
+  /* display: flex; */
+  /* justify-content: center; */
+}
+
+.title {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    /* padding-top: 340px; */
+  }
+
+  .backgroundWrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    width: 540px;
+    height: 250px;
+
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+
+    background-image: url("../../img/wallet-auth-image.svg");
+    background-repeat: no-repeat;
+    /* background-position: 10% 40px; */
+    background-size: 250px;
+  }
+
+  .title {
+    display: block;
+    /* position: absolute; */
+    /* top: 140px; */
+    /* right: 150px; */
+    /* margin: 0; */
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    /* padding-top: 340px; */
+  }
+
+  .title {
+  }
+
+  .backgroundWrapper {
+    /* background-image: url("../../img/wallet-auth-image.svg");
+    background-repeat: no-repeat;
+    background-position: 10% 40px;
+    background-size: 250px; */
+  }
+}
