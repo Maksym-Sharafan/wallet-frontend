@@ -1,0 +1,144 @@
+@media screen and (min-width: 1280px) {
+  .navigation_link {
+    text-decoration: none;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+  }
+  .navigation_container {
+    width: 1280px;
+    height: 80px;
+    margin: auto;
+  }
+  .navigation_nav_link {
+    margin-left: 88px;
+    padding-top: 40px;
+  }
+
+  .navigation_name_home {
+    margin-bottom: 10px;
+  }
+
+  .navigation_link:focus {
+      font-weight: bold;
+  }
+   .navigation_icon_statistic {
+    width: 18px;
+    height: 18px;
+  }
+  .navigation_icon_home {
+    width: 18px;
+    height: 18px;
+    margin-right: 23px;
+  }
+  .navigation_icon_statistic {
+    width: 18px;
+    height: 18px;
+    margin-right: 23px;
+  }
+  .navigation_icon_dollar {
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .navigation_container {
+    width: 768px;
+    height: 80px;
+    margin: auto;
+  }
+
+  .navigation_link {
+    text-decoration: none;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+  }
+  .navigation_nav_link {
+    margin-left: 43px;
+    padding-top: 30px;
+  }
+  .navigation_name_home {
+    margin-bottom: 10px;
+  }
+   .navigation_link:focus {
+   
+    font-weight: bold;
+  }
+   .navigation_icon_statistic {
+    width: 18px;
+    height: 18px;
+  }
+  .navigation_icon_home {
+    width: 18px;
+    height: 18px;
+    margin-right: 23px;
+  }
+  .navigation_icon_statistic {
+    width: 18px;
+    height: 18px;
+    margin-right: 23px;
+  }
+  .navigation_icon_dollar {
+    display: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  .navigation_container {
+    width: 320px;
+    height: 60px;
+    margin: auto;
+  }
+
+  .navigation_link {
+    display: none;
+    display: flex;
+    text-decoration: none;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+  }
+  .navigation_nav_link {
+    padding-top: 13px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .navigation_icon_statistic {
+    width: 38px;
+    height: 38px;
+  }
+  .navigation_icon_home {
+    width: 38px;
+    height: 38px;
+  }
+
+  .navigation_icon_statistic {
+    width: 38px;
+    height: 38px;
+  }
+  .navigation_name_home {
+    display: none;
+  }
+  .navigation_name_statistic {
+    display: none;
+  }
+  .navigation_icon_dollar {
+    width: 38px;
+    height: 38px;
+  }
+}
