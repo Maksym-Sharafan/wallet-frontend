@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import { createReducer } from "@reduxjs/toolkit";
 
-import transactionsActions from "./transactionsActions";
+import transactionsActions from "./transactions-actions";
 
 const incomes = createReducer([], {
   [transactionsActions.getIncomeSuccess]: (_, { payload }) => [...payload.data],

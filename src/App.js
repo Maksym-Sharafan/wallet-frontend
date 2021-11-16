@@ -6,7 +6,6 @@ import * as React from 'react';
 // import AddBtn from './components/addBtn/addBtn'
 // import { Route, Routes } from 'react-router-dom';
 import DashboardPage from './pages/DashboardPage';
-import TransType from './components/transType/TransType'
 // const HomePage = lazy(() =>
 //   import('./pages/HomePage' /* webpackChunkName: "home-view" */),
 // );
@@ -33,7 +32,6 @@ export default function App() {
       </Suspense>
       <AppBar /> */}
       <DashboardPage />
-      <TransType />
     </div>
   );
 }

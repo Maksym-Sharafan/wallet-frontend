@@ -11,7 +11,7 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { authReducer } from "../redux/auth";
-import {transactionsReducer} from '../redux/transaction'
+import {transactionsReducer} from "../redux/transactions"
 import ModalAddTransactionOpen from './modalAddTransaction/modal-reduser'
 
 const middleware = [
