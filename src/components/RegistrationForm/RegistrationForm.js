@@ -14,13 +14,14 @@ import Button from "../FormsUI/Button";
 const useStyles = makeStyles({
   form: {
     "@media(min-width: 768px)": {
-      outline: "1px solid grey",
+      maxWidth: 540,
+      heigth: 616,
       paddingTop: 40,
       paddingBottom: 60,
       paddingLeft: 65,
       paddingRight: 65,
-      maxWidth: 540,
-      heigth: 616,
+      marginLeft: "auto",
+      marginRight: "auto",
       backgroundColor: "#fff",
       borderRadius: 20,
     },
@@ -30,6 +31,7 @@ const useStyles = makeStyles({
   },
   btnPrimary: {
     width: 280,
+    height: 50,
     backgroundColor: "#24CCA7",
     borderRadius: 20,
 
@@ -43,6 +45,7 @@ const useStyles = makeStyles({
   },
   btnSecondary: {
     width: 280,
+    height: 50,
     color: "#4A56E2",
     borderRadius: 20,
 
@@ -110,6 +113,12 @@ const RegistrationForm = () => {
           <Grid item xs={12}>
             Logo
           </Grid>
+          <Grid item xs={12}>
+            Logo
+          </Grid>
+          <Grid item xs={12}>
+            Logo
+          </Grid>
 
           <Grid item xs={12}>
             <Textfield
@@ -155,31 +164,6 @@ const RegistrationForm = () => {
           </Grid>
         </Grid>
       </Form>
-
-      {/* {() => (
-        <div className={styles.container}>
-          <Form className={styles.form}>
-            <InputField name="email" label="E-mail" type="email" />
-            <InputField name="password" label="Пароль" type="password" />
-            <InputField
-              name="confirmPassword"
-              label="Подтвердите пароль"
-              type="password"
-            />
-            <InputField name="name" label="Ваше имя" type="text" />
-            <Button
-              type="submit"
-              // variant="contained"
-              className={styles.btnRegistration}
-            >
-              Регистрация
-            </Button>
-            <Link to="/login">
-              <button type="button">Вход</button>
-            </Link>
-          </Form>
-        </div>
-      )} */}
     </Formik>
   );
 };
