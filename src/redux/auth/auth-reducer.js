@@ -14,7 +14,8 @@ const user = createReducer(initialState.user, {
 });
 
 const token = createReducer(initialState.token, {
-  [authActions.signupUsersSuccess]: (_, { payload }) => payload.token,
+  [authActions.signupUsersSuccess]: (_, { payload }) =>
+    console.log(payload.token),
 });
 
 const error = createReducer(initialState.error, {
