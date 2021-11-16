@@ -3,7 +3,7 @@ import  {isModalAddTransactionOpen}  from './modal-actions';
 
 
   const ModalAddTransactionOpen = createReducer(false, {
-    [isModalAddTransactionOpen] : (state, payload) => payload,
+    [isModalAddTransactionOpen] : (state, _) => !state,
   })
 
 export default ModalAddTransactionOpen;

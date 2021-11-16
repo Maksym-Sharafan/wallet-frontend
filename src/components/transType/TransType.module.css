@@ -48,7 +48,8 @@
 }
 
 .sliderInput{
-  display: none;
+  /* display: none; */
+  appearance: none;
 }
 
 .sliderInput:checked + .slider:before {

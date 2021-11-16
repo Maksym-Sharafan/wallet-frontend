@@ -1,20 +1,19 @@
 import axios from 'axios';
-import {
-  fetchCategoriesRequest,
-  fetchCategoriesSuccess,
-  fetchCategoriesError,
-} from './categoriesActions';
+import { fetchCategoriesRequest,
+         fetchCategoriesSuccess,
+         fetchCategoriesError,
+        fetchCategoriesError } from '.categories-action';
 
-axios.defaults.baseURL = '/';
+
+axios.defaults.baseURL = "https://connections-api.herokuapp.com";
 
 
 const fetchCategories = () => async dispatch => {
   dispatch(fetchCategoriesRequest());
-
   try {
     const {
       data: {
-        data: {name},
+        data: {name}
       },
     } = await axios.get('/api/categories');
 

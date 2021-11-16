@@ -1,54 +1,39 @@
 import * as React from 'react';
-import { lazy, Suspense } from 'react';
-import AppBar from './components/AppBar/AppBar';
-import RegistrationForm from "./components/RegistrationForm";
-import FormAddTrans from './components/formAddTrans/formAddTrans'
-// import ModalComponent from './components/modal/modal_1'
-import AddBtn from './components/addBtn/addBtn'
-import { Route, Routes } from 'react-router-dom';
-const HomeView = lazy(() =>
-  import('./views/HomeView' /* webpackChunkName: "home-view" */),
-);
-const DiagramView = lazy(() =>
-  import('./views/DiagramView' /* webpackChunkName: "diagram-view" */),
-);
-const NotFoundView = lazy(() =>
-  import('./views/NotFoundView' /* webpackChunkName: "notFound-view" */),
-);
-const ExcludeView = lazy(() =>
-  import('./views/ExcludeView' /* webpackChunkName: "exclude-view" */),
-);
+// import { lazy, Suspense } from 'react';
+// import AppBar from './components/AppBar/AppBar';
+// import RegistrationForm from "./components/RegistrationForm";
+// import ModalComponent from './components/modal'
+// import AddBtn from './components/addBtn/addBtn'
+// import { Route, Routes } from 'react-router-dom';
+import DashboardPage from './pages/DashboardPage';
+import TransType from './components/transType/TransType'
+// const HomePage = lazy(() =>
+//   import('./pages/HomePage' /* webpackChunkName: "home-view" */),
+// );
+// const DiagramPage = lazy(() =>
+//   import('./pages/DiagramPage' /* webpackChunkName: "diagram-view" */),
+// );
+// const NotFoundPage = lazy(() =>
+//   import('./pages/NotFoundPage' /* webpackChunkName: "notFound-view" */),
+// );
+// const ExcludePage = lazy(() =>
+//   import('./pages/ExcludePage' /* webpackChunkName: "exclude-view" */),
+// );
 export default function App() {
   return (
     <div>
       {/* <Suspense fallback={<Loader />}> */}
-      <Suspense fallback={<div>Loading...</div>}>
+      {/* <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path="home" index element={<HomeView />} />
-          <Route path="diagram" element={<DiagramView />} />
-          <Route path="exclude" element={<ExcludeView />} />
-          <Route path="*" element={<NotFoundView />} />
+          <Route path="home" index element={<HomePage />} />
+          <Route path="diagram" element={<DiagramPage />} />
+          <Route path="exclude" element={<ExcludePage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
-      <AppBar />
+      <AppBar /> */}
+      <DashboardPage />
+      <TransType />
     </div>
   );
 }
-
-// function CustomLink({ children, to, ...props }: LinkProps) {
-//   let resolved = useResolvedPath(to);
-//   let match = useMatch({ path: resolved.pathname, end: true });
-
-//   return (
-//     <div>
-//       <Link
-//         style={{ textDecoration: match ? 'underline' : 'none' }}
-//         to={to}
-//         {...props}
-//       >
-//         {children}
-//       </Link>
-//       {match && ' (active)'}
-//     </div>
-//   );
-// }
