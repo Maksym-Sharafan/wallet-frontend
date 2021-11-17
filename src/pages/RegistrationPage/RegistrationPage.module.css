@@ -1,18 +1,8 @@
-.container {
-  /* position: relative; */
-  /* display: flex; */
-  /* justify-content: center; */
-}
-
 .title {
   display: none;
 }
 
 @media screen and (min-width: 768px) {
-  .container {
-    /* padding-top: 340px; */
-  }
-
   .backgroundWrapper {
     display: flex;
     justify-content: flex-end;
@@ -28,31 +18,44 @@
 
     background-image: url("../../img/wallet-auth-image.svg");
     background-repeat: no-repeat;
-    /* background-position: 10% 40px; */
     background-size: 250px;
   }
 
   .title {
     display: block;
-    /* position: absolute; */
-    /* top: 140px; */
-    /* right: 150px; */
-    /* margin: 0; */
   }
 }
 
 @media screen and (min-width: 1280px) {
+  .authBackdrop {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 45%;
+    right: 0;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(50px);
+  }
+
   .container {
-    /* padding-top: 340px; */
+    display: flex;
+    width: 1280px;
+    align-items: center;
+
+    z-index: 1;
   }
 
   .title {
   }
 
   .backgroundWrapper {
-    /* background-image: url("../../img/wallet-auth-image.svg");
-    background-repeat: no-repeat;
-    background-position: 10% 40px;
-    background-size: 250px; */
+    width: 410px;
+    height: 500px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 140px;
+    flex-direction: column;
+    background-size: contain;
   }
+
 }

@@ -5,23 +5,42 @@ import { authOperations } from "../../redux/auth/auth-operations";
 import { Link } from "react-router-dom";
 
 import EmailRoundedIcon from "@material-ui/icons/EmailRounded";
+import LockIcon from '@material-ui/icons/Lock';
 
-import { Grid } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Grid, InputAdornment } from "@material-ui/core";
+import { makeStyles, createTheme } from "@material-ui/core/styles";
 import Textfield from "../FormsUI/Textfield";
 import Button from "../FormsUI/Button";
+import Icons from "../Icons/Icons";
+
+export const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#f00"
+    }
+  }
+})
 
 const useStyles = makeStyles({
+  root: {
+    "& .MuiSvgIcon-root": {
+      fill: 'inherit'
+    },
+    "& .MuiSvgIcon-colorError": {
+      color: '#f00'
+    }
+  },
   form: {
+    maxWidth: 320,
     "@media(min-width: 768px)": {
       maxWidth: 540,
       heigth: 616,
+      marginLeft: "auto",
+      marginRight: "auto",
       paddingTop: 40,
       paddingBottom: 60,
       paddingLeft: 65,
       paddingRight: 65,
-      marginLeft: "auto",
-      marginRight: "auto",
       backgroundColor: "#fff",
       borderRadius: 20,
     },
@@ -109,13 +128,7 @@ const RegistrationForm = () => {
       }}
     >
       <Form className={classes.form}>
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            Logo
-          </Grid>
-          <Grid item xs={12}>
-            Logo
-          </Grid>
+        <Grid container spacing={4}>
           <Grid item xs={12}>
             Logo
           </Grid>
@@ -126,7 +139,17 @@ const RegistrationForm = () => {
               type="email"
               name="email"
               label="E-mail"
+              color="primary"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <EmailRoundedIcon color="secondary" />
+                    {/* <Icons name="email" color="inherit" size="24"/> */}
+                  </InputAdornment>
+                ),
+              }}
             />
+            
           </Grid>
           <Grid item xs={12}>
             <Textfield
@@ -134,6 +157,14 @@ const RegistrationForm = () => {
               type="password"
               name="password"
               label="Пароль"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <LockIcon color="secondary" />
+                    {/* <Icons name="email" color="inherit" size="24"/> */}
+                  </InputAdornment>
+                ),
+              }}
             />
           </Grid>
           <Grid item xs={12}>
