@@ -2,11 +2,10 @@ import * as React from 'react';
 // import { lazy, Suspense } from 'react';
 // import AppBar from './components/AppBar/AppBar';
 // import RegistrationForm from "./components/RegistrationForm";
-// import ModalComponent from './components/modal'
-// import AddBtn from './components/addBtn/addBtn'
+import AddBtn from './components/AddBtn'
 // import { Route, Routes } from 'react-router-dom';
 import DashboardPage from './pages/DashboardPage';
-import TransType from './components/transType/TransType'
+
 // const HomePage = lazy(() =>
 //   import('./pages/HomePage' /* webpackChunkName: "home-view" */),
 // );
@@ -33,7 +32,7 @@ export default function App() {
       </Suspense>
       <AppBar /> */}
       <DashboardPage />
-      <TransType />
+      <AddBtn />
     </div>
   );
 }

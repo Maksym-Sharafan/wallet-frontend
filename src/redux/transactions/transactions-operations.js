@@ -1,7 +1,7 @@
 import axios from "axios";
-import transactionsActions from "./transactionsActions";
+import transactionsActions from "./transactions-actions";
 
-axios.defaults.baseURL = "https://connections-api.herokuapp.com";
+axios.defaults.baseURL = "https://wallet-29.herokuapp.com";
 
 const addTransaction =
   ({ type, date, amount, category, description }) =>
@@ -35,3 +35,5 @@ const addTransaction =
 //  если операция успешна то с бека вернётся таже транзакция, но с _id, балансом, датой создание и датой update .
 // await dispatch(transactionsOps.addTransaction({type: "cost", date: "2021-11-10", amount: 1000, category: "сбережение", description: "депозит"});
 // await dispatch(transactionsOps.addTransaction({type: "income", date: "2021-11-15", amount: 22000, category: "", description: "ЗП"});
+
+export default addTransaction

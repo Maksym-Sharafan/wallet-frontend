@@ -1,0 +1,112 @@
+.form_category_list {
+  position: absolute;
+  left: 0px;
+  top: 100%;
+  color: $dropdown-list;
+  box-shadow: 0px 3px 4px rgba(170, 178, 197, 0.4);
+  background-color: #FFFFFFB2;
+  border: none;
+  outline: none;
+  z-index: 100;
+
+}
+
+.form_input_category_parent {
+  position: relative;  
+  margin-bottom: 30px;
+  
+}
+
+.category_label {
+  padding: 9px 20px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color:  #c7ccdc;
+  height: 32px;
+  width: 188px;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+ 
+}
+.category_label:hover,
+.category_label:focus {
+    background-color: #f5f6fb;
+    color: #000000;
+  }
+
+/* .arrow {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  width: 12px;
+  height: 8px;
+  color:  #f5f6fa;
+} */
+
+/* .arrow_down {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  width: 12px;
+  height: 8px;
+  color:  #f5f6fa;
+  background-image: url("../../images/icons/arrow-down.svg");
+  background-repeat: no-repeat;
+}
+
+.arrow_up {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  width: 12px;
+  height: 8px;
+  color:  #f5f6fa;
+  background-image: url("../../images/icons/arrow-up.svg");
+  background-repeat: no-repeat;
+} */
+
+.form_input_category {
+  position: relative;
+  border-top: 2px solid #f5f6fb;
+  border-right: none;
+  border-bottom: 2px solid #f5f6fb;
+  border-left: none;
+  outline: none;
+  padding-left: 21px;
+}
+.form_input_category :focus + .arrow {
+    transform: rotate(-180deg);
+    width: 282px;
+    height: 44px;
+    border: 2px solid #ffffff;
+    border-top: none;
+    border-radius: 0px 0px 16px 16px;
+    background-color: inherit;
+}
+
+@media screen and (min-width:768px){
+  .form_category_list {
+    width: 188px;
+  }
+    .form_input_category :focus + .arrow{
+    width: 188px;
+    height: 44px;
+  }
+}
+
+@media screen and (min-width:768px){
+  .form_category_list {
+    width: 171px;
+  }
+  .form_input_category_parent {
+    margin-top: 0px;
+  }
+  .form_input_category :focus + .arrow{
+    width: 171px;
+    height: 44px;
+  }
+}

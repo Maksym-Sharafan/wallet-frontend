@@ -1,22 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import MyDatePicker from "./dtpicer";
 import { useFormik } from 'formik';
 import styles from './formAddTrans.module.css';
 import TransType from '../transType';
-import MyDTPicker from './dtpicer';
-
-// import Select from 'react-select';
-// import DatePicker from 'react-datepicker';
+// import MyDTPicker from './dtpicer';
+// import {useState, useSelect} from 'React;'
 
 
 const FormAddTrans = () => {
-  // Note that we have to initialize ALL of fields with values. These
-  // could come from props, but since we don’t want to prefill this form,
-  // we just use an empty string. If we don’t do this, React will yell
-  // at us.
-  // const today = moment(new Date()).format('yyyy-MM-DD');
-  // console.log(today);
-  // категории расходов для селект списком по пользователю запрашиваем
-  // первоначальное значение = категория
+  const [categories, setCategories] = useState();
+  console.log(categories);
   let selectValue = ' '
   const options = ['основные расходы', 'Продукты', 'Машина', 'Забота о себе', 'Забота о детях', 'Товары для дома', 'Образование', 'Досуг', 'Другие расходы']
   const formik = useFormik({    
@@ -81,7 +76,7 @@ const FormAddTrans = () => {
       />
       <label htmlFor="date" className={styles.formLabel}>{today}</label>
       </div> */}
-      <MyDTPicker />
+      <MyDatePicker />
       <div className={styles.formField}>
       <input className={styles.comment}
         id="comment"
