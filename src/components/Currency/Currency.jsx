@@ -9,6 +9,9 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Box from '@material-ui/core/Box';
+import Media from 'react-media';
+
+import GradientSvg from './gradientSvg';
 import styles from './styles';
 
 const PRIVATBANK_API =
@@ -18,7 +21,6 @@ const Currency = () => {
   const [isLoader, setIsLoader] = useState(true);
   const useStyles = makeStyles(styles(isLoader));
   const classes = useStyles();
-
   const [currencyData, setCurrencyData] = useState([]);
 
   useEffect(() => {
@@ -78,6 +80,29 @@ const Currency = () => {
               ))}
             </TableBody>
           </Table>
+          <Box className={classes.linerContainer}>
+            <Media
+              queries={{
+                small: '(max-width: 768px)',
+                medium: '(min-width: 768px) and (max-width: 1280px)',
+                large: '(min-width: 1280px)',
+              }}
+            >
+              {matches => (
+                <>
+                  {matches.small && (
+                    <GradientSvg width="280" color="none" height="100" />
+                  )}
+                  {matches.medium && (
+                    <GradientSvg width="334" color="none" height="111" />
+                  )}
+                  {matches.large && (
+                    <GradientSvg width="348" color="none" height="134" />
+                  )}
+                </>
+              )}
+            </Media>
+          </Box>
         </TableContainer>
       )}
     </Box>
