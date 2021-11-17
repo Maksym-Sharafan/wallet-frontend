@@ -1,5 +1,5 @@
 import {createAction} from '@reduxjs/toolkit';
 
 
-export const isModalAddTransactionOpen = createAction('modalAddTransaction/isOpen');
+export const isModalAddTransactionOpen = createAction('isModalAddTransactionOpen/togle');
 

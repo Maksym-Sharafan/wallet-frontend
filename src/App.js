@@ -7,7 +7,12 @@ import PublicRoute from "./components/Routes/PublicRoute";
 import Container from "./components/Container";
 
 // import AppBar from './components/AppBar/AppBar';
+
+// import RegistrationForm from "./components/RegistrationForm";
+// import ModalComponent from './components/modal'
+
 // import ModalComponent from './components/modal/modal_1'
+
 // import AddBtn from './components/addBtn/addBtn'
 // import DashboardPage from './pages/DashboardPage';
 

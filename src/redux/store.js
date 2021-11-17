@@ -11,6 +11,7 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { authReducer } from "../redux/auth";
+import {transactionsReducer} from "../redux/transactions"
 import ModalAddTransactionOpen from './modalAddTransaction/modal-reduser'
 
 const middleware = [
@@ -31,6 +32,7 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     global: ModalAddTransactionOpen,
+    transactions: transactionsReducer,
   },
   middleware,
   devTools: process.env.NODE_ENV === "development",
