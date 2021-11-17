@@ -19,53 +19,53 @@ import Container from "./components/Container";
 const RegistrationPage = lazy(() =>
   import("./pages/RegistrationPage" /* webpackChunkName: "registration-page" */)
 );
-const HomePage = lazy(() =>
-  import('./pages/HomePage' /* webpackChunkName: "home-view" */),
-);
-const DiagramPage = lazy(() =>
-  import('./pages/DiagramPage' /* webpackChunkName: "diagram-view" */),
-);
+// const HomePage = lazy(() =>
+//   import('./pages/HomePage' /* webpackChunkName: "home-view" */),
+// );
+// const DiagramPage = lazy(() =>
+//   import('./pages/DiagramPage' /* webpackChunkName: "diagram-view" */),
+// );
 const NotFoundPage = lazy(() =>
   import('./pages/NotFoundPage' /* webpackChunkName: "notFound-view" */),
 );
-const ExcludePage = lazy(() =>
-  import('./pages/ExcludePage' /* webpackChunkName: "exclude-view" */),
-);
+// const ExcludePage = lazy(() =>
+//   import('./pages/ExcludePage' /* webpackChunkName: "exclude-view" */),
+// );
 
 export default function App() {
   return (
-    <Container>
-      <Suspense
-        fallback={
-          <Loader
-            type="ThreeDots"
-            color="#8c91b3"
-            height={50}
-            width={50}
-            timeout={3000} //3 secs
-          />
+    <Suspense
+    fallback={
+      <Loader
+      type="ThreeDots"
+      color="#8c91b3"
+      height={50}
+      width={50}
+      timeout={3000} //3 secs
+      />
         }
-      >
+        >
         <Routes>
           <Route
             exact
             path="/signup"
             restricted
             element={
-              <PublicRoute>
-                <RegistrationPage />
-              </PublicRoute>
+              <Container>
+                <PublicRoute>
+                  <RegistrationPage />
+                </PublicRoute>
+              </Container>
             }
           />
-          <Route path="home" index element={<HomePage />} />
+          {/* <Route path="home" index element={<HomePage />} />
           <Route path="diagram" element={<DiagramPage />} />
-          <Route path="exclude" element={<ExcludePage />} />
+        <Route path="exclude" element={<ExcludePage />} /> */}
           <Route path="*" element={<NotFoundPage />} />
           {/* <AddBtn /> */}
         </Routes>
         {/* <ModalComponent /> */}
+        {/* <DashboardPage /> */}
       </Suspense>
-      {/* <DashboardPage /> */}
-    </Container>
   );
 }

@@ -13,15 +13,16 @@ import Button from "../FormsUI/Button";
 
 const useStyles = makeStyles({
   form: {
+    maxWidth: 320,
     "@media(min-width: 768px)": {
       maxWidth: 540,
       heigth: 616,
+      marginLeft: "auto",
+      marginRight: "auto",
       paddingTop: 40,
       paddingBottom: 60,
       paddingLeft: 65,
       paddingRight: 65,
-      marginLeft: "auto",
-      marginRight: "auto",
       backgroundColor: "#fff",
       borderRadius: 20,
     },
@@ -109,13 +110,7 @@ const RegistrationForm = () => {
       }}
     >
       <Form className={classes.form}>
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            Logo
-          </Grid>
-          <Grid item xs={12}>
-            Logo
-          </Grid>
+        <Grid container spacing={4}>
           <Grid item xs={12}>
             Logo
           </Grid>

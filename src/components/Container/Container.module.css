@@ -1,6 +1,7 @@
 .container {
+  position: relative;
+  display: flex;
   outline: 1px solid tomato;
-  max-width: 320px;
   margin-left: auto;
   margin-right: auto;
   padding-top: 15px;
@@ -9,10 +10,18 @@
   padding-bottom: 20px;
 }
 
+@media (max-width: 767px) {
+  .container {
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 @media (min-width: 768px) {
   .container {
-    max-width: 768px;
-    height: auto;
+    display: block;
+    height: 100vh;
     padding-top: 20px;
     padding-left: 40px;
     padding-right: 40px;
@@ -26,7 +35,11 @@
 
 @media (min-width: 1280px) {
   .container {
-    max-width: 1280px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    /* max-width: 1280px; */
     padding-top: 20px;
     padding-left: 85px;
     padding-right: 85px;
