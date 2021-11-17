@@ -5,6 +5,8 @@ import Loader from "react-loader-spinner";
 import AddBtn from "./components/addBtn/addBtn";
 import PublicRoute from "./components/Routes/PublicRoute";
 import Container from "./components/Container";
+import { ThemeProvider } from '@material-ui/core';
+import { theme } from './components/FormsUI/theme';
 
 // import AppBar from './components/AppBar/AppBar';
 
@@ -52,9 +54,11 @@ export default function App() {
             restricted
             element={
               <Container>
+                <ThemeProvider theme={theme}>
                 <PublicRoute>
                   <RegistrationPage />
                 </PublicRoute>
+                </ThemeProvider>
               </Container>
             }
           />

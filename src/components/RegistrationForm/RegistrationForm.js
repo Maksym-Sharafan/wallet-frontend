@@ -5,13 +5,31 @@ import { authOperations } from "../../redux/auth/auth-operations";
 import { Link } from "react-router-dom";
 
 import EmailRoundedIcon from "@material-ui/icons/EmailRounded";
+import LockIcon from '@material-ui/icons/Lock';
 
-import { Grid } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Grid, InputAdornment } from "@material-ui/core";
+import { makeStyles, createTheme } from "@material-ui/core/styles";
 import Textfield from "../FormsUI/Textfield";
 import Button from "../FormsUI/Button";
+import Icons from "../Icons/Icons";
+
+export const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#f00"
+    }
+  }
+})
 
 const useStyles = makeStyles({
+  root: {
+    "& .MuiSvgIcon-root": {
+      fill: 'inherit'
+    },
+    "& .MuiSvgIcon-colorError": {
+      color: '#f00'
+    }
+  },
   form: {
     maxWidth: 320,
     "@media(min-width: 768px)": {
@@ -121,7 +139,17 @@ const RegistrationForm = () => {
               type="email"
               name="email"
               label="E-mail"
+              color="primary"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <EmailRoundedIcon color="secondary" />
+                    {/* <Icons name="email" color="inherit" size="24"/> */}
+                  </InputAdornment>
+                ),
+              }}
             />
+            
           </Grid>
           <Grid item xs={12}>
             <Textfield
@@ -129,6 +157,14 @@ const RegistrationForm = () => {
               type="password"
               name="password"
               label="Пароль"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <LockIcon color="secondary" />
+                    {/* <Icons name="email" color="inherit" size="24"/> */}
+                  </InputAdornment>
+                ),
+              }}
             />
           </Grid>
           <Grid item xs={12}>

@@ -1,7 +1,7 @@
 import { TextField } from "@material-ui/core";
 import { useField } from "formik";
 
-const TextfieldWrapper = ({ name, ...otherProps }) => {
+const TextfieldWrapper = ({ name, children, ...otherProps }) => {
   const [field, meta] = useField(name);
 
   const configTextfield = {
@@ -15,7 +15,7 @@ const TextfieldWrapper = ({ name, ...otherProps }) => {
     configTextfield.helperText = meta.error;
   }
 
-  return <TextField {...configTextfield} />;
+  return <TextField {...configTextfield}/>;
 };
 
 export default TextfieldWrapper;
