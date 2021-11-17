@@ -14,6 +14,11 @@ const styles = (isLoader) => {
         height: 347,
       },
     },
+    linerContainer: {
+      position: 'absolute',
+      left: 0,
+      bottom: 0,
+    },
     loader: {
       position: "absolute",
       top: "50%",
