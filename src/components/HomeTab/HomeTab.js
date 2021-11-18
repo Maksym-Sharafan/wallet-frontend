@@ -30,7 +30,7 @@ const HomeTab = () => {
                 <td className={type === '-' ? styles.red : styles.blue}>
                   {amount.toFixed(2)}
                 </td>
-                <td className={styles.center}>
+                <td>
                   {type === '-'
                     ? (balance - amount).toFixed(2)
                     : (balance + amount).toFixed(2)}
