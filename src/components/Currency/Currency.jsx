@@ -26,7 +26,9 @@ const Currency = () => {
   useEffect(() => {
     axios(PRIVATBANK_API)
       .then(({ data }) => {
-        setCurrencyData(data.slice(0, 3));
+        const newData = data.slice(0, 3);
+        newData[2].ccy = 'RUB';
+        setCurrencyData(newData);
         setIsLoader(false);
       })
       .catch(data => {
