@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 import EmailRoundedIcon from "@material-ui/icons/EmailRounded";
 import LockIcon from '@material-ui/icons/Lock';
+import AccountBoxRoundedIcon from '@material-ui/icons/AccountBoxRounded';
 
 import { Grid, InputAdornment } from "@material-ui/core";
 import { makeStyles, createTheme } from "@material-ui/core/styles";
@@ -51,8 +52,8 @@ const useStyles = makeStyles({
   btnPrimary: {
     width: 280,
     height: 50,
-    backgroundColor: "#24CCA7",
-    borderRadius: 20,
+    // backgroundColor: "#24CCA7",
+    // borderRadius: 20,
 
     "&:hover": {
       backgroundColor: "#198e74",
@@ -66,7 +67,7 @@ const useStyles = makeStyles({
     width: 280,
     height: 50,
     color: "#4A56E2",
-    borderRadius: 20,
+    // borderRadius: 20,
 
     "@media(min-width: 768px)": {
       width: 300,
@@ -122,7 +123,7 @@ const RegistrationForm = () => {
       initialValues={INITIAL_FORM_STATE}
       validationSchema={validate}
       onSubmit={async ({ name, email, password }) => {
-        console.log(name, email, password);
+        // console.log(name, email, password);
         await dispatch(authOperations.signup({ name, email, password }));
         // window.location.reload();
       }}
@@ -173,6 +174,14 @@ const RegistrationForm = () => {
               type="password"
               name="confirmPassword"
               label="Подтвердите пароль"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <LockIcon color="secondary" />
+                    {/* <Icons name="email" color="inherit" size="24"/> */}
+                  </InputAdornment>
+                ),
+              }}
             />
           </Grid>
           <Grid item xs={12}>
@@ -181,6 +190,14 @@ const RegistrationForm = () => {
               type="text"
               name="name"
               label="Ваше имя"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <AccountBoxRoundedIcon color="secondary" />
+                    {/* <Icons name="email" color="inherit" size="24"/> */}
+                  </InputAdornment>
+                ),
+              }}
             />
           </Grid>
           <Grid className={classes.btnContainer} item xs={12}>

@@ -2,9 +2,7 @@
 import axios from 'axios';
 import { authActions } from './auth-actions';
 
-// axios.defaults.baseURL = "http://localhost:3001";
 axios.defaults.baseURL = 'https://wallet-29.herokuapp.com/api';
-// axios.defaults.baseURL = "https://connections-api.herokuapp.com";
 
 const token = {
   set(token) {
@@ -18,9 +16,12 @@ const token = {
 const signup = credentials => async dispatch => {
   dispatch(authActions.signupUsersRequest());
   try {
-    await axios.post('/auth/signup', credentials);
-    // token.set(data.token);
-    dispatch(authActions.signupUsersSuccess());
+    const res = await axios.post('/auth/signup', credentials);
+    if(res.data.status === "success") {
+      const {data} = await axios.post('/auth/login', credentials);
+      token.set(data.data.token);
+      dispatch(authActions.signupUsersSuccess(data.data));
+    }
   } catch (error) {
     dispatch(authActions.signupUsersError(error.message));
   }
