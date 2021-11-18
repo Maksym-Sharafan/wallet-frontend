@@ -1,0 +1,46 @@
+.container {
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+  outline: 1px solid tomato;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+@media (max-width: 767px) {
+  .container {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    display: block;
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+
+    background-image: url("../../img/ellipse_top.png"),
+      url("../../img//ellipse_bottom.png");
+    background-repeat: no-repeat;
+    background-position: right top, left bottom;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    /* max-width: 1280px; */
+    padding-top: 20px;
+    padding-left: 85px;
+    padding-right: 85px;
+  }
+}

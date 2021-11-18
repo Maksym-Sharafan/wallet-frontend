@@ -1,11 +1,18 @@
+<<<<<<< HEAD
 import axios from "axios";
 import transactionsActions from "./transactions-actions";
 
 axios.defaults.baseURL = "https://wallet-29.herokuapp.com";
+=======
+import axios from 'axios';
+import transactionsActions from './transactions-actions';
+
+axios.defaults.baseURL = 'https://wallet-29.herokuapp.com/api';
+>>>>>>> dev
 
 const addTransaction =
   ({ type, date, amount, category, description }) =>
-  async (dispatch) => {
+  async dispatch => {
     const transaction = {
       date,
       amount,
@@ -13,7 +20,6 @@ const addTransaction =
       description,
     };
 
-    
     const actionRequestType = `add${type}Request`;
     const actionSuccessType = `add${type}Success`;
     const actionErrorType = `add${type}Error`;
@@ -36,4 +42,13 @@ const addTransaction =
 // await dispatch(transactionsOps.addTransaction({type: "cost", date: "2021-11-10", amount: 1000, category: "сбережение", description: "депозит"});
 // await dispatch(transactionsOps.addTransaction({type: "income", date: "2021-11-15", amount: 22000, category: "", description: "ЗП"});
 
+<<<<<<< HEAD
 export default addTransaction
+=======
+//Алиса исправила экспорт, чтобы не било ошибок при логине
+// export default {
+//   addTransaction
+// };
+export default addTransaction;
+//Алиса исправила экспорт, чтобы не било ошибок при логине
+>>>>>>> dev

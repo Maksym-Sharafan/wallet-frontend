@@ -1,0 +1,61 @@
+.title {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .backgroundWrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    width: 540px;
+    height: 250px;
+
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+
+    background-image: url("../../img/wallet-auth-image.svg");
+    background-repeat: no-repeat;
+    background-size: 250px;
+  }
+
+  .title {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .authBackdrop {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 45%;
+    right: 0;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(50px);
+  }
+
+  .container {
+    display: flex;
+    width: 1280px;
+    align-items: center;
+
+    z-index: 1;
+  }
+
+  .title {
+  }
+
+  .backgroundWrapper {
+    width: 410px;
+    height: 500px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 140px;
+    flex-direction: column;
+    background-size: contain;
+  }
+
+}
