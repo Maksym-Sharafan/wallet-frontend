@@ -19,11 +19,11 @@ export default class Modal extends Component {
     }
   };
     
-  // handleBackdropClick = event => {
-  //   if (event.currentTarget === event.target) {
-  //     this.props.onClose();
-  //   }
-  //   };
+  handleBackdropClick = event => {
+    if (event.currentTarget === event.target) {
+      this.props.onClose();
+    }
+    };
 
   render() {
         return createPortal(

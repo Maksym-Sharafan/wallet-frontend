@@ -1,2 +1,2 @@
-export { default as ModalAddTransReducer } from './modal-reducer';
+export { ModalAddTransactionOpen} from './modal-reducer';
 
