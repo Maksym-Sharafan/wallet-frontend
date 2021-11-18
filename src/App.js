@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { Suspense, lazy } from "react";
-import { Routes, Route } from "react-router-dom";
-import Loader from "react-loader-spinner";
-import AddBtn from "./components/addBtn/addBtn";
-import PublicRoute from "./components/Routes/PublicRoute";
-import Container from "./components/Container";
+import { Suspense, lazy } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Loader from 'react-loader-spinner';
+import AddBtn from './components/addBtn/addBtn';
+import PublicRoute from './components/Routes/PublicRoute';
+import Container from './components/Container';
 import { ThemeProvider } from '@material-ui/core';
 import { theme } from './components/FormsUI/theme';
-import ProtectedRoute from './components/Routes/ProtectedRoute';
+// import ProtectedRoute from './components/Routes/ProtectedRoute';
 
 // import AppBar from './components/AppBar/AppBar';
 
@@ -20,11 +20,16 @@ import ProtectedRoute from './components/Routes/ProtectedRoute';
 // import DashboardPage from './pages/DashboardPage';
 
 const RegistrationPage = lazy(() =>
-  import("./pages/RegistrationPage" /* webpackChunkName: "registration-page" */)
+  import(
+    './pages/RegistrationPage' /* webpackChunkName: "registration-page" */
+  ),
 );
-const DashboardPage = lazy(() =>
-  import('./pages/DashboardPage' /* webpackChunkName: "home-view" */),
+const LoginPage = lazy(() =>
+  import('./pages/LoginPage' /* webpackChunkName: "login-page" */),
 );
+// const DashboardPage = lazy(() =>
+//   import('./pages/DashboardPage' /* webpackChunkName: "home-view" */),
+// );
 // const DiagramPage = lazy(() =>
 //   import('./pages/DiagramPage' /* webpackChunkName: "diagram-view" */),
 // );
@@ -63,9 +68,23 @@ export default function App() {
             </Container>
           }
         />
-        <ProtectedRoute path='/'>
+        <Route
+          exact
+          path="/login"
+          restricted
+          element={
+            <Container>
+              <ThemeProvider theme={theme}>
+                <PublicRoute>
+                  <LoginPage />
+                </PublicRoute>
+              </ThemeProvider>
+            </Container>
+          }
+        />
+        {/* <ProtectedRoute path="/">
           <DashboardPage />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
         <Route path="*" element={<NotFoundPage />} />
         {/* <AddBtn /> */}
       </Routes>

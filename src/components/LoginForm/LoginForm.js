@@ -5,6 +5,7 @@
 //
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { authOperations } from '../../redux/auth/auth-operations';
 //
 
@@ -118,6 +119,9 @@ export const LoginForm = () => {
       </label> */}
       {/* поле ненужно */}
       <button>Вход</button>
+      <Link to="/signup">
+        <button>Регистрация</button>
+      </Link>
     </form>
   );
 };
