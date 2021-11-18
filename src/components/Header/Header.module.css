@@ -90,7 +90,6 @@
   .navigation_header_logout {
     color: #bdbdbd;
     border: none;
-
     background-color: white;
   }
   .navigation_icon_wallet {
@@ -100,7 +99,6 @@
     margin-right: 20px;
   }
   .navigation_icon_button_exit {
-    /* margin-right: 10px; */
     border: none;
     background-color: white;
   }
@@ -150,7 +148,6 @@
     margin-right: 15px;
   }
   .navigation_icon_button_exit {
-    /* margin-right: 10px; */
     border: none;
     background-color: white;
   }

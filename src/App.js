@@ -21,6 +21,9 @@ import { theme } from './components/FormsUI/theme';
 const RegistrationPage = lazy(() =>
   import("./pages/RegistrationPage" /* webpackChunkName: "registration-page" */)
 );
+const DashboardPage = lazy(() =>
+  import('./pages/DashboardPage' /* webpackChunkName: "DashboardPage-page" */),
+);
 // const HomePage = lazy(() =>
 //   import('./pages/HomePage' /* webpackChunkName: "home-view" */),
 // );
@@ -69,7 +72,7 @@ export default function App() {
           {/* <AddBtn /> */}
         </Routes>
         {/* <ModalComponent /> */}
-        {/* <DashboardPage /> */}
+        <DashboardPage />
       </Suspense>
   );
 }
