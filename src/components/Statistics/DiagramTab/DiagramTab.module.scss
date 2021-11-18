@@ -1,0 +1,128 @@
+@import '../../../scss/main.scss';
+
+.section {
+  @media (min-width: 768px) {
+    padding: 40px 0px 0px 30px;
+    width: 100%;
+  }
+
+  &Title {
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.5;
+
+    @media (min-width: 768px) {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.wrapper {
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+.visualPart {
+  position: relative;
+  height: 100%;
+
+  @media (max-width: 767px) {
+    margin-bottom: 20px;
+  }
+
+  @media (min-width: 768px) {
+    margin-right: 35px;
+    margin-bottom: 0px;
+  }
+}
+
+.chartTotal {
+  position: absolute;
+  top: 62%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  background-color: transparent;
+
+  font-family: Circe, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.5;
+
+  // @media (min-width: 768px) {
+  //   transform: translate(-50%, -50%);
+  // }
+}
+
+.filter {
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    margin-bottom: 20px;
+    flex-direction: row;
+  }
+}
+
+.dropdown {
+  outline: none;
+  appearance: none;
+
+  display: inline-flex;
+  margin-bottom: 20px;
+
+  padding: 12px 20px;
+  min-width: 280px;
+  max-height: 50px;
+  border: 1px solid getColor('button-border-color');
+  border-radius: 25px;
+
+  align-items: center;
+  background-color: transparent;
+
+  font-family: Circe, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+
+  background: url(../../../images/arrow-bottom.svg) no-repeat right;
+  background-position-x: calc(100% - 20px);
+
+  @media (min-width: 768px) {
+    margin: 0;
+    min-width: 165px;
+  }
+
+  &:first-child {
+    @media (min-width: 768px) {
+      margin-right: 20px;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
+}
+
+.warning {
+  padding: 20px 0;
+
+  text-align: center;
+  color: getColor('consumption-text-color');
+
+  font-family: Circe, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.5;
+}
