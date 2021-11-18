@@ -63,3 +63,5 @@ const categoriesList =[
             owner: null,
         }
     ]
+
+    export default categoriesList;

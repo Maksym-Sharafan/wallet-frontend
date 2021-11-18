@@ -1,20 +1,13 @@
 import React, { useState } from "react";
 import styles from "./CategoryInput.module.css";
+import categoriesList from '../../redux/categories/categories'
+
+
 
 const CategoryInput = ({ type, categoryPick, setCategory }) => {
   const [isCategories, setIsCategories] = useState(false);
 
-  const costsCategory = [
-    "Продукты",
-    "Машина",
-    "Забота о себе",
-    "Забота о детях",
-    "Товары для дома",
-    "Образование",
-    "Досуг",
-    "Спорт",
-    "Другие расходы",
-    ];
+  const costsCategory = categoriesList;
   const incomeCategory = "Доход";
 
   const handleClick = () => {
@@ -44,8 +37,8 @@ const CategoryInput = ({ type, categoryPick, setCategory }) => {
       {!isCategories || (
         <ul className={styles.form_category_list}>
           {type === "costs"
-            ? costsCategory.map((costs, index) => (
-                <li key={index}>
+            ? costsCategory.map({_id, name} => (
+                <li key={_id}>
                   <label tabIndex={0} className={styles.category_label}>
                     <input
                       onClick={handleCategoryClick}
@@ -56,7 +49,7 @@ const CategoryInput = ({ type, categoryPick, setCategory }) => {
                       name="exp_category"
                       className={styles.radiobutton}
                     />
-                    {costs}
+                    {name}
                   </label>
                 </li>
               ))
