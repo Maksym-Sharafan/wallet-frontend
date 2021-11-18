@@ -1,10 +1,7 @@
 import axios from 'axios';
 import transactionsActions from './transactions-actions';
 
-//Алиса исправила ссылку, чтобы не било ошибок при логине
-// axios.defaults.baseURL = "https://connections-api.herokuapp.com";
 axios.defaults.baseURL = 'https://wallet-29.herokuapp.com/api';
-//
 
 const addTransaction =
   ({ type, date, amount, category, description }) =>
