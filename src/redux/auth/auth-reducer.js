@@ -12,11 +12,11 @@ const initialState = {
 const user = createReducer(initialState.user, {
   [authActions.signupUsersSuccess]: (_, { payload }) => payload.user,
   [authActions.loginUsersSuccess]: (_, { payload }) => payload.user,
+  [authActions.logoutUsersSuccess]: () => user.name,
 });
 
 const token = createReducer(initialState.token, {
-  [authActions.signupUsersSuccess]: (_, { payload }) =>
-    console.log(payload.token),
+  [authActions.signupUsersSuccess]: (_, { payload }) => payload.token,
   [authActions.loginUsersSuccess]: (_, { payload }) => payload.token,
   [authActions.logoutUsersRequest]: () => null,
 });
