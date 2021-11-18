@@ -21,7 +21,6 @@ const addTransaction =
 
     try {
       const response = await axios.post(`./transactions/${type}`, transaction);
-
       dispatch(transactionsActions[actionSuccessType](response.data.body));
     } catch (error) {
       console.log(error);
