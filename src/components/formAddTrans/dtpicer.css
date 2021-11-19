@@ -1,9 +1,18 @@
-/* @import "../../styles/size";
-@import "../../styles/variables"; */
+
+.react-datepicker {
+  height: 34px;
+  margin-top: 0px;
+} 
+.react-datepicker__input-container {
+  height: 34px;
+  width: 280px;
+  border: none;
+  border-bottom: 1px solid #E0E0E0;
+}
 .react-datepicker__input-container::after {
   position: absolute;
   content: url('../../img/calendar.svg');
-  transform: translateY(50px) translateX(-25px);
+  transform: translateY(7px) translateX(-20px);
 }
 
 .react-datepicker__input-container:focus {
@@ -11,7 +20,11 @@
 }
 
 .react-datepicker-wrapper {
-  display: block;
+  display: flex;
+}
+.react-datepicker-wrapper:focus {
+  border-color: #E0E0E0;
+  outline: #E0E0E0;
 }
 .react-datepicker {
   position: relative;
@@ -87,8 +100,11 @@
 }
 
 @media screen and (min-width:768px){
+  .react-datepicker{
+  width: 190px;
+}
   .datepicker__container{
-    margin-right: 33px;;
+    /* margin-right: 33px;; */
   }
   .react-datepicker {
   height: 34px;
@@ -100,7 +116,7 @@
 
 @media screen and (min-width: 1280px){
   .datepicker__container{
-    margin-right: 23px;
+    /* margin-right: 23px; */
   }
 
 
