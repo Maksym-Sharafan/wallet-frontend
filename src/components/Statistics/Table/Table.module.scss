@@ -1,4 +1,3 @@
-@import '../../../scss/main.scss';
 .container {
   position: relative;
   margin-top: 40px;
@@ -19,7 +18,7 @@
 
 .tableHead {
   align-items: center;
-  background-color: getColor('main-background-color');
+  background-color: #fff;
   font-family: Circe, sans-serif;
   font-weight: 700;
   font-size: 18px;
@@ -51,7 +50,7 @@
 
 .tableBody td {
   border-bottom: 1px solid #dcdcdf;
-  box-shadow: 0 5px 4px -5px rgb(255 255 255 / 60%);
+  // box-shadow: 0 5px 4px -5px rgb(255 255 255 / 60%);
   font-family: Circe, sans-serif;
   font-weight: 400;
   font-size: 16px;
@@ -115,7 +114,7 @@ tfoot td {
   padding-top: 15px;
   padding-bottom: 10px;
 
-  color: getColor('consumption-text-color');
+  color: #ff6596;
 
   @media (max-width: 768px) {
     padding-right: 30px;
@@ -127,7 +126,7 @@ tfoot td {
 
   padding-bottom: 17px;
 
-  color: getColor('income-text-color');
+  color: #24cca7;
 
   @media (max-width: 768px) {
     padding-right: 30px;
