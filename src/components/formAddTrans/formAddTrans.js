@@ -1,24 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from "react-redux";
+import MyDatePicker from "./dtpicer";
 import { useFormik } from 'formik';
 import styles from './formAddTrans.module.css';
 import TransType from '../transType';
-import MyDTPicker from './dtpicer';
-
-// import Select from 'react-select';
-// import DatePicker from 'react-datepicker';
+import addTransaction from '../../redux/transactions/transactions-operations'
+import categoriesList from '../../redux/categories/categories'
 
 
 const FormAddTrans = () => {
-  // Note that we have to initialize ALL of fields with values. These
-  // could come from props, but since we don’t want to prefill this form,
-  // we just use an empty string. If we don’t do this, React will yell
-  // at us.
-  // const today = moment(new Date()).format('yyyy-MM-DD');
-  // console.log(today);
-  // категории расходов для селект списком по пользователю запрашиваем
-  // первоначальное значение = категория
-  let selectValue = ' '
-  const options = ['основные расходы', 'Продукты', 'Машина', 'Забота о себе', 'Забота о детях', 'Товары для дома', 'Образование', 'Досуг', 'Другие расходы']
+
+
+
+  //   const addIncome = (e) => {
+  //   e.preventDefault();
+  //   const date = [
+  //     startDate.getDate(),
+  //     startDate.getMonth() + 1,
+  //     startDate.getFullYear(),
+  //   ].join(".");
+  //   const body = {
+  //     type: "income",
+  //     date,
+  //     amount: +amount,
+  //     category,
+  //     description,
+  //   };
+  //   dispatch(addTransaction(body));
+  //   reset();
+  //   // goToTransactions();
+  // };
+
+
+  const options = categoriesList;
   const formik = useFormik({    
     initialValues: {
       amount: " ",
@@ -43,19 +57,21 @@ const FormAddTrans = () => {
         name="category"
         required = {true}
         type="select"
-        value = {selectValue}
+        // value = {selectValue}
+        placeholder="Категория"
         onChange={()=> formik.handleChange} >
-         {options.map((item) => {
-          return (<option value={item} key={item}>
-            {item}
+         {options.map(({_id, name}) => {
+          return (<option value={name} key={_id}>
+            {name}
             </option>)
         })
         }
       </select>
-      <label className={styles.formLabel} htmlFor="category">
-        Категория</label>
+      {/* <label className={styles.formLabel} htmlFor="category">
+        Категория</label> */}
       </div> 
       </div> 
+      <div className={styles.inputGroup}>
       <div className={styles.formField}>
       <input className={styles.input}
         id="amount"
@@ -81,7 +97,8 @@ const FormAddTrans = () => {
       />
       <label htmlFor="date" className={styles.formLabel}>{today}</label>
       </div> */}
-      <MyDTPicker />
+      <MyDatePicker />
+      </div>
       <div className={styles.formField}>
       <input className={styles.comment}
         id="comment"
@@ -95,9 +112,11 @@ const FormAddTrans = () => {
         Комментарий</label>
       </div>
       </div>
-      <button type="submit" className={styles.addBtn}>Добавить</button>
-      <button type="submit" className={styles.CancelBtn}>
-        Отмена</button>
+      <button type="submit" className={styles.addBtn }>Добавить</button>
+      <button type="submit" className={styles.CancelBtn}  >
+        Отмена
+
+        </button>
     </form>
   );
 };

@@ -3,7 +3,7 @@ import Icons from '../Icons';
 
 export default function Header() {
   return (
-    <header class={styles.navigation_container}>
+    <header className={styles.navigation_container}>
       <div className={styles.navigation_row}>
         <div className={styles.navigation_header_wallet}>
           <Icons name="wallet" className={styles.navigation_icon_wallet} />
