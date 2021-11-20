@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
 import PublicRoute from './components/Routes/PublicRoute';
@@ -9,14 +9,15 @@ import { theme } from './components/FormsUI/theme';
 
 import ProtectedRoute from './components/Routes/ProtectedRoute';
 
-
 import Statistics from './components/Statistics';
-import HomeTab from "./components/HomeTab";
-import Currency from "./components/Currency"
+import HomeTab from './components/HomeTab';
+import Currency from './components/Currency';
 
-
-
-
+//2011
+import { useDispatch, useSelector } from 'react-redux';
+import { authSelectors } from './redux/auth';
+import { authOperations } from './redux/auth';
+//
 
 // import RegistrationForm from "./components/RegistrationForm";
 // import ModalComponent from './components/modal'
@@ -24,8 +25,6 @@ import Currency from "./components/Currency"
 // import ModalComponent from './components/modal/modal_1'
 
 // import AddBtn from './components/addBtn/addBtn'
-
-
 
 const RegistrationPage = lazy(() =>
   import(
@@ -49,61 +48,74 @@ const NotFoundPage = lazy(() =>
 // );
 
 export default function App() {
+  //20/11
+  const dispatch = useDispatch();
+  const isGettingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
+
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
+  //
   return (
-    <Suspense
-      fallback={
-        <Loader
-          type="ThreeDots"
-          color="#8c91b3"
-          height={50}
-          width={50}
-          timeout={3000} //3 secs
-        />
-      }
-    >
-      <Routes>
-        <Route
-          exact
-          path="/signup"
-          restricted
-          element={
-            <Container>
-              <ThemeProvider theme={theme}>
-                <PublicRoute>
-                  <RegistrationPage />
+    !isGettingCurrentUser && (
+      <div>
+        <Suspense
+          fallback={
+            <Loader
+              type="ThreeDots"
+              color="#8c91b3"
+              height={50}
+              width={50}
+              timeout={3000} //3 secs
+            />
+          }
+        >
+          <Routes>
+            <Route
+              exact
+              path="/signup"
+              restricted
+              element={
+                <Container>
+                  <ThemeProvider theme={theme}>
+                    <PublicRoute>
+                      <RegistrationPage />
+                    </PublicRoute>
+                  </ThemeProvider>
+                </Container>
+              }
+            />
+            <Route
+              path="/login"
+              redirectTo="/"
+              restricted
+              element={
+                <PublicRoute restricted>
+                  <LoginPage />
                 </PublicRoute>
-              </ThemeProvider>
-            </Container>
-          }
-        />
-        <Route
-          path="/login"
-          redirectTo="/"
-          restricted
-          element={
-            <PublicRoute restricted>
-              <LoginPage />
-            </PublicRoute>
-          }
-        />
+              }
+            />
 
-        <Route 
-          path="/" 
-          exact 
-          element={
-          <ProtectedRoute >
-            <DashboardPage />
-          </ProtectedRoute>
-        } >
-          <Route path="home" index element={<HomeTab />} />
-          <Route path="diagram" element={<Statistics />} />
-          <Route exact path="exclude" element={<Currency />} />
-        </Route>
+            <Route
+              path="/"
+              exact
+              element={
+                <ProtectedRoute>
+                  <DashboardPage />
+                </ProtectedRoute>
+              }
+            >
+              <Route path="home" index element={<HomeTab />} />
+              <Route path="diagram" element={<Statistics />} />
+              <Route exact path="exclude" element={<Currency />} />
+            </Route>
 
-        <Route path="*" element={<NotFoundPage />} />
-        {/* <AddBtn /> */}
-      </Routes>
-      {/* <ModalComponent /> */}
-    </Suspense>
+            <Route path="*" element={<NotFoundPage />} />
+            {/* <AddBtn /> */}
+          </Routes>
+          {/* <ModalComponent /> */}
+        </Suspense>
+      </div>
+    )
   );
 }
