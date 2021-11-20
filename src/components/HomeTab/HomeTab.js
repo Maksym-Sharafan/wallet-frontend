@@ -6,6 +6,8 @@ const HomeTab = () => {
   const costs = useSelector(transactionsSelectors.getCosts);
   const balance = useSelector(transactionsSelectors.getBalance);
 
+// console.log(costs)
+// console.log(balance);
   return (
     <>
       <table>
@@ -19,8 +21,12 @@ const HomeTab = () => {
             <td>Баланс</td>
           </tr>
         </thead>
-        <tbody>
-          {costs.length > 0 &&
+
+        {/* <tbody>
+
+
+          {costs.length > 0 && (
+            
             costs.map(({ id, date, type, category, description, amount }) => (
               <tr key={id} className={styles.row}>
                 <td className={styles.item}>{date}</td>
@@ -36,8 +42,9 @@ const HomeTab = () => {
                     : (balance + amount).toFixed(2)}
                 </td>
               </tr>
-            ))}
-        </tbody>
+            )))}
+          
+        </tbody> */}
       </table>
     </>
   );
