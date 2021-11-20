@@ -1,10 +1,11 @@
 import React from "react";
 import DatePicker from "react-datepicker";
+import { useField, useFormikContext } from "formik";
 
 import "react-datepicker/dist/react-datepicker.css";
 // import moment from 'moment';
 
-import  './dtpicer.css';
+import  './Dtpicer.css';
 
 const MyDatePicker = ({ selectedDate, handleChange, today }) => {
   return (
@@ -12,7 +13,7 @@ const MyDatePicker = ({ selectedDate, handleChange, today }) => {
             className="react-datepicker"
             selected={selectedDate}
             onChange={handleChange}
-            dateFormat="dd.MM.yyyy"
+            dateFormat="yyyy-MM-dd"
             onClick={handleChange}
             plaseholder={today}
             >
@@ -35,5 +36,6 @@ const MyDatePicker = ({ selectedDate, handleChange, today }) => {
 //     />
 //   </div>
 // );
+
 
 export default MyDatePicker;

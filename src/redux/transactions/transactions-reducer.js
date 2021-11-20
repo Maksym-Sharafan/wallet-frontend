@@ -3,43 +3,34 @@ import { createReducer } from "@reduxjs/toolkit";
 
 import transactionsActions from "./transactions-actions";
 
-const incomes = createReducer([], {
-  [transactionsActions.getIncomeSuccess]: (_, { payload }) => [...payload.data],
-  [transactionsActions.addIncomeSuccess]: (state, { payload }) => [
-    payload,
-    ...state,
-  ],
+const itemsReducer = createReducer([], {
+    [transactionsActions.fetchTransactionSuccess]: (_, { payload }) => payload,
+    [transactionsActions.addTransactionSuccess]: (state, {payload})=>[...state, payload],
 });
 
-const costs = createReducer([], {
-  [transactionsActions.getCostsSuccess]: (_, { payload }) => [
-    ...payload.data,
-  ],
-  [transactionsActions.addCostsSuccess]: (state, { payload }) => [
-    ...state,
-    payload,
-  ],
-
-});
 
 const error = createReducer(null, {
-  [transactionsActions.addIncomeError]: (_, { payload }) => payload,
-  [transactionsActions.addCostsError]: (_, { payload }) => payload,
+  [transactionsActions.addTransactionRequest]: () => null,
+  [transactionsActions.addTransactionSuccess]: () => null,
+  [transactionsActions.addTransactionError]: (_, { payload }) => payload,
+  [transactionsActions.fetchTransactionRequest]: () => null,
+  [transactionsActions.fetchTransactionSuccess]: () => null,
+  [transactionsActions.fetchTransactionError]: (_, { payload }) => payload,
+
 
 });
 
 const isLoading = createReducer(false, {
-  [transactionsActions.addIncomeRequest]: () => true,
-  [transactionsActions.addIncomeSuccess]: () => false,
-  [transactionsActions.addIncomeError]: () => false,
-  [transactionsActions.addCostsRequest]: () => true,
-  [transactionsActions.addCostsSuccess]: () => false,
-  [transactionsActions.addCostsError]: () => false,
+  [transactionsActions.addTransactionRequest]: () => true,
+  [transactionsActions.addTransactionSuccess]: () => false,
+  [transactionsActions.addTransactionError]: () => false,
+  [transactionsActions.fetchTransactionRequest]: () => true,
+  [transactionsActions.fetchTransactionSuccess]: () => false,
+  [transactionsActions.fetchTransactionError]: () => false,
 });
 
 export default combineReducers({
-  incomes,
-  costs,
+  items: itemsReducer,
   error,
   isLoading,
 });

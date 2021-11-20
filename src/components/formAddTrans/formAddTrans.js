@@ -1,123 +1,142 @@
 import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
-import MyDatePicker from "./dtpicer";
+import DatePicker from "react-datepicker";
 import { useFormik } from 'formik';
-import styles from './formAddTrans.module.css';
-import TransType from '../transType';
-import addTransaction from '../../redux/transactions/transactions-operations'
+
 import categoriesList from '../../redux/categories/categories'
+import { transactionsOperations } from "../../redux/transactions";
+import {isModalAddTransactionOpen} from '../../redux/modalAddTransaction/modal-actions'
+
+import styles from './FormAddTrans.module.css';
+import "react-datepicker/dist/react-datepicker.css";
+
+
 
 
 const FormAddTrans = () => {
+  const dispatch = useDispatch();
+  const [date, setDate] = useState(new Date());
+  // состояние для выбора типа транзакции 
+  const [isChecked, setIsChecked] = useState(false);
+  // сщстояние для типа трансакции
+  const [transType, setTransType] = useState('income');
+  //выбор категории
+  const [isSelected, setIsSelected] = useState();
+  // переключает тип и раскрашивает название типа
+  const handleChange = () => {
+    setIsChecked(!isChecked);
+    isChecked ? setTransType('cost') : setTransType('income');
+  };
 
+  const handelSelect = (e) => {
+    const categoryId = e.target.value;
+    setIsSelected(categoryId)
+    // console.log(isSelected)
+  }
+  
 
-
-  //   const addIncome = (e) => {
-  //   e.preventDefault();
-  //   const date = [
-  //     startDate.getDate(),
-  //     startDate.getMonth() + 1,
-  //     startDate.getFullYear(),
-  //   ].join(".");
-  //   const body = {
-  //     type: "income",
-  //     date,
-  //     amount: +amount,
-  //     category,
-  //     description,
-  //   };
-  //   dispatch(addTransaction(body));
-  //   reset();
-  //   // goToTransactions();
-  // };
-
-
-  const options = categoriesList;
-  const formik = useFormik({    
+  const options = [...categoriesList];
+  const formik = useFormik({
     initialValues: {
-      amount: " ",
-      date: "",
-      comment: '',
+      type: "",
+      category: isSelected,
+      amount: '',
+      date: date,
+      // comment: ""
     },
     onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
-    },
+      // console.log(values);
+      const correctValues = { ...values, type: transType, category: isSelected, date: date }
+      alert(JSON.stringify(correctValues, null, 2));
+      dispatch(transactionsOperations.addTransaction(correctValues));
+      dispatch(isModalAddTransactionOpen())
+
+      // window.location.reload();
+    }
   });
+  // console.log(formik.values)
   return (
     <form onSubmit={formik.handleSubmit} className={styles.formWraper}>
-      <div className = {styles.header}>
-      <h1 className={styles.hText}>Добавить транзакцию</h1>
+      <div className={styles.header}>
+        <h1 className={styles.hText}>Добавить транзакцию</h1>
       </div>
-      <TransType />
       <div className={styles.inputGroup}>
-      <div  className={styles.formField}>
-      <div className={styles.category}>
-      <select className={styles.select}
-        id="category"
-        name="category"
-        required = {true}
-        type="select"
-        // value = {selectValue}
-        placeholder="Категория"
-        onChange={()=> formik.handleChange} >
-         {options.map(({_id, name}) => {
-          return (<option value={name} key={_id}>
-            {name}
-            </option>)
-        })
+        <div className={styles.switchWraper}>
+          <span className={styles.income}
+            style={{ color: isChecked ? "#E0E0E0" : "#24CCA7" }}>
+            Доход
+          </span>
+          <label className={styles.switch}>
+            <input type="checkbox" className={styles.sliderInput}
+              onChange={handleChange} />
+            <span className={styles.slider}></span>
+          </label>
+          <span className={styles.cost}
+            style={{ color: isChecked ? "#FF6596" : "#E0E0E0" }}>Расход</span>
+        </div>
+      </div>
+      <div className={styles.inputGroup}>
+        {/* { isChecked &&  < CustomizedSelects  options={options} handleChange = {handelSelect} />}     */}
+        {isChecked && <div className={styles.category}>
+          <select className={styles.select}
+            id="category"
+            name="category"
+            required={true}
+            type="select"
+            onChange={handelSelect} >
+            <option value="" selected disabled hidden >
+              Выберите категорию</option>
+            {options.map(({ _id, name }) => {
+              return (<option value={_id} key={_id} className={styles.option}>
+                {name}
+              </option>)
+            })}
+          </select>
+        </div>
         }
-      </select>
-      {/* <label className={styles.formLabel} htmlFor="category">
-        Категория</label> */}
-      </div> 
-      </div> 
-      <div className={styles.inputGroup}>
-      <div className={styles.formField}>
-      <input className={styles.input}
-        id="amount"
-        name="amount"
-        type="number"
-        min="0"
-        step="0.1"
-        placeholder=" "
-        onChange={formik.handleChange}
-        value={formik.values.amount}
-      />
-      <label className={styles.formLabel} htmlFor="amount">
-        0.00</label>
-      </div>
-      {/* <div className={styles.formField}>
-      <input className={styles.input}
-        id="date"
-        name="date"
-        type="date"
-        placeholder=" "
-        onChange={formik.handleChange}
-        value={formik.values.date}
-      />
-      <label htmlFor="date" className={styles.formLabel}>{today}</label>
-      </div> */}
-      <MyDatePicker />
-      </div>
-      <div className={styles.formField}>
-      <input className={styles.comment}
-        id="comment"
-        name="comment"
-        type="text"
-        placeholder=" "
-        onChange={formik.handleChange}
-        value={formik.values.comment}
-      />
-      <label htmlFor="comment" className={styles.formLabel}>
-        Комментарий</label>
-      </div>
-      </div>
-      <button type="submit" className={styles.addBtn }>Добавить</button>
-      <button type="submit" className={styles.CancelBtn}  >
-        Отмена
+        {/* <div className={styles.inputGroup}> */}
+          <div className={styles.formField}>
+            <input className={styles.input}
+              id="amount"
+              name="amount"
+              type="number"
+              min="0"
+              step="0.01"
+              placeholder="0.00"
+              required
+              onChange={formik.handleChange}
+              value={formik.values.amount}
+            />
+          </div>
+          <div className={styles.formField}>
+            <DatePicker
+              className="react-datepicker"
+              name="date"
+              type="date"
+              dateFormat="Pp"
+              selected={date}
+              dateFormat="yyyy-MM-dd"
+              onChange={(date) => { setDate(date) }}
+            />
 
-        </button>
+          </div>
+        {/* </div> */}
+        <div className={styles.formField}>
+          <textarea className={styles.comment}
+            id="comment"
+            name="comment"
+            type="text"
+            placeholder="Комментарий"
+            onChange={formik.handleChange}
+            value={formik.values.comment}
+          />
+        </div>
+      </div>
+      <button type="submit" className={styles.addBtn}>Добавить</button>
+      <button type="submit" className={styles.CancelBtn}  > Отмена </button>
     </form>
+
+
   );
 };
 
