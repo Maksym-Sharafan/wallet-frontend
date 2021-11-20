@@ -2,43 +2,43 @@ import React from 'react';
 
 import { v4 as id } from 'uuid';
 
-import s from './Table.module.scss';
+import styles from './Table.module.css';
 
 const Table = ({ data, income, outlay }) => {
   return (
     <>
-      <div className={s.container}>
-        <table className={s.table}>
-          <thead className={s.tableHead}>
+      <div className={styles.container}>
+        <table className={styles.table}>
+          <thead className={styles.tableHead}>
             <tr>
-              <th className={s.tableFirstCol}>Category</th>
-              <th className={s.tableSecondCol}>Sum</th>
+              <th className={styles.tableFirstCol}>Category</th>
+              <th className={styles.tableSecondCol}>Sum</th>
             </tr>
           </thead>
-          <tbody className={s.tableBody}>
+          <tbody className={styles.tableBody}>
             {data.map(({ name, color, count }) => (
               <tr key={id()}>
-                <td className={s.tableData}>
+                <td className={styles.tableData}>
                   <span
-                    className={s.mark}
+                    className={styles.mark}
                     style={{ backgroundColor: color }}
                   ></span>
 
                   {name}
                 </td>
-                <td className={s.tableData}>{count.toFixed(1)}</td>
+                <td className={styles.tableData}>{count.toFixed(1)}</td>
               </tr>
             ))}
           </tbody>
 
-          <tfoot className={s.tableFoot}>
-            <tr className={s.footRaw}>
-              <th className={s.footTitle}>Outlay:</th>
-              <td className={s.expenses}>{outlay ? outlay.toFixed(1) : 0}</td>
+          <tfoot className={styles.tableFoot}>
+            <tr className={styles.footRaw}>
+              <th className={styles.footTitle}>Outlay:</th>
+              <td className={styles.expenses}>{outlay ? outlay.toFixed(1) : 0}</td>
             </tr>
-            <tr className={s.footRow}>
-              <th className={s.footTitle}>Income:</th>
-              <td className={s.incomes}>{income ? income.toFixed(1) : 0}</td>
+            <tr className={styles.footRow}>
+              <th className={styles.footTitle}>Income:</th>
+              <td className={styles.incomes}>{income ? income.toFixed(1) : 0}</td>
             </tr>
           </tfoot>
         </table>
