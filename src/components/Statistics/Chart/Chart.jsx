@@ -2,7 +2,7 @@ import React from 'react';
 import Media from 'react-media';
 
 import { Doughnut } from 'react-chartjs-2';
-import s from './Chart.module.scss';
+import styles from './Chart.module.css';
 
 const options = {
   cutout: '70%',
@@ -26,7 +26,7 @@ const Chart = ({ data }) => {
                 options={options}
                 height={280}
                 width={280}
-                className={s.chart}
+                className={styles.chart}
               />
             )}
             {matches.medium && (
@@ -35,7 +35,7 @@ const Chart = ({ data }) => {
                 options={options}
                 height={320}
                 width={320}
-                className={s.chart}
+                className={styles.chart}
               />
             )}
           </>

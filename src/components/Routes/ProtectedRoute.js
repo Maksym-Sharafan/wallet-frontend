@@ -1,6 +1,8 @@
+
+
 import { useSelector } from 'react-redux';
-import { Route, Redirect } from 'react-router-dom';
-import { authSelectors } from 'redux/auth';
+import { Navigate } from 'react-router-dom';
+import { authSelectors } from '../../redux/auth';
 
 export default function ProtectedRoute({
     children,
@@ -9,10 +11,5 @@ export default function ProtectedRoute({
 }) {
     const IsAuth = useSelector(authSelectors.IsAuth);
     const isError = useSelector(authSelectors.getError);
-
-    return (
-        <Route {...routeProps}>
-            {IsAuth && !isError ? children : <Redirect to={redirectTo} />}
-        </Route>
-    );
-}
+    return IsAuth && !isError ? <Navigate to={redirectTo} /> : children;
+};
