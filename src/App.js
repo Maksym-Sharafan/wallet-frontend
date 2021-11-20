@@ -6,6 +6,7 @@ import PublicRoute from './components/Routes/PublicRoute';
 import Container from './components/Container';
 import { ThemeProvider } from '@material-ui/core';
 import { theme } from './components/FormsUI/theme';
+import Statistics from './components/Statistics';
 // import ProtectedRoute from './components/Routes/ProtectedRoute';
 
 // import AppBar from './components/AppBar/AppBar';

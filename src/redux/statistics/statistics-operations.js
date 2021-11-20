@@ -2,6 +2,7 @@ import axios from 'axios';
 
 import actions from './statistics-actions';
 
+axios.defaults.baseURL = 'https://wallet-29.herokuapp.com/api';
 
 const fetchStatistics = (month, year) => async dispatch => {
   dispatch(actions.fetchStatisticsRequest());
