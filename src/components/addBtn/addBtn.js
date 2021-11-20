@@ -1,9 +1,9 @@
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import styles from './addBtn.module.css'
+import styles from './AddBtn.module.css'
 import AddIcon from '@material-ui/icons/Add';
 import Modal from '../ModalAddTrans'
-import FormAddTrans from '../FormAddTrans/formAddTrans'
+import FormAddTrans from '../FormAddTrans/FormAddTrans'
 import {isModalAddTransactionOpen} from '../../redux/modalAddTransaction/modal-actions'
 
 export default function  AddBtn () {

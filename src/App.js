@@ -9,9 +9,23 @@ import { theme } from './components/FormsUI/theme';
 
 import ProtectedRoute from './components/Routes/ProtectedRoute';
 
+
 import Statistics from './components/Statistics';
 import HomeTab from "./components/HomeTab";
 import Currency from "./components/Currency"
+
+
+
+
+
+// import RegistrationForm from "./components/RegistrationForm";
+// import ModalComponent from './components/modal'
+
+// import ModalComponent from './components/modal/modal_1'
+
+// import AddBtn from './components/addBtn/addBtn'
+
+
 
 const RegistrationPage = lazy(() =>
   import(
@@ -63,21 +77,20 @@ export default function App() {
           }
         />
         <Route
-          exact
           path="/login"
+          redirectTo="/"
           restricted
           element={
-            <Container>
-              <ThemeProvider theme={theme}>
-                <PublicRoute>
-                  <LoginPage />
-                </PublicRoute>
-              </ThemeProvider>
-            </Container>
+            <PublicRoute restricted>
+              <LoginPage />
+            </PublicRoute>
           }
         />
 
-        <Route path="/" exact element={
+        <Route 
+          path="/" 
+          exact 
+          element={
           <ProtectedRoute >
             <DashboardPage />
           </ProtectedRoute>

@@ -1,1 +1,1 @@
-export { default } from './modalAddTrans';
+export { default } from './ModalAddTrans.js';
