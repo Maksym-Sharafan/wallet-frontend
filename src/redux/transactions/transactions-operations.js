@@ -1,8 +1,6 @@
 import axios from 'axios';
 import transactionsActions from './transactions-actions';
 
-axios.defaults.baseURL = 'https://wallet-29.herokuapp.com/api';
-
 const addTransaction =
   ({ type, date, amount, category, description }) =>
   async dispatch => {

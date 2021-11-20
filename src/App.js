@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
-import AddBtn from './components/addBtn/addBtn';
+// import AddBtn from './components/addBtn/addBtn';
 import PublicRoute from './components/Routes/PublicRoute';
 import Container from './components/Container';
 import { ThemeProvider } from '@material-ui/core';
