@@ -85,8 +85,7 @@ export default function App() {
         {/* <ProtectedRoute path="/">
           <DashboardPage />
         </ProtectedRoute> */}
-        {/* <Route path="*" element={<NotFoundPage />} /> */}
-        <Route path="*" element={<Statistics />} />
+        <Route path="*" element={<NotFoundPage />} />
         {/* <AddBtn /> */}
       </Routes>
       {/* <ModalComponent /> */}
