@@ -9,9 +9,14 @@ import { theme } from './components/FormsUI/theme';
 
 import ProtectedRoute from './components/Routes/ProtectedRoute';
 
-// import Statistics from './components/Statistics';
 
-// import AppBar from './components/AppBar/AppBar';
+import Statistics from './components/Statistics';
+import HomeTab from "./components/HomeTab";
+import Currency from "./components/Currency"
+
+
+
+
 
 // import RegistrationForm from "./components/RegistrationForm";
 // import ModalComponent from './components/modal'
@@ -19,7 +24,8 @@ import ProtectedRoute from './components/Routes/ProtectedRoute';
 // import ModalComponent from './components/modal/modal_1'
 
 // import AddBtn from './components/addBtn/addBtn'
-// import DashboardPage from './pages/DashboardPage';
+
+
 
 const RegistrationPage = lazy(() =>
   import(
@@ -80,15 +86,19 @@ export default function App() {
             </PublicRoute>
           }
         />
-        <Route
-          path="/"
-          exact
+
+        <Route 
+          path="/" 
+          exact 
           element={
-            <ProtectedRoute>
-              <DashboardPage />
-            </ProtectedRoute>
-          }
-        />
+          <ProtectedRoute >
+            <DashboardPage />
+          </ProtectedRoute>
+        } >
+          <Route path="home" index element={<HomeTab />} />
+          <Route path="diagram" element={<Statistics />} />
+          <Route exact path="exclude" element={<Currency />} />
+        </Route>
 
         <Route path="*" element={<NotFoundPage />} />
         {/* <AddBtn /> */}

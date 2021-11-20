@@ -1,21 +1,26 @@
-import { Routes, Route } from "react-router";
+import { Outlet } from "react-router";
+import Media from 'react-media';
+
 import AppBar from "../components/AppBar";
-import HomeTab from "../components/HomeTab";
+
 import Header from "../components/Header";
-// import Statistics from "../components/Statistics"
+
 
 import styles from "./DashboardPage.module.css";
+import React from "react";
 
-export default function DashboardPage() {
+export default function DashboardPage({ children }) {
+
     return (
         <>
             <Header />
             <main className={styles.main}>
-                <AppBar />
-                <Routes>
-                    <Route path="/home" index element={<HomeTab />} />
-                    {/* <Route path="/statistics" index element={<Statistics  />} /> */}
-                </Routes>
+                <div className={styles.main_container}>
+                    <AppBar />
+                    <div className={styles.main_content}>
+                        <Outlet />
+                    </div>
+                </div>
             </main>
         </>
     );
