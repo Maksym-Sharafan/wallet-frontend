@@ -1,7 +1,6 @@
 // import { set } from "@reduxjs/toolkit/node_modules/immer/dist/internal";
 import axios from 'axios';
 import { authActions } from './auth-actions';
-
 axios.defaults.baseURL = 'https://wallet-29.herokuapp.com/api';
 
 const token = {
@@ -17,8 +16,8 @@ const signup = credentials => async dispatch => {
   dispatch(authActions.signupUsersRequest());
   try {
     const res = await axios.post('/auth/signup', credentials);
-    if(res.data.status === "success") {
-      const {data} = await axios.post('/auth/login', credentials);
+    if (res.data.status === 'success') {
+      const { data } = await axios.post('/auth/login', credentials);
       token.set(data.data.token);
       dispatch(authActions.signupUsersSuccess(data.data));
     }
@@ -50,8 +49,29 @@ const logout = () => async dispatch => {
   }
 };
 
+const fetchCurrentUser = () => async (dispatch, getState) => {
+  const {
+    auth: { token: userToken },
+  } = getState();
+
+  if (!userToken) {
+    return console.log('there is no token');
+  }
+  console.log(userToken);
+  token.set(userToken);
+  dispatch(authActions.fetchCurrentUserRequest());
+  try {
+    const { data } = await axios.get('/auth/current');
+    console.log(data.data);
+    dispatch(authActions.fetchCurrentUserSuccess(data.data));
+  } catch (error) {
+    dispatch(authActions.fetchCurrentUserError(error.message));
+  }
+};
+
 export const authOperations = {
   signup,
   login,
   logout,
+  fetchCurrentUser,
 };
