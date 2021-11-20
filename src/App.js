@@ -9,9 +9,7 @@ import { theme } from './components/FormsUI/theme';
 
 import ProtectedRoute from './components/Routes/ProtectedRoute';
 
-import Statistics from './components/Statistics';
-
-
+// import Statistics from './components/Statistics';
 
 // import AppBar from './components/AppBar/AppBar';
 
@@ -73,24 +71,24 @@ export default function App() {
           }
         />
         <Route
-          exact
           path="/login"
+          redirectTo="/"
           restricted
           element={
-            <Container>
-              <ThemeProvider theme={theme}>
-                <PublicRoute>
-                  <LoginPage />
-                </PublicRoute>
-              </ThemeProvider>
-            </Container>
+            <PublicRoute restricted>
+              <LoginPage />
+            </PublicRoute>
           }
         />
-        <Route path="/" exact element={
-          <ProtectedRoute >
-            <DashboardPage />
-          </ProtectedRoute>
-        } />
+        <Route
+          path="/"
+          exact
+          element={
+            <ProtectedRoute>
+              <DashboardPage />
+            </ProtectedRoute>
+          }
+        />
 
         <Route path="*" element={<NotFoundPage />} />
         {/* <AddBtn /> */}
