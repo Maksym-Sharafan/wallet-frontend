@@ -6,8 +6,12 @@ import PublicRoute from './components/Routes/PublicRoute';
 import Container from './components/Container';
 import { ThemeProvider } from '@material-ui/core';
 import { theme } from './components/FormsUI/theme';
+
+import ProtectedRoute from './components/Routes/ProtectedRoute';
+
 import Statistics from './components/Statistics';
-// import ProtectedRoute from './components/Routes/ProtectedRoute';
+
+
 
 // import AppBar from './components/AppBar/AppBar';
 
@@ -27,9 +31,9 @@ const RegistrationPage = lazy(() =>
 const LoginPage = lazy(() =>
   import('./pages/LoginPage' /* webpackChunkName: "login-page" */),
 );
-// const DashboardPage = lazy(() =>
-//   import('./pages/DashboardPage' /* webpackChunkName: "home-view" */),
-// );
+const DashboardPage = lazy(() =>
+  import('./pages/DashboardPage' /* webpackChunkName: "home-view" */),
+);
 // const DiagramPage = lazy(() =>
 //   import('./pages/DiagramPage' /* webpackChunkName: "diagram-view" */),
 // );
@@ -82,9 +86,12 @@ export default function App() {
             </Container>
           }
         />
-        {/* <ProtectedRoute path="/">
-          <DashboardPage />
-        </ProtectedRoute> */}
+        <Route path="/" exact element={
+          <ProtectedRoute >
+            <DashboardPage />
+          </ProtectedRoute>
+        } />
+
         <Route path="*" element={<NotFoundPage />} />
         {/* <AddBtn /> */}
       </Routes>
