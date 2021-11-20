@@ -2,12 +2,14 @@ import * as React from 'react';
 import { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
-// import AddBtn from './components/addBtn/addBtn';
 import PublicRoute from './components/Routes/PublicRoute';
 import Container from './components/Container';
 import { ThemeProvider } from '@material-ui/core';
 import { theme } from './components/FormsUI/theme';
-// import ProtectedRoute from './components/Routes/ProtectedRoute';
+
+import ProtectedRoute from './components/Routes/ProtectedRoute';
+
+// import Statistics from './components/Statistics';
 
 // import AppBar from './components/AppBar/AppBar';
 
@@ -27,9 +29,9 @@ const RegistrationPage = lazy(() =>
 const LoginPage = lazy(() =>
   import('./pages/LoginPage' /* webpackChunkName: "login-page" */),
 );
-// const DashboardPage = lazy(() =>
-//   import('./pages/DashboardPage' /* webpackChunkName: "home-view" */),
-// );
+const DashboardPage = lazy(() =>
+  import('./pages/DashboardPage' /* webpackChunkName: "home-view" */),
+);
 // const DiagramPage = lazy(() =>
 //   import('./pages/DiagramPage' /* webpackChunkName: "diagram-view" */),
 // );
@@ -69,22 +71,25 @@ export default function App() {
           }
         />
         <Route
-          exact
           path="/login"
+          redirectTo="/"
           restricted
           element={
-            <Container>
-              <ThemeProvider theme={theme}>
-                <PublicRoute>
-                  <LoginPage />
-                </PublicRoute>
-              </ThemeProvider>
-            </Container>
+            <PublicRoute restricted>
+              <LoginPage />
+            </PublicRoute>
           }
         />
-        {/* <ProtectedRoute path="/">
-          <DashboardPage />
-        </ProtectedRoute> */}
+        <Route
+          path="/"
+          exact
+          element={
+            <ProtectedRoute>
+              <DashboardPage />
+            </ProtectedRoute>
+          }
+        />
+
         <Route path="*" element={<NotFoundPage />} />
         {/* <AddBtn /> */}
       </Routes>

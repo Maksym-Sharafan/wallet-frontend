@@ -38,11 +38,13 @@ color: #000000;
   margin-right: auto;
 }
 .category {
-  display:none;
+  display:block;
+  /* display:none; */
+  /* outline: 1px solid tomato; */
 }
 .select{
   position: relative;
-  margin-top: 40px;
+  /* margin-top: 40px; */
   margin-left: auto;
   margin-right: auto;
   height: 34px;

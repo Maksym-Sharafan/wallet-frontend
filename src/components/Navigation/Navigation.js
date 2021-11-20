@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import styles from './Navigation.module.css';
 import Icons from '../../components/Icons';
 const Navigation = () => (
-  <div class={styles.navigation_container}>
+  <div className={styles.navigation_container}>
     <nav className={styles.navigation_nav_link}>
       <NavLink to="/home" className={styles.navigation_link} end>
         <Icons name="home" className={styles.navigation_icon_home} />

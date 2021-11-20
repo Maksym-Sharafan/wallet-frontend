@@ -1,32 +1,41 @@
-import React, { useState } from "react";
+import React from "react";
 import DatePicker from "react-datepicker";
+import { useField, useFormikContext } from "formik";
 
 import "react-datepicker/dist/react-datepicker.css";
-import moment from 'moment';
+// import moment from 'moment';
 
-import  './dtpicer.css';
+import  './Dtpicer.css';
 
-const MyDTPicker = () => {
-  const [startDate, setStartDate] = useState(new Date());
- console.log(startDate);
- const handleDate = date => {
-  setStartDate(date);
-  const formatedDate = moment(date).format('yyyy-MM-DD');
-
-    // setTransactionItem(state => ({
-    //   ...state,
-    //   date: formatedDate,
-    // }));
- }
+const MyDatePicker = ({ selectedDate, handleChange, today }) => {
   return (
     <DatePicker id="dtpicer"
             className="react-datepicker"
-            selected={startDate}
-            onChange={handleDate}
-            dateFormat="dd.MM.yyyy"
-            />
+            selected={selectedDate}
+            onChange={handleChange}
+            dateFormat="yyyy-MM-dd"
+            onClick={handleChange}
+            plaseholder={today}
+            >
+      <label className="datepicker__Icon" htmlFor="datepicker" />
+      </DatePicker>
   );
 };
+// const MyDatePicker = ({ selectedDate, handleChange }) => (
+//   <div className="datepicker__container">
+//     <label className="datepicker__Icon" htmlFor="datepicker" />
+//     <DatePicker
+//       className="datepicker"
+//       id="datepicker"
+//       selected={selectedDate}
+//       onChange={handleChange}
+//       dateFormat="dd.MM.yyyy"
+//       name="date"
+//       fixedHeight
+//       withPortal
+//     />
+//   </div>
+// );
 
 
-export default MyDTPicker ;
+export default MyDatePicker;

@@ -1,28 +1,27 @@
-import React from 'react';
+import React,{useState} from 'react';
 import styles from './TransType.module.css'
-// import {useState, useSelect} from '@reduxjs/toolkit'
+
 
 const TransType = () => {
-  // const [_, setIsChecked] = useState(false);
-
-
- const incomeClasses = [styles.income]
- const costClasses = [styles.cost]
+  const [isChecked, setIsChecked] = useState(false);
  const handleChange = ()=> {
-  incomeClasses.push("no_checked");
-  costClasses.push("costActive");
-  // setIsChecked(true);
+  setIsChecked(!isChecked);
  } 
 
   return (
-          <div className={styles.switchWraper}>
-          <span className={incomeClasses.map(item =>item)}>Доход</span>
+        <div className={styles.switchWraper}>
+          <span className={styles.income} 
+          style={{color:isChecked ? "#E0E0E0": "#24CCA7"}}>
+            Доход
+          </span>
           <label className={styles.switch}>
-          <input type="checkbox" className={styles.sliderInput} onChange = {handleChange}/>
+           <input type="checkbox" className={styles.sliderInput} 
+            onChange = {handleChange}/>
              <span className={styles.slider}></span>
-           </label>
-          <span className={costClasses.map(item =>item)}>Расход</span>
-      </div>
+          </label>
+          <span className={styles.cost} 
+          style={{color:isChecked ? "#FF6596": "#E0E0E0"}}>Расход</span>
+        </div>
   )
 };
 

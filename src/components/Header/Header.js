@@ -1,9 +1,11 @@
 import styles from './Header.module.css';
 import Icons from '../Icons';
+//
+import Logout from '../Logout/Logout';
 
 export default function Header() {
   return (
-    <header class={styles.navigation_container}>
+    <header className={styles.navigation_container}>
       <div className={styles.navigation_row}>
         <div className={styles.navigation_header_wallet}>
           <Icons name="wallet" className={styles.navigation_icon_wallet} />
@@ -13,10 +15,7 @@ export default function Header() {
           <p className={styles.navigation_header_title}>Имя</p>
 
           <p className={styles.navigation_header_title}>|</p>
-          <button
-            type="button"
-            className={styles.navigation_icon_button_exit}
-          >
+          {/* <button type="button" className={styles.navigation_icon_button_exit}>
             <Icons
               name="exit"
               size="18"
@@ -25,7 +24,8 @@ export default function Header() {
           </button>
           <button type="button" className={styles.navigation_header_logout}>
             <p>Выйти</p>
-          </button>
+          </button> */}
+          <Logout />
         </div>
       </div>
     </header>

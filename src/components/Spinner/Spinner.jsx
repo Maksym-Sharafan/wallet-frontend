@@ -6,7 +6,7 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 const useStyles = makeStyles((theme) => ({
   backdrop: {
-    zIndex: theme.zIndex.drawer,
+    zIndex: theme.zIndex.drawer + 1,
     backgroundColor: "rgba(176, 204, 229, 0.3)",
   },
 }));
