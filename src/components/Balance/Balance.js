@@ -4,9 +4,8 @@ import { transactionsSelectors } from '../../../src/redux/transactions';
 import styles from './Balance.module.css';
 
 const Balance = () => {
-
   const balance = useSelector(transactionsSelectors.getBalance);
-
+  // console.log(balance);
   return (
     <div className={styles.wrapper}>
       <h2 className={styles.title}>Current Balance</h2>

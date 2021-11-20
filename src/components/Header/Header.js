@@ -39,7 +39,7 @@ export default function Header() {
           <p>Wallet</p>
         </div>
         <div className={styles.navigation_header}>
-          <p className={styles.navigation_header_title}>Имя{name}</p>
+          <p className={styles.navigation_header_title}>{name}</p>
 
           <p className={styles.navigation_header_title}>|</p>
           <button
@@ -81,17 +81,27 @@ export default function Header() {
               Вы уверены,что хотите выйти?
             </p>
             <Button
-              variant="contained"
+              variant="outlined"
               style={{
-                backgroundColor: '#24cca7',
+                borderRadius: '10px',
                 marginRight: '30px',
-                color: 'white',
+                color: 'black',
               }}
               onClick={() => dispatch(authOperations.logout())}
             >
               Да
             </Button>
-            <Button variant="outlined" color="primary" onClick={toggleModal}>
+            <Button
+              variant="outlined"
+              style={{
+                backgroundColor: '#24cca7',
+                borderRadius: '10px',
+                marginRight: '30px',
+                color: 'white',
+              }}
+              color="primary"
+              onClick={toggleModal}
+            >
               Нет
             </Button>
           </div>
