@@ -1,5 +1,5 @@
 // import AddBtn from '../components/AddBtn'
-import Balance from '../components/Balance';
+// import Balance from '../components/Balance';
 
 export default function NotFoundPage() {
   return (

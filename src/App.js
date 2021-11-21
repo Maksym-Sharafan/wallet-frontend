@@ -90,9 +90,13 @@ export default function App() {
               redirectTo="/"
               restricted
               element={
-                <PublicRoute restricted>
-                  <LoginPage />
-                </PublicRoute>
+                <Container>
+                  <ThemeProvider theme={theme}>
+                    <PublicRoute restricted>
+                      <LoginPage />
+                    </PublicRoute>
+                  </ThemeProvider>
+                </Container>
               }
             />
 
