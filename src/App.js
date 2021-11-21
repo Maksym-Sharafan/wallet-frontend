@@ -24,7 +24,7 @@ import { authOperations } from './redux/auth';
 
 // import ModalComponent from './components/modal/modal_1'
 
-// import AddBtn from './components/addBtn/addBtn'
+// import AddBtn from './components/AddBtn/AddBtn'
 
 const RegistrationPage = lazy(() =>
   import(
@@ -111,7 +111,7 @@ export default function App() {
             </Route>
 
             <Route path="*" element={<NotFoundPage />} />
-            {/* <AddBtn /> */}
+            
           </Routes>
           {/* <ModalComponent /> */}
         </Suspense>
