@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import DatePicker from "react-datepicker";
 import { useFormik } from 'formik';
 
+
 import categoriesList from '../../redux/categories/categories'
 import { transactionsOperations } from "../../redux/transactions";
 import {isModalAddTransactionOpen} from '../../redux/modalAddTransaction/modal-actions'
@@ -10,6 +11,7 @@ import {isModalAddTransactionOpen} from '../../redux/modalAddTransaction/modal-a
 import styles from './FormAddTrans.module.css';
 import "react-datepicker/dist/react-datepicker.css";
 
+import moment from 'moment'
 
 
 
@@ -25,16 +27,14 @@ const FormAddTrans = () => {
   // переключает тип и раскрашивает название типа
   const handleChange = () => {
     setIsChecked(!isChecked);
-    isChecked ? setTransType('cost') : setTransType('income');
+    isChecked ? setTransType('income') : setTransType('cost');
   };
 
   const handelSelect = (e) => {
     const categoryId = e.target.value;
     setIsSelected(categoryId)
-    // console.log(isSelected)
   }
   
-
   const options = [...categoriesList];
   const formik = useFormik({
     initialValues: {
@@ -47,11 +47,14 @@ const FormAddTrans = () => {
     onSubmit: values => {
       // console.log(values);
       const correctValues = { ...values, type: transType, category: isSelected, date: date }
+      // const correctValues = { ...values, type: transType, category: isSelected, date: moment(date).format() }
+      console.log(correctValues);
       alert(JSON.stringify(correctValues, null, 2));
       dispatch(transactionsOperations.addTransaction(correctValues));
-      dispatch(isModalAddTransactionOpen())
+      // setIsChecked(false)
+      // dispatch(isModalAddTransactionOpen())
 
-      // window.location.reload();
+      window.location.reload();
     }
   });
   // console.log(formik.values)
@@ -133,7 +136,7 @@ const FormAddTrans = () => {
         </div>
       </div>
       <button type="submit" className={styles.addBtn}>Добавить</button>
-      <button type="submit" className={styles.CancelBtn}  > Отмена </button>
+      <button onClick={() => dispatch(isModalAddTransactionOpen())} className={styles.CancelBtn}  > Отмена </button>
     </form>
 
 
