@@ -6,16 +6,16 @@ import AddBtn from "../components/AddBtn"
 
 import styles from "./DashboardPage.module.css";
 
-// import { transactionsOperations } from "../redux/transactions";
-// import { useEffect } from 'react';
-// import { useDispatch } from 'react-redux';
+import { transactionsOperations } from "../redux/transactions";
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 
 export default function DashboardPage() {
-    //     const dispatch = useDispatch();
-    //     useEffect(() => {
-    //     dispatch(transactionsOperations.fetchTransactions());
-    //   }, [dispatch]);
+        const dispatch = useDispatch();
+        useEffect(() => {
+        dispatch(transactionsOperations.fetchTransactions());
+      }, [dispatch]);
 
     return (
         <>
