@@ -1,12 +1,22 @@
-import { useSelector } from 'react-redux';
+import { shallowEqual, useSelector } from 'react-redux';
 import { transactionsSelectors } from '../../redux/transactions';
 import styles from './hometab.module.css';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { transactionsOperations } from "../../redux/transactions";
+
 
 const HomeTab = () => {
+  const dispatch = useDispatch();
   const costs = useSelector(transactionsSelectors.getCosts);
   const balance = useSelector(transactionsSelectors.getBalance);
   console.log(costs);
   console.log(balance);
+
+  useEffect(() => {
+    dispatch(transactionsOperations.fetchTransactions());
+  }, [dispatch]);
+  
   return (
     <div>
       <div className={styles.table}>
