@@ -5,9 +5,6 @@ import styles from './hometab.module.css';
 const HomeTab = () => {
   const costs = useSelector(transactionsSelectors.getCosts);
   const balance = useSelector(transactionsSelectors.getBalance);
-
- 
-
   console.log(costs);
   console.log(balance);
   return (
