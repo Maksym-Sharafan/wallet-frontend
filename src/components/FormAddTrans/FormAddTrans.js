@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
-import { useDispatch } from "react-redux";
+import React, { useState , useEffect} from 'react';
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import DatePicker from "react-datepicker";
 import { useFormik } from 'formik';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 import categoriesList from '../../redux/categories/categories'
-import { transactionsOperations } from "../../redux/transactions";
+import { transactionsOperations, transactionsSelectors } from "../../redux/transactions";
 import {isModalAddTransactionOpen} from '../../redux/modalAddTransaction/modal-actions'
 
 import styles from './FormAddTrans.module.css';
@@ -15,7 +18,7 @@ import moment from 'moment'
 
 
 
-const FormAddTrans = () => {
+const FormAddTrans = ({onClose, showModal}) => {
   const dispatch = useDispatch();
   const [date, setDate] = useState(new Date());
   // состояние для выбора типа транзакции 
@@ -25,6 +28,11 @@ const FormAddTrans = () => {
   //выбор категории
   const [isSelected, setIsSelected] = useState();
   // переключает тип и раскрашивает название типа
+
+  const error = useSelector(transactionsSelectors.getError, shallowEqual)
+  // console.log(error)
+
+
   const handleChange = () => {
     setIsChecked(!isChecked);
     isChecked ? setTransType('income') : setTransType('cost');
@@ -44,21 +52,45 @@ const FormAddTrans = () => {
       date: date,
       // comment: ""
     },
-    onSubmit: values => {
+    onSubmit: (values, {resetForm}) => {
       // console.log(values);
       const correctValues = { ...values, type: transType, category: isSelected, date: date }
       // const correctValues = { ...values, type: transType, category: isSelected, date: moment(date).format() }
-      console.log(correctValues);
+      // console.log(correctValues);
       alert(JSON.stringify(correctValues, null, 2));
       dispatch(transactionsOperations.addTransaction(correctValues));
-      // setIsChecked(false)
-      // dispatch(isModalAddTransactionOpen())
+      resetForm()
 
-      window.location.reload();
+      // onClose()
+
+      setTimeout(() => {
+      if (!error) {
+        console.log(error)
+      onClose()
+      
+      }
+      }, 5000);
+
+      // window.location.reload();
     }
   });
-  // console.log(formik.values)
+
+  useEffect(() => {
+    // console.log(typeof error)
+   if (error) {
+     const errorMessage = (error) ? "Balance cannot be negative" : 'Транзакция'
+
+            toast.error(
+            errorMessage,
+            { position: toast.POSITION.TOP_RIGHT },
+          );
+
+   } 
+   
+  }, [error]);
+
   return (
+    <>
     <form onSubmit={formik.handleSubmit} className={styles.formWraper}>
       <div className={styles.header}>
         <h1 className={styles.hText}>Добавить транзакцию</h1>
@@ -135,11 +167,12 @@ const FormAddTrans = () => {
           />
         </div>
       </div>
-      <button type="submit" className={styles.addBtn}>Добавить</button>
-      <button onClick={() => dispatch(isModalAddTransactionOpen())} className={styles.CancelBtn}  > Отмена </button>
+      <button type="submit"  className={styles.addBtn}>Добавить</button>
+      <button onClick={onClose} className={styles.CancelBtn}  > Отмена </button>
     </form>
+<ToastContainer />
 
-
+</>
   );
 };
 

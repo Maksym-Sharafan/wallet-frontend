@@ -1,21 +1,12 @@
-import { Outlet } from "react-router";
+import { Outlet } from 'react-router';
 
-import AppBar from "../components/AppBar";
-import Header from "../components/Header";
-import AddBtn from "../components/AddBtn"
+import AppBar from '../components/AppBar';
+import AddBtn from '../components/AddBtn'
+import Header from '../components/Header';
 
-import styles from "./DashboardPage.module.css";
-
-import { transactionsOperations } from "../redux/transactions";
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-
+import styles from './DashboardPage.module.css';
 
 export default function DashboardPage() {
-        const dispatch = useDispatch();
-        useEffect(() => {
-        dispatch(transactionsOperations.fetchTransactions());
-      }, [dispatch]);
 
     return (
         <>
@@ -26,6 +17,7 @@ export default function DashboardPage() {
                     <div className={styles.main_content}>
                         <Outlet />
                     </div>
+                    <AddBtn />
                 </div>
             </main>
         </>
