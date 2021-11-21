@@ -1,10 +1,10 @@
 .formWraper{
   width: 320px;
-  /* height: 600px; */
   display: flex;
-flex-flow: column;
-margin-left: auto;
-margin-right: auto;
+  flex-flow: column;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
 
 }
 
@@ -30,6 +30,7 @@ color: #000000;
 .inputGroup{
   display: flex;
   flex-direction: column;
+  /* margin-top: 40px; */
 }
 /* The switch - the box around the slider */
 .switchWraper {
@@ -111,6 +112,15 @@ color: #000000;
   line-height: 24px;
   color: #E0E0E0;
 }
+ /* validate errors */
+ .error{
+   width: fit-content;
+   /* border: 1px solid #E0E0E0; */
+   padding: 10px;
+   /* border-radius: 5px; */
+   color:#d30b0b;
+   font-size: 10px;
+ }
 
 .category {
   display:block;
@@ -122,21 +132,53 @@ color: #000000;
   width: 280px;
   border: none;
   border-bottom: 1px solid #E0E0E0;
+  cursor: pointer;
+  color: #000000;
 }
-/* .select{
-  position: relative;
-
+.category > select {
+  /* position: relative; */
   margin-left: auto;
   margin-right: auto;
-  height: 34px;
-  width: 280px;
+  height: inherit;
+  width: inherit;
   border: none;
   border-bottom: 1px solid #E0E0E0;
-} */
+  /* opacity: 50%; */
+  cursor: pointer;
+}
+.category > select > option:first-child {
+  display: none;
+}
+.category > select > option {
+  /* position: absolute; */
+  font-size: 10px;
+  width: inherit;
+  height: 352px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+  height: 44px;
+font-family: Circe;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 27px;
+display: flex;
+align-items: center;
+color: #000000;
+cursor: pointer;
+}
+
+.option:hover,
+.option :focus {
+  color:#FF6596;
+  background-color: #fff;
+}
 
 .input{
   height: 34px;
   width: 280px;
+  margin-top: 40px;
+  padding-left: 25px;
   border: none;
   border-bottom: 1px solid #E0E0E0;
 }
@@ -151,14 +193,16 @@ color: #000000;
   width: 280px;
   border: none;
   border-bottom: 1px solid #E0E0E0;
+  padding-left: 25px;
+
 }
-.formLabel {
+/* .formLabel {
   position: absolute;
   top:50%;
   left: 30px;
   transform: translateY(-50%);
 
-}
+} */
 .addBtn {
 width: 300px;
 height: 50px;

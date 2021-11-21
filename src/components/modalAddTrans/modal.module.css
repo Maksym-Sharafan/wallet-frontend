@@ -18,7 +18,7 @@
   left: 50%;
      
   transform: translate(-50%, -50%);
-  max-width: 100vw;
+  max-width: 540px;
   max-height: calc(100vh - 60px);
   width: 100%;
   background-color: #fff;
@@ -30,6 +30,6 @@
 @media screen and (min-width:768px) {
   .Modal__content {
     max-width: 540px;
-    max-height: 617px;
+    /* max-height: 617px; */
   }
 }
