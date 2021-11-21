@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Suspense, lazy, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Loader from 'react-loader-spinner';
+import { ThemeProvider } from '@material-ui/core';
+
 import PublicRoute from './components/Routes/PublicRoute';
 import Container from './components/Container';
-import { ThemeProvider } from '@material-ui/core';
 import { theme } from './components/FormsUI/theme';
 
 import ProtectedRoute from './components/Routes/ProtectedRoute';
@@ -12,6 +12,7 @@ import ProtectedRoute from './components/Routes/ProtectedRoute';
 import Statistics from './components/Statistics';
 import HomeTab from './components/HomeTab';
 import Currency from './components/Currency';
+import Loader from './components/Spinner';
 
 //2011
 import { useDispatch, useSelector } from 'react-redux';
@@ -24,7 +25,7 @@ import { authOperations } from './redux/auth';
 
 // import ModalComponent from './components/modal/modal_1'
 
-// import AddBtn from './components/addBtn/addBtn'
+// import AddBtn from './components/AddBtn/AddBtn'
 
 const RegistrationPage = lazy(() =>
   import(
@@ -59,17 +60,7 @@ export default function App() {
   return (
     !isGettingCurrentUser && (
       <div>
-        <Suspense
-          fallback={
-            <Loader
-              type="ThreeDots"
-              color="#8c91b3"
-              height={50}
-              width={50}
-              timeout={3000} //3 secs
-            />
-          }
-        >
+        <Suspense fallback={<Loader visible/>}>
           <Routes>
             <Route
               exact
@@ -90,9 +81,13 @@ export default function App() {
               redirectTo="/"
               restricted
               element={
-                <PublicRoute restricted>
-                  <LoginPage />
-                </PublicRoute>
+                <Container>
+                  <ThemeProvider theme={theme}>
+                    <PublicRoute restricted>
+                      <LoginPage />
+                    </PublicRoute>
+                  </ThemeProvider>
+                </Container>
               }
             />
 
@@ -111,7 +106,7 @@ export default function App() {
             </Route>
 
             <Route path="*" element={<NotFoundPage />} />
-            {/* <AddBtn /> */}
+            
           </Routes>
           {/* <ModalComponent /> */}
         </Suspense>
