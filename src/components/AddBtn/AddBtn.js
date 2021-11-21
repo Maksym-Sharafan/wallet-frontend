@@ -4,12 +4,8 @@ import styles from './AddBtn.module.css'
 import AddIcon from '@material-ui/icons/Add';
 import Modal from '../ModalAddTrans'
 import FormAddTrans from '../FormAddTrans/FormAddTrans'
-<<<<<<< HEAD:src/components/addBtn/addBtn.js
 import {isModalAddTransactionOpen} from '../../redux/modalAddTransaction/modal-actions'
-=======
-import { isModalAddTransactionOpen } from '../../redux/modalAddTransaction/modal-actions'
 
->>>>>>> dev:src/components/AddBtn/AddBtn.js
 
 export default function  AddBtn () {
   const dispatch = useDispatch();

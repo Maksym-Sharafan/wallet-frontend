@@ -11,7 +11,7 @@ import {isModalAddTransactionOpen} from '../../redux/modalAddTransaction/modal-a
 import styles from './FormAddTrans.module.css';
 import "react-datepicker/dist/react-datepicker.css";
 
-import moment from 'moment'
+// import moment from 'moment'
 
 
 
