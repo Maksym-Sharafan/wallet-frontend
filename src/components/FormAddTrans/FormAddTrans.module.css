@@ -1,17 +1,23 @@
-.formWraper{
+
+.error {
+  color: red;
+  font-size: 15px;
+}
+.formWrapper{
   width: 320px;
-  /* height: 600px; */
+  /* height: 617px; */
   display: flex;
-flex-flow: column;
-margin-left: auto;
-margin-right: auto;
+  flex-flow: column;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px 20px 65px 20px;
 
 }
 
 .header{
   display: flex;
   align-items: center;
-  margin-top: 40px;
+  /* margin-top: 40px; */
   margin-left: auto;
   margin-right: auto;
 
@@ -27,24 +33,102 @@ align-items: center;
 text-align: center;
 color: #000000;
 }
+
 .inputGroup{
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
 }
-.formField{
-  position: relative;
-  margin-top: 40px;
+.requiredGroup{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+/* The switch - the box around the slider */
+.switchWrapper {
   margin-left: auto;
   margin-right: auto;
+  display: flex;
+  align-items: center;
+  width: 220px;
+
 }
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: #fff;
+}
+
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 34px;
+  border: 1px solid #E0E0E0;
+  background-color: #fff;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 40px;
+  width: 40px;
+  /* left: 4px; */
+  /* bottom: 2px; */
+  border-radius: 50%;
+  background-color:#24CCA7;
+  background-image: url("../../img/plus.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  /* -webkit-transition: .4s;
+  transition: .4s; */
+}
+
+.sliderInput{
+  appearance: none;
+}
+
+.sliderInput:checked + .slider:before {
+  transform: translateX(40px);
+  background-color: #FF6596;
+  background-image: url("../../img/minus.png");
+}
+
+
+.income {
+  color:#24CCA7;
+  font-family: Circe;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.cost {
+  font-family: Circe;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  color: #E0E0E0;
+}
+
 .category {
   display:block;
-  /* display:none; */
-  /* outline: 1px solid tomato; */
-}
-.select{
   position: relative;
-  /* margin-top: 40px; */
+  margin-top: 40px;
   margin-left: auto;
   margin-right: auto;
   height: 34px;
@@ -53,21 +137,69 @@ color: #000000;
   border-bottom: 1px solid #E0E0E0;
 }
 
-.input{
+.formField{
+  /* position: relative; */
+  margin-top: 40px; 
+  margin-left: auto; 
+   margin-right: auto;
+}
+.selectLabel {
+  margin-top: 40px;
+  color:#E0E0E0;
+  position: absolute;
+  bottom: -22px;
+  left:0%;
+}
+.picerWrapper{
+   position: relative;
+}
+.select{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
   height: 34px;
   width: 280px;
   border: none;
   border-bottom: 1px solid #E0E0E0;
 }
-.input:focus + .formLabel,
-.comment:focus + .formLabel,
-.input:not(:placeholder-shown) + .formLabel,
-.comment:not(:placeholder-shown) + .formLabel {
-  transform: translateY(-200%);
+.select:focus {
+  outline: none;
+}
+.input{
+  height: 34px;
+  width: 280px;
+  padding-left: 20px;
+  margin-top: 40px;
+  border: none;
+  border-bottom: 1px solid #E0E0E0;
+}
+.datepicker {
+  height: 34px;
+  width: 280px;
+  padding-left: 20px;
+  border: none;
+  margin-top: 40px;
+  margin-right: auto;
+  margin-left: auto;
+  border-bottom: 1px solid #E0E0E0;
+  background-image: url('../../img/calendar.svg');
+  background-repeat:no-repeat;
+  background-position: right; 
+
+}
+
+.datepicker:focus {
+  outline: none;
+}
+
+.datepicker-wrapper {
+  display: block;
 }
 .comment{
-  height: 74px;
+  height: 34px;
   width: 280px;
+  padding-left: 20px;
+  margin-top: 40px;
   border: none;
   border-bottom: 1px solid #E0E0E0;
 }
@@ -79,8 +211,9 @@ color: #000000;
 
 }
 .addBtn {
-width: 300px;
+width: 280px;
 height: 50px;
+padding: 0px;
 margin-top: 50px;
 margin-left: auto;
 margin-right: auto;
@@ -89,8 +222,9 @@ border: none;
 border-radius: 20px;
 }
 .CancelBtn{
-  width: 300px ;
+  width: 280px ;
   height: 50px;
+  padding: 0px;
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
@@ -101,10 +235,11 @@ border-radius: 20px;
 }
 
 @media screen and (min-width: 767px){
-  .formWraper{
+  .formWrapper{
     width: 540px;
-    /* height: 540px; */
+    padding: 40px 40px 60px 40px;
   }
+
   .hText{
     font-size: 30px;
     line-height: 45px;
@@ -113,17 +248,33 @@ border-radius: 20px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-}
+  }
+  .requiredGroup{
+  flex-direction: row;
+  flex-wrap: wrap;
+  }
+  .formField {
+  width: 410px;
+  }
   .select{
+    width: 100%;
+  }
+  
+  
+  .category{
   height: 34px;
   width: 410px;
   }
   .input{
   height: 34px;
   width: 190px;
-}
+  }
   .comment{
   height: 34px;
   width: 410px;
+  display: block;
+  }
+  .datepicker {
+  width: 190px;
 }
 }
