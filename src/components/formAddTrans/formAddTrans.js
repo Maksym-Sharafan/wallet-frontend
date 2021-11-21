@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch , useSelector} from "react-redux";
+import { useDispatch } from "react-redux";
 import DatePicker from "react-datepicker";
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
@@ -12,23 +12,28 @@ import categoriesList from '../../redux/categories/categories'
 import styles from './FormAddTrans.module.css';
 import "react-datepicker/dist/react-datepicker.css";
 
-// import Select from './SelectMUI';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 // import moment from 'moment'
 
 
 const FormAddTrans = () => {
   const dispatch = useDispatch();
    const [date, setDate] = useState(new Date());
-  //данные из глобального Store о состоянии модалки
-  // const ShowModal= useSelector((state) => state.global)
+
+  const [modalOpen, setModalOpen] = useState(true);
   // состояние для выбора типа транзакции 
 const [isChecked, setIsChecked] = useState(false);
 // состояние для типа трансакции
 const [transType, setTransType] = useState('income')
 //выбор категории
-const [isSelected, setIsSelected] = useState(' ')
+const [isSelected, setIsSelected] = useState('')
 //сумма транзакции
-const [transAmount, setTransAmount] = useState('0')
+const [transAmount, setTransAmount] = useState('')
+
+  const toggleModal = () =>{
+    dispatch(isModalAddTransactionOpen())
+  }
 // переключает тип и раскрашивает название типа
 const handleChange = ()=> {
   setIsChecked(!isChecked);
@@ -38,14 +43,7 @@ const handleChange = ()=> {
 const handelSelect = (e) =>{
   const categoryId = e.target.value;  
   setIsSelected(categoryId)
-}
-
-const reset =(e) => {
-  setTransType('income');
-  setIsChecked(false);
-  setIsSelected('');
-  setTransAmount('0')
-
+  console.log(categoryId)
 }
 
   const options = [ ...categoriesList];
@@ -58,30 +56,28 @@ const reset =(e) => {
       date: date,
     },
      validationSchema: Yup.object({
-       category: Yup.string()
-         .required('Выберите категорию'),
        amount: Yup.string()
          .max(10, 'Must be 10 characters or less')
          .required('Required'),
-
      }), 
     onSubmit: values => {
       const correctValues = { ...values, type: transType, category: isSelected, date: date };
       console.log(correctValues);
       alert(JSON.stringify({correctValues}, null, 2));
       dispatch(transactionsOperations.addTransaction(correctValues));
-      dispatch(isModalAddTransactionOpen());
+      setModalOpen(false)
+      dispatch(isModalAddTransactionOpen())
       window.location.reload();
-      // reset();
+
     },
   });
   return (
-    <form onSubmit= {formik.handleSubmit} className={styles.formWraper}>
+    <form onSubmit= {formik.handleSubmit} className={styles.formWrapper}>
       <div className = {styles.header}>
       <h1 className={styles.hText}>Добавить транзакцию</h1>
       </div>
-      <div className={styles.inputGroup}>
-        <div className={styles.switchWraper}>
+      {/* <div className={styles.inputGroup}> */}
+        <div className={styles.switchWrapper}>
           <span className={styles.income} 
           style={{color:isChecked ? "#E0E0E0":"#24CCA7"}}>
             Доход
@@ -94,38 +90,28 @@ const reset =(e) => {
           <span className={styles.cost} 
           style={{color:isChecked ? "#FF6596": "#E0E0E0"}}>Расход</span>
         </div>
-      </div>
-      {formik.touched.firstName && formik.errors.firstName ? (
-         <div>{formik.errors.firstName}</div>
-       ) : null}  
+      {/* </div> */}
       <div className={styles.inputGroup}>   
-      {/* { isChecked &&  < Select name="category"  options={categoriesList} /> } */}
-        { isChecked &&  <div className={styles.category}>
-          <select className={styles.select}
-        id="category"
-        name="category"
-        required = {true}
-        type="select"
-        onChange={ handelSelect} >
-          <option value="" selected  disabled hidden >
-            Выберите категорию</option>
-         {options.map(({_id, name}) => {
-          return (<option value={_id} key={_id} className={styles.option}>
-            {name}
-            </option>)
-        })}
-          </select> 
-          {formik.touched.type && formik.errors.type? (
-         <div>{formik.errors.type}</div>
-       ) : null}
-          </div> 
-        } 
-      <div className={styles.inputGroup}>
+        {isChecked && <div className={styles.formField} >
+    <Select className={styles.select}
+    id="category"
+    name="category"
+    value={isSelected}
+    required = {true}
+    onChange={handelSelect}
+  >
+   {options.map(({_id, name})=>{ 
+     return(<MenuItem value={_id} key={_id}>{name}</MenuItem> )
+    })}
+  </Select>
+    { (!isSelected)&&<label className={styles.selectLabel}>Выберите категорию</label>}
+    </div> }
+      <div className={styles.requiredGroup}>
       <input className={styles.input}
         id="amount"
         name="amount"
         type="number"
-        min="0"
+        min="1"
         step="0.1"
         placeholder="0.00"
         onChange={formik.handleChange}
@@ -133,13 +119,16 @@ const reset =(e) => {
       />
       { formik.touched.amount && formik.errors.amount ? <div className={styles.error}>{ formik.errors.amount }</div> : null }
       {/* <MyDatePicker /> */}
-                <div className={styles.formField}>
+                <div className={styles.picerWrapper}>
             <DatePicker
-              className="react-datepicker"
+              // className="react-datepicker"
+              className={styles.datepicker}
+              style={{height: "34px", width: "190px",}}
               name="date"
               type="date"
               dateFormat="Pp"
               selected={date}
+              // eslint-disable-next-line react/jsx-no-duplicate-props
               dateFormat="yyyy-MM-dd"
               onChange={(date) => { setDate(date) }}
             />

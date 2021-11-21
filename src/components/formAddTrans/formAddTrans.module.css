@@ -1,17 +1,23 @@
-.formWraper{
+
+.error {
+  color: red;
+  font-size: 15px;
+}
+.formWrapper{
   width: 320px;
-  /* height: 600px; */
+  /* height: 617px; */
   display: flex;
-flex-flow: column;
-margin-left: auto;
-margin-right: auto;
+  flex-flow: column;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px 20px 65px 20px;
 
 }
 
 .header{
   display: flex;
   align-items: center;
-  margin-top: 40px;
+  /* margin-top: 40px; */
   margin-left: auto;
   margin-right: auto;
 
@@ -27,17 +33,25 @@ align-items: center;
 text-align: center;
 color: #000000;
 }
+
 .inputGroup{
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+}
+.requiredGroup{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 /* The switch - the box around the slider */
-.switchWraper {
-  margin-top: 40px;
+.switchWrapper {
   margin-left: auto;
   margin-right: auto;
   display: flex;
   align-items: center;
+  width: 220px;
 
 }
 .switch {
@@ -83,7 +97,6 @@ color: #000000;
 }
 
 .sliderInput{
-  /* display: none; */
   appearance: none;
 }
 
@@ -123,32 +136,70 @@ color: #000000;
   border: none;
   border-bottom: 1px solid #E0E0E0;
 }
-/* .select{
-  position: relative;
 
+.formField{
+  /* position: relative; */
+  margin-top: 40px; 
+  margin-left: auto; 
+   margin-right: auto;
+}
+.selectLabel {
+  margin-top: 40px;
+  color:#E0E0E0;
+  position: absolute;
+  bottom: -22px;
+  left:0%;
+}
+.picerWrapper{
+   position: relative;
+}
+.select{
+  position: relative;
   margin-left: auto;
   margin-right: auto;
   height: 34px;
   width: 280px;
   border: none;
   border-bottom: 1px solid #E0E0E0;
-} */
-
+}
+.select:focus {
+  outline: none;
+}
 .input{
   height: 34px;
   width: 280px;
+  padding-left: 20px;
+  margin-top: 40px;
   border: none;
   border-bottom: 1px solid #E0E0E0;
 }
-.input:focus + .formLabel,
-.comment:focus + .formLabel,
-.input:not(:placeholder-shown) + .formLabel,
-.comment:not(:placeholder-shown) + .formLabel {
-  transform: translateY(-200%);
+.datepicker {
+  height: 34px;
+  width: 280px;
+  padding-left: 20px;
+  border: none;
+  margin-top: 40px;
+  margin-right: auto;
+  margin-left: auto;
+  border-bottom: 1px solid #E0E0E0;
+  background-image: url('../../img/calendar.svg');
+  background-repeat:no-repeat;
+  background-position: right; 
+
+}
+
+.datepicker:focus {
+  outline: none;
+}
+
+.datepicker-wrapper {
+  display: block;
 }
 .comment{
-  height: 74px;
+  height: 34px;
   width: 280px;
+  padding-left: 20px;
+  margin-top: 40px;
   border: none;
   border-bottom: 1px solid #E0E0E0;
 }
@@ -160,8 +211,9 @@ color: #000000;
 
 }
 .addBtn {
-width: 300px;
+width: 280px;
 height: 50px;
+padding: 0px;
 margin-top: 50px;
 margin-left: auto;
 margin-right: auto;
@@ -170,8 +222,9 @@ border: none;
 border-radius: 20px;
 }
 .CancelBtn{
-  width: 300px ;
+  width: 280px ;
   height: 50px;
+  padding: 0px;
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
@@ -182,10 +235,11 @@ border-radius: 20px;
 }
 
 @media screen and (min-width: 767px){
-  .formWraper{
+  .formWrapper{
     width: 540px;
-    /* height: 540px; */
+    padding: 40px 40px 60px 40px;
   }
+
   .hText{
     font-size: 30px;
     line-height: 45px;
@@ -194,7 +248,19 @@ border-radius: 20px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-}
+  }
+  .requiredGroup{
+  flex-direction: row;
+  flex-wrap: wrap;
+  }
+  .formField {
+  width: 410px;
+  }
+  .select{
+    width: 100%;
+  }
+  
+  
   .category{
   height: 34px;
   width: 410px;
@@ -202,9 +268,13 @@ border-radius: 20px;
   .input{
   height: 34px;
   width: 190px;
-}
+  }
   .comment{
   height: 34px;
   width: 410px;
+  display: block;
+  }
+  .datepicker {
+  width: 190px;
 }
 }
