@@ -67,19 +67,23 @@ export default function App() {
                   <RegistrationPage />
                 </PublicRoute>
               </ThemeProvider>
-            </Container>
+          </Container>
           }
-        />
+          />
         <Route
           path="/login"
           redirectTo="/"
           restricted
           element={
-            <PublicRoute restricted>
-              <LoginPage />
-            </PublicRoute>
+            <Container>
+              <ThemeProvider theme={theme}>
+                <PublicRoute restricted>
+                  <LoginPage />
+                </PublicRoute>
+              </ThemeProvider>
+            </Container>
           }
-        />
+          />
         <Route
           path="/"
           exact

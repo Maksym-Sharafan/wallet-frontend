@@ -164,93 +164,14 @@ import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { authOperations } from '../../redux/auth/auth-operations';
 import { Link } from 'react-router-dom';
+import { Grid, InputAdornment } from '@material-ui/core';
+import Textfield from '../FormsUI/Textfield';
+import Button from '../FormsUI/Button';
 
 import EmailRoundedIcon from '@material-ui/icons/EmailRounded';
 import LockIcon from '@material-ui/icons/Lock';
-import AccountBoxRoundedIcon from '@material-ui/icons/AccountBoxRounded';
-
-import { Grid, InputAdornment } from '@material-ui/core';
-import { makeStyles, createTheme } from '@material-ui/core/styles';
-import Textfield from '../FormsUI/Textfield';
-import Button from '../FormsUI/Button';
-import Icons from '../Icons/Icons';
-
-export const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#f00',
-    },
-  },
-});
-
-const useStyles = makeStyles({
-  root: {
-    '& .MuiSvgIcon-root': {
-      fill: 'inherit',
-    },
-    '& .MuiSvgIcon-colorError': {
-      color: '#f00',
-    },
-  },
-  form: {
-    maxWidth: 320,
-    '@media(min-width: 768px)': {
-      maxWidth: 540,
-      heigth: 616,
-      marginLeft: 'auto',
-      marginRight: 'auto',
-      paddingTop: 40,
-      paddingBottom: 60,
-      paddingLeft: 65,
-      paddingRight: 65,
-      backgroundColor: '#fff',
-      borderRadius: 20,
-    },
-  },
-  btnContainer: {
-    textAlign: 'center',
-  },
-  btnPrimary: {
-    width: 280,
-    height: 50,
-    // backgroundColor: "#24CCA7",
-    // borderRadius: 20,
-
-    '&:hover': {
-      backgroundColor: '#198e74',
-    },
-
-    '@media(min-width: 768px)': {
-      width: 300,
-    },
-  },
-  btnSecondary: {
-    width: 280,
-    height: 50,
-    color: '#4A56E2',
-    // borderRadius: 20,
-
-    '@media(min-width: 768px)': {
-      width: 300,
-    },
-  },
-  input: {
-    '& label.Mui-focused': {
-      color: '#24CCA7',
-    },
-    '& .MuiInput-underline:after': {
-      borderBottomColor: '#24CCA7',
-    },
-    '& .MuiInput-underline.Mui-error:after': {
-      borderBottomColor: 'red',
-    },
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: 'red',
-      },
-    },
-  },
-});
+import Icons from '../Icons';
+import { useStyles } from '../FormsUI/theme';
 
 const INITIAL_FORM_STATE = {
   email: '',
@@ -281,8 +202,9 @@ const RegistrationForm = () => {
     >
       <Form className={classes.form}>
         <Grid container spacing={4}>
-          <Grid item xs={12}>
-            Logo
+        <Grid item xs={12} className={classes.iconWrapper}>
+          <Icons name="wallet" className={classes.logoIconWallet}/>
+          <p className={classes.logoTitle}>Wallet</p>
           </Grid>
 
           <Grid item xs={12}>
@@ -295,8 +217,7 @@ const RegistrationForm = () => {
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <EmailRoundedIcon color="secondary" />
-                    {/* <Icons name="email" color="inherit" size="24"/> */}
+                    <EmailRoundedIcon color="secondary" className={classes.icon}/>
                   </InputAdornment>
                 ),
               }}
@@ -311,8 +232,7 @@ const RegistrationForm = () => {
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <LockIcon color="secondary" />
-                    {/* <Icons name="email" color="inherit" size="24"/> */}
+                    <LockIcon color="secondary" className={classes.icon}/>
                   </InputAdornment>
                 ),
               }}
@@ -323,7 +243,7 @@ const RegistrationForm = () => {
             <Button className={classes.btnPrimary}>Вход</Button>
           </Grid>
           <Grid className={classes.btnContainer} item xs={12}>
-            <Link to="/login">
+            <Link to="/signup">
               <Button className={classes.btnSecondary} variant="outlined">
                 Регистрация
               </Button>

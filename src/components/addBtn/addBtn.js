@@ -6,6 +6,7 @@ import Modal from '../ModalAddTrans'
 import FormAddTrans from '../FormAddTrans/FormAddTrans'
 import {isModalAddTransactionOpen} from '../../redux/modalAddTransaction/modal-actions'
 
+
 export default function  AddBtn () {
   const dispatch = useDispatch();
   const ShowModal= useSelector((state) => state.global)
@@ -16,7 +17,7 @@ export default function  AddBtn () {
     <>
     <button className={styles.button} type={'button'} aria-label="Add"
       onClick={()=>dispatch(isModalAddTransactionOpen())}>
-       <AddIcon />
+        <AddIcon />
     </button>
     { ShowModal && <Modal onClose = {toggleModal}>
       <FormAddTrans />
