@@ -6,8 +6,8 @@ const addTransactionError = createAction("transactions/addTransactionError");
 
 
 const fetchTransactionRequest = createAction('transactions/fetchTransactionRequest');
-const fetchTransactionSuccess = createAction('contacts/fetchTransactionSuccess');
-const fetchTransactionError = createAction('contacts/fetchTransactionError');
+const fetchTransactionSuccess = createAction('transactions/fetchTransactionSuccess');
+const fetchTransactionError = createAction('transactions/fetchTransactionError');
 
 
 const transactionsActions = {

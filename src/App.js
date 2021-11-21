@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
 import PublicRoute from './components/Routes/PublicRoute';
@@ -9,17 +9,22 @@ import { theme } from './components/FormsUI/theme';
 
 import ProtectedRoute from './components/Routes/ProtectedRoute';
 
-// import Statistics from './components/Statistics';
+import Statistics from './components/Statistics';
+import HomeTab from './components/HomeTab';
+import Currency from './components/Currency';
 
-// import AppBar from './components/AppBar/AppBar';
+//2011
+import { useDispatch, useSelector } from 'react-redux';
+import { authSelectors } from './redux/auth';
+import { authOperations } from './redux/auth';
+//
 
 // import RegistrationForm from "./components/RegistrationForm";
 // import ModalComponent from './components/modal'
 
 // import ModalComponent from './components/modal/modal_1'
 
-// import AddBtn from './components/addBtn/addBtn'
-// import DashboardPage from './pages/DashboardPage';
+// import AddBtn from './components/AddBtn/AddBtn'
 
 const RegistrationPage = lazy(() =>
   import(
@@ -43,61 +48,78 @@ const NotFoundPage = lazy(() =>
 // );
 
 export default function App() {
-  return (
-    <Suspense
-      fallback={
-        <Loader
-          type="ThreeDots"
-          color="#8c91b3"
-          height={50}
-          width={50}
-          timeout={3000} //3 secs
-        />
-      }
-    >
-      <Routes>
-        <Route
-          exact
-          path="/signup"
-          restricted
-          element={
-            <Container>
-              <ThemeProvider theme={theme}>
-                <PublicRoute>
-                  <RegistrationPage />
-                </PublicRoute>
-              </ThemeProvider>
-          </Container>
-          }
-          />
-        <Route
-          path="/login"
-          redirectTo="/"
-          restricted
-          element={
-            <Container>
-              <ThemeProvider theme={theme}>
-                <PublicRoute restricted>
-                  <LoginPage />
-                </PublicRoute>
-              </ThemeProvider>
-            </Container>
-          }
-          />
-        <Route
-          path="/"
-          exact
-          element={
-            <ProtectedRoute>
-              <DashboardPage />
-            </ProtectedRoute>
-          }
-        />
+  //20/11
+  const dispatch = useDispatch();
+  const isGettingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
 
-        <Route path="*" element={<NotFoundPage />} />
-        {/* <AddBtn /> */}
-      </Routes>
-      {/* <ModalComponent /> */}
-    </Suspense>
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
+  //
+  return (
+    !isGettingCurrentUser && (
+      <div>
+        <Suspense
+          fallback={
+            <Loader
+              type="ThreeDots"
+              color="#8c91b3"
+              height={50}
+              width={50}
+              timeout={3000} //3 secs
+            />
+          }
+        >
+          <Routes>
+            <Route
+              exact
+              path="/signup"
+              restricted
+              element={
+                <Container>
+                  <ThemeProvider theme={theme}>
+                    <PublicRoute>
+                      <RegistrationPage />
+                    </PublicRoute>
+                  </ThemeProvider>
+                </Container>
+              }
+            />
+            <Route
+              path="/login"
+              redirectTo="/"
+              restricted
+              element={
+                <Container>
+                  <ThemeProvider theme={theme}>
+                    <PublicRoute restricted>
+                      <LoginPage />
+                    </PublicRoute>
+                  </ThemeProvider>
+                </Container>
+              }
+            />
+
+            <Route
+              path="/"
+              exact
+              element={
+                <ProtectedRoute>
+                  <DashboardPage />
+                </ProtectedRoute>
+              }
+            >
+              <Route path="home" index element={<HomeTab />} />
+              <Route path="diagram" element={<Statistics />} />
+              <Route exact path="exclude" element={<Currency />} />
+            </Route>
+
+            <Route path="*" element={<NotFoundPage />} />
+            
+          </Routes>
+          {/* <ModalComponent /> */}
+        </Suspense>
+      </div>
+    )
   );
 }

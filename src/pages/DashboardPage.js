@@ -1,22 +1,34 @@
-import { Routes, Route } from "react-router";
-import AppBar from "../components/AppBar";
-import HomeTab from "../components/HomeTab";
-import Header from "../components/Header";
-// import Statistics from "../components/Statistics"
+import { Outlet } from 'react-router';
 
-import styles from "./DashboardPage.module.css";
+import AppBar from '../components/AppBar';
+import AddBtn from '../components/AddBtn'
+import Header from '../components/Header';
+
+import styles from './DashboardPage.module.css';
+// import { transactionsOperations } from "../redux/transactions";
+// import { useEffect } from 'react';
+// import { useDispatch } from 'react-redux';
 
 export default function DashboardPage() {
+
+    //     const dispatch = useDispatch();
+    //     useEffect(() => {
+    //     dispatch(transactionsOperations.fetchTransactions());
+    //   }, [dispatch]);
+
     return (
         <>
             <Header />
             <main className={styles.main}>
-                <AppBar />
-                <Routes>
-                    <Route path="/home" index element={<HomeTab />} />
-                    {/* <Route path="/statistics" index element={<Statistics  />} /> */}
-                </Routes>
+                <div className={styles.main_container}>
+                    <AppBar />
+                    <div className={styles.main_content}>
+                        <Outlet />
+                    </div>
+                    <AddBtn />
+                </div>
             </main>
         </>
     );
 }
+

@@ -4,7 +4,7 @@ import styles from './AddBtn.module.css'
 import AddIcon from '@material-ui/icons/Add';
 import Modal from '../ModalAddTrans'
 import FormAddTrans from '../FormAddTrans/FormAddTrans'
-import {isModalAddTransactionOpen} from '../../redux/modalAddTransaction/modal-actions'
+import { isModalAddTransactionOpen } from '../../redux/modalAddTransaction/modal-actions'
 
 
 export default function  AddBtn () {
@@ -26,4 +26,5 @@ export default function  AddBtn () {
   );
 
 };
+
 

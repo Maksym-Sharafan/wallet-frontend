@@ -1,9 +1,30 @@
 .appBar {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 400px;
-  border-right: 1px solid #e7e5f2;
-  box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.05),
-    1px 0px 0px rgba(255, 255, 255, 0.6);
+}
+
+@media screen and (min-width: 1280px) {
+  .appBar {
+    flex-direction: column;
+    align-items: center;
+
+    width: 378px;
+    padding-top: 40px;
+    padding-right: 30px;
+    border-right: 1px solid #e7e5f2;
+    box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.05),
+      1px 0px 0px rgba(255, 255, 255, 0.6);
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .nav_balance_wrapper {
+    margin-right: 20px;
+  }
+
+  .appBar {
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
 }
