@@ -9,22 +9,31 @@ import styles from './DashboardPage.module.css';
 // import { useEffect } from 'react';
 // import { useDispatch } from 'react-redux';
 
+// import { transactionsOperations } from "../redux/transactions";
+// import { useEffect } from 'react';
+// import { useDispatch } from 'react-redux';
+
+
 export default function DashboardPage() {
-      //     const dispatch = useDispatch();
+
+    //     const dispatch = useDispatch();
     //     useEffect(() => {
     //     dispatch(transactionsOperations.fetchTransactions());
     //   }, [dispatch]);
-  return (
-    <>
-      <Header />
-      <main className={styles.main}>
-        <div className={styles.main_container}>        
-          <AppBar />
-          <div className={styles.main_content}>
-            <Outlet />
-          </div>
-        </div>
-      </main>
-    </>
-  );
+
+    return (
+        <>
+            <Header />
+            <main className={styles.main}>
+                <div className={styles.main_container}>
+                    <AppBar />
+                    <div className={styles.main_content}>
+                        <Outlet />
+                    </div>
+                    <AddBtn />
+                </div>
+            </main>
+        </>
+    );
 }
+
