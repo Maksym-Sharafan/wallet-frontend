@@ -1,16 +1,12 @@
 import { Outlet } from "react-router";
-import Media from 'react-media';
 
 import AppBar from "../components/AppBar";
-
 import Header from "../components/Header";
-
-
+import AddBtn from "../components/AddBtn"
 
 import styles from "./DashboardPage.module.css";
-import React from "react";
 
-export default function DashboardPage({ children }) {
+export default function DashboardPage() {
 
     return (
         <>
@@ -21,6 +17,7 @@ export default function DashboardPage({ children }) {
                     <div className={styles.main_content}>
                         <Outlet />
                     </div>
+                    <AddBtn />
                 </div>
             </main>
         </>
