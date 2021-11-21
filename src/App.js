@@ -19,6 +19,8 @@ import { authSelectors } from './redux/auth';
 import { authOperations } from './redux/auth';
 //
 
+import { ToastContainer } from 'react-toastify';
+
 // import RegistrationForm from "./components/RegistrationForm";
 // import ModalComponent from './components/modal'
 
@@ -59,17 +61,7 @@ export default function App() {
   return (
     !isGettingCurrentUser && (
       <div>
-        <Suspense
-          fallback={
-            <Loader
-              type="ThreeDots"
-              color="#8c91b3"
-              height={50}
-              width={50}
-              timeout={3000} //3 secs
-            />
-          }
-        >
+        <Suspense fallback={<Loader />}>
           <Routes>
             <Route
               exact
@@ -115,10 +107,20 @@ export default function App() {
             </Route>
 
             <Route path="*" element={<NotFoundPage />} />
-            
           </Routes>
           {/* <ModalComponent /> */}
         </Suspense>
+        <ToastContainer
+          position="top-right"
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable={false}
+          pauseOnHover
+        />
       </div>
     )
   );
