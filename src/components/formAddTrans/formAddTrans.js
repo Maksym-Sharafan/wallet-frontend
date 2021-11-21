@@ -59,7 +59,7 @@ const reset =(e) => {
     },
      validationSchema: Yup.object({
        category: Yup.string()
-         .required('Required'),
+         .required('Выберите категорию'),
        amount: Yup.string()
          .max(10, 'Must be 10 characters or less')
          .required('Required'),
