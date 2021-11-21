@@ -106,14 +106,14 @@ export default function App() {
               }
             />
 
-            <Route
+            {/* <Route
               path="/home"
               exact
               element={<ProtectedRoute>{<HomeTab />}</ProtectedRoute>}
-            />
+            /> */}
             {/* <Route path="/home" element={<HomeTab />} /> */}
-            <Route path="/diagram" element={<Statistics />} />
-            <Route exact path="/exclude" element={<Currency />} />
+            {/* <Route path="/diagram" element={<Statistics />} />
+            <Route exact path="/exclude" element={<Currency />} /> */}
             {/* </Routes> */}
 
             <Route path="*" element={<NotFoundPage />} />

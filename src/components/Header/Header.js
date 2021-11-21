@@ -6,6 +6,7 @@ import { useState } from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import { Modal, Backdrop, Fade, Button } from '@material-ui/core';
+import { ThemeContext } from '@emotion/react';
 
 const useStyles = makeStyles(theme => ({
   modal: {
@@ -29,8 +30,11 @@ export default function Header() {
     setShowModal(prev => !prev);
   };
   const dispatch = useDispatch();
-  const name = useSelector(authSelectors.getUserName);
-
+ let name = useSelector(authSelectors.getUserName);
+  if (!name)
+  {
+    name = "Имя";
+  }
   return (
     <header className={styles.navigation_container}>
       <div className={styles.navigation_row}>
