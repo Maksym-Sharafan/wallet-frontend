@@ -323,7 +323,7 @@ const RegistrationForm = () => {
             <Button className={classes.btnPrimary}>Вход</Button>
           </Grid>
           <Grid className={classes.btnContainer} item xs={12}>
-            <Link to="/login">
+            <Link to="/signup">
               <Button className={classes.btnSecondary} variant="outlined">
                 Регистрация
               </Button>
