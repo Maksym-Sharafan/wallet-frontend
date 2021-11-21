@@ -1,48 +1,61 @@
+.main_container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @media screen and (min-width: 1280px) {
   .main {
-    justify-content: space-between;
-    align-items: center;
     background: url(../img/Rectangledesctop.jpg) no-repeat;
-    justify-content: center;
-    text-align: center;
-    min-width: 1280px;
-    min-height: 720px;
-    margin-left: auto;
-    margin-right: auto;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+  }
+
+  .main_container {
+    width: 1120px;
+        height: 720px;
+  }
+
+  .main_content {
+    margin-left: 30px;
+  }
+
+  .main_container_HomTab{
+       position: sticky;
+    margin-left: -90px;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .main {
-    justify-content: space-between;
-    align-items: center;
     background: url(../img/Rectangletablet.jpg) no-repeat;
-    justify-content: center;
-    text-align: center;
-    min-width: 768px;
-    min-height: 1024px;
-    margin-left: auto;
-    margin-right: auto;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
   }
+
+  .main_container {
+    width: 688px;
+        height: 1024px;
+  }
+   .main_container_HomTab{
+       position: sticky;
+ 
+  }
 }
 @media screen and (max-width: 767px) {
   .main {
-    justify-content: space-between;
-    align-items: center;
     background: url(../img/Rectanglemob.jpg) no-repeat;
-    justify-content: center;
-    text-align: center;
-    min-width: 320px;
-    min-height: 568px;
-    margin-left: auto;
-    margin-right: auto;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+  }
+
+  .main_container {
+    width: 280px;
+    height: 568px;
+  }
+   .main_container_HomTab{
+       position: sticky;
+ 
   }
 }

@@ -1,10 +1,14 @@
 @media screen and (min-width: 1280px) {
+  .table {
+    display: flex;
+    position: sticky;
+  }
   .headRow {
     position: absolute;
     width: 700px;
     height: 58px;
     left: 495px;
-    top: 206px;
+    top: 46px;
     background-color: #ffffff;
     border-radius: 30px;
     line-height: 1.5;
@@ -17,12 +21,19 @@
     font-size: 18px;
     line-height: 27px;
   }
-
   .row {
+    font-family: Circe;
+    background-color: #ffffff;
+    line-height: 1.5;
+    padding: 15px 20px;
+    width: 700px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 2fr 1fr 1fr;
     font-weight: 400;
     font-size: 16px;
     height: 54px;
   }
+
   .row:not(:last-child) {
     border-bottom: 1px solid #dcdcdf;
     box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
@@ -34,8 +45,6 @@
     font-weight: normal;
     font-size: 16px;
     line-height: 24px;
-    /* identical to box height */
-
     color: #000000;
   }
   .red {
@@ -47,19 +56,29 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-  .headRow {
-    /* position: absolute; */
+  .hometab {
     width: 688px;
     height: 58px;
-    left: 40px;
-    top: 394px;
+    margin: auto;
+    position: sticky;
+    margin-top: -156px;
+  }
+  .table {
+    margin: auto;
+  }
+  .headRow {
+    position: absolute;
+    width: 688px;
+    height: 58px;
+    left: 20px;
+    right: 20px;
+    top: 234px;
     background-color: #ffffff;
     border-radius: 30px;
     line-height: 1.5;
     padding: 15px 20px;
     display: grid;
     grid-template-columns: 1fr 1fr 2fr 2fr 1fr 1fr;
-
     font-family: Circe;
     font-style: normal;
     font-weight: bold;
@@ -68,6 +87,13 @@
   }
 
   .row {
+    font-family: Circe;
+    background-color: #ffffff;
+    line-height: 1.5;
+    padding: 15px 20px;
+    width: 700px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 2fr 1fr 1fr;
     font-weight: 400;
     font-size: 16px;
     height: 54px;
@@ -83,8 +109,6 @@
     font-weight: normal;
     font-size: 16px;
     line-height: 24px;
-    /* identical to box height */
-
     color: #000000;
   }
   .red {
@@ -96,4 +120,65 @@
 }
 
 @media screen and (max-width: 767px) {
+  .hometab {
+    width: 320px;
+    height: 568px;
+    margin: auto;
+    position: sticky;
+    margin-top: -174px;
+  }
+  .table {
+    margin: auto;
+  }
+  .headRow {
+    position: absolute;
+    width: 280px;
+    height: 282px;
+    left: 20px;
+    right: 10px;
+    top: 174px;
+    background-color: #ffffff;
+    border-radius: 30px;
+    line-height: 1.5;
+    padding: 15px 20px;
+    display: grid;
+    text-align: left;
+    font-family: Circe;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 27px;
+  }
+
+  .row {
+    font-family: Circe;
+    background-color: #ffffff;
+    line-height: 1.5;
+    padding: 15px 20px;
+    width: 700px;
+    display: grid;
+    text-align: right;
+    font-weight: 400;
+    font-size: 16px;
+    height: 54px;
+  }
+  .row:not(:last-child) {
+    border-bottom: 1px solid #dcdcdf;
+    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+  }
+  .item {
+    text-align: center;
+    font-family: Circe;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+  }
+  .red {
+    color: #ff6596;
+  }
+  .blue {
+    color: #24cca7;
+  }
 }

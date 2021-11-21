@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { v4 as id } from 'uuid';
 import Chart from '../Chart';
 import Table from '../Table';
-import s from './DiagramTab.module.scss';
+
+import styles from './DiagramTab.module.css';
 
 import date from './monthAndYear';
 import {
@@ -12,6 +13,12 @@ import {
   statisticsOperations,
   statisticsSelectors,
 } from '../../../redux/statistics';
+
+import {
+  transactionsActions,
+  transactionsOperations,
+  transactionsSelectors
+} from '../../../redux/transactions';
 
 
 function DiagramTab() {
@@ -37,10 +44,20 @@ function DiagramTab() {
     };
   }, [dispatch, month, year]);
 
-  const statisticsData = useSelector(statisticsSelectors.getItems);
-  const total = useSelector(statisticsSelectors.getBalance);
-  const income = useSelector(statisticsSelectors.getIncome);
-  const outlay = useSelector(statisticsSelectors.getOutlay);
+  // const statisticsData = useSelector(statisticsSelectors.getItems);
+  // const total = useSelector(statisticsSelectors.getBalance);
+  // const income = useSelector(statisticsSelectors.getIncome);
+  // const outlay = useSelector(statisticsSelectors.getOutlay);
+  // const statisticsData = useSelector(transactionsSelectors.getCosts);
+  // const total = useSelector(transactionsSelectors.getBalance);
+  // const income = useSelector(transactionsSelectors.getIncomes);
+  // const outlay = useSelector(transactionsSelectors.getOutlay);
+
+  const statisticsData = useSelector(transactionsSelectors.GetTransactionsList);
+  const total = useSelector(transactionsSelectors.getBalance);
+  const income = useSelector(transactionsSelectors.getIncomes);
+  const outlay = useSelector(transactionsSelectors.getCosts);
+
 
   const data = statisticsData.map(({ count }) => count);
   const backgroundColor = statisticsData.map(({ color }) => color);
@@ -59,58 +76,60 @@ function DiagramTab() {
 
   return (
     <>
-        <section className={s.section}>
-          <h2 className={s.sectionTitle}>Statistic</h2>
+      <section className={styles.section}>
+        <h2 className={styles.sectionTitle}>Статистика</h2>
 
-          <div className={s.wrapper}>
-            <div className={s.visualPart}>
-              {statisticsData.length > 0 && (
-                <h2 className={s.chartTotal}>
-                  ₴ {total ? total.toFixed(2) : 0}
-                </h2>
-              )}
-              <Chart data={chartData} />
-            </div>
-
-            <div className={s.tablePart}>
-              <div className={s.filter}>
-                <select
-                  value={month}
-                  id="month"
-                  className={s.dropdown}
-                  onChange={handleChangeMonth}
-                >
-                  {date.months.map(month => (
-                    <option value={month} key={id()}>
-                      {month}
-                    </option>
-                  ))}
-                </select>
-
-                <select
-                  value={year}
-                  id="year"
-                  className={s.dropdown}
-                  onChange={handleChangeYear}
-                >
-                  {date.years.map(year => (
-                    <option value={year} key={id()}>
-                      {year}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              {statisticsData.length ? (
-                <Table data={statisticsData} income={income} outlay={outlay} />
-              ) : (
-                <p className={s.warning}>
-                  Please, add at least one transaction for this month
-                </p>
-              )}
-            </div>
+        <div className={styles.wrapper}>
+          <div className={styles.visualPart}>
+            {statisticsData.length > 0 && (
+              <h2 className={styles.chartTotal}>
+                ₴ {total ? total.toFixed(2) : 0}
+              </h2>
+            )}
+            <Chart data={chartData} />
           </div>
-        </section>
+
+          <div className={styles.tablePart}>
+            <div className={styles.filter}>
+              <select
+                value={month}
+                id="month"
+                className={styles.dropdown}
+                onChange={handleChangeMonth}
+              >
+                {date.months.map(month => (
+                  <option value={month} key={id()}>
+                    {month}
+                  </option>
+                ))}
+              </select>
+
+              <select
+                value={year}
+                id="year"
+                className={styles.dropdown}
+                onChange={handleChangeYear}
+              >
+                {date.years.map(year => (
+                  <option value={year} key={id()}>
+                    {year}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {statisticsData.length ? (
+              <Table data={statisticsData} income={income} outlay={outlay} />
+              // <Table data={statisticsData} income={income} />
+            ) : (
+              <p className={styles.warning}>
+                {/* Please, add at least one transaction for this month */}
+                Пожалуйста, добавьте хотя бы одну транзакцию за этот месяц
+              </p>
+            )}
+          </div>
+        </div>
+      </section>
     </>
   );
 }

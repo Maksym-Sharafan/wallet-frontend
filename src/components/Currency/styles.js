@@ -26,7 +26,7 @@ const styles = (isLoader) => {
       transform: "translate(-50%, -50%)",
     },
     tableContainer: {
-      borderRadius: 30,
+      borderRadius: '30px 30px 0 0',
     },
 
     tableHead: {

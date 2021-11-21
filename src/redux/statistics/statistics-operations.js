@@ -2,6 +2,7 @@ import axios from 'axios';
 
 import actions from './statistics-actions';
 
+axios.defaults.baseURL = 'https://wallet-29.herokuapp.com/api';
 
 const fetchStatistics = (month, year) => async dispatch => {
   dispatch(actions.fetchStatisticsRequest());
@@ -9,7 +10,7 @@ const fetchStatistics = (month, year) => async dispatch => {
   try {
     const {
       data: { statistics },
-    } = await axios.get(`/api/transactions/${month}/${year}`);
+    } = await axios.get(`/transactions/${month}/${year}`);
 
     dispatch(actions.fetchStatisticsSuccess(statistics));
   } catch (e) {
@@ -25,7 +26,7 @@ const fetchBalance = () => async dispatch => {
       data: {
         response: { totalBalance },
       },
-    } = await axios.get('/api/transactions');
+    } = await axios.get('/transactions');
 
     dispatch(actions.fetchBalanceSuccess(totalBalance));
   } catch (e) {

@@ -14,8 +14,7 @@ import Media from 'react-media';
 import GradientSvg from './gradientSvg';
 import styles from './styles';
 
-const PRIVATBANK_API =
-  'https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11';
+const PRIVATBANK_API = 'https://wallet-29.herokuapp.com/api/pb';
 
 const Currency = () => {
   const [isLoader, setIsLoader] = useState(true);

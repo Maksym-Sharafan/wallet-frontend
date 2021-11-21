@@ -21,6 +21,10 @@
     background-size: 250px;
   }
 
+  .backgroundWrapper.login {
+    background-image: url("../../img/wallet-login.svg");
+  }
+
   .title {
     display: block;
   }
@@ -43,9 +47,6 @@
     align-items: center;
 
     z-index: 1;
-  }
-
-  .title {
   }
 
   .backgroundWrapper {
