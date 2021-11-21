@@ -104,20 +104,14 @@ export default function App() {
                   <DashboardPage />
                 </ProtectedRoute>
               }
-            />
-
-            {/* <Route
-              path="/home"
-              exact
-              element={<ProtectedRoute>{<HomeTab />}</ProtectedRoute>}
-            /> */}
-            {/* <Route path="/home" element={<HomeTab />} /> */}
-            {/* <Route path="/diagram" element={<Statistics />} />
-            <Route exact path="/exclude" element={<Currency />} /> */}
-            {/* </Routes> */}
+            >
+              <Route path="home" index element={<HomeTab />} />
+              <Route path="diagram" element={<Statistics />} />
+              <Route exact path="exclude" element={<Currency />} />
+            </Route>
 
             <Route path="*" element={<NotFoundPage />} />
-            {/* <AddBtn /> */}
+            
           </Routes>
           {/* <ModalComponent /> */}
         </Suspense>
