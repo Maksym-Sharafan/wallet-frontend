@@ -1,6 +1,8 @@
 // import { set } from "@reduxjs/toolkit/node_modules/immer/dist/internal";
 import axios from 'axios';
 import { authActions } from './auth-actions';
+import { toast } from 'react-toastify';
+
 axios.defaults.baseURL = 'https://wallet-29.herokuapp.com/api';
 
 const token = {
@@ -20,9 +22,11 @@ const signup = credentials => async dispatch => {
       const { data } = await axios.post('/auth/login', credentials);
       token.set(data.data.token);
       dispatch(authActions.signupUsersSuccess(data.data));
+      toast.success('Регистрация прошла успешно!');
     }
   } catch (error) {
     dispatch(authActions.signupUsersError(error.message));
+    toast.error('Ошибка регистрации!');
   }
 };
 

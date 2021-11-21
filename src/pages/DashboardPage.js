@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router';
 
 import AppBar from '../components/AppBar';
-import AddBtn from '../components/AddBtn'
+import AddBtn from '../components/AddBtn';
 import Header from '../components/Header';
 
 import styles from './DashboardPage.module.css';
@@ -10,25 +10,23 @@ import styles from './DashboardPage.module.css';
 // import { useDispatch } from 'react-redux';
 
 export default function DashboardPage() {
+  //     const dispatch = useDispatch();
+  //     useEffect(() => {
+  //     dispatch(transactionsOperations.fetchTransactions());
+  //   }, [dispatch]);
 
-    //     const dispatch = useDispatch();
-    //     useEffect(() => {
-    //     dispatch(transactionsOperations.fetchTransactions());
-    //   }, [dispatch]);
-
-    return (
-        <>
-            <Header />
-            <main className={styles.main}>
-                <div className={styles.main_container}>
-                    <AppBar />
-                    <div className={styles.main_content}>
-                        <Outlet />
-                    </div>
-                    <AddBtn />
-                </div>
-            </main>
-        </>
-    );
+  return (
+    <>
+      <Header />
+      <main className={styles.main}>
+        <div className={styles.main_container}>
+          <AppBar />
+          <div className={styles.main_content}>
+            <Outlet />
+          </div>
+          <AddBtn />
+        </div>
+      </main>
+    </>
+  );
 }
-
