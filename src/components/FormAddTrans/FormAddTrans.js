@@ -5,11 +5,12 @@ import { useFormik } from 'formik';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 
 
 import categoriesList from '../../redux/categories/categories'
 import { transactionsOperations, transactionsSelectors } from "../../redux/transactions";
-import {isModalAddTransactionOpen} from '../../redux/modalAddTransaction/modal-actions'
 
 import styles from './FormAddTrans.module.css';
 import "react-datepicker/dist/react-datepicker.css";
@@ -42,6 +43,11 @@ const FormAddTrans = ({onClose, showModal}) => {
     const categoryId = e.target.value;
     setIsSelected(categoryId)
   }
+
+  useEffect(()=>{
+    setIsSelected();
+  },[isChecked]
+  );
   
   const options = [...categoriesList];
   const formik = useFormik({
@@ -91,12 +97,12 @@ const FormAddTrans = ({onClose, showModal}) => {
 
   return (
     <>
-    <form onSubmit={formik.handleSubmit} className={styles.formWraper}>
+    <form onSubmit={formik.handleSubmit} className={styles.formWrapper}>
       <div className={styles.header}>
         <h1 className={styles.hText}>Добавить транзакцию</h1>
       </div>
       <div className={styles.inputGroup}>
-        <div className={styles.switchWraper}>
+        <div className={styles.switchWrapper}>
           <span className={styles.income}
             style={{ color: isChecked ? "#E0E0E0" : "#24CCA7" }}>
             Доход
@@ -110,26 +116,23 @@ const FormAddTrans = ({onClose, showModal}) => {
             style={{ color: isChecked ? "#FF6596" : "#E0E0E0" }}>Расход</span>
         </div>
       </div>
-      <div className={styles.inputGroup}>
-        {/* { isChecked &&  < CustomizedSelects  options={options} handleChange = {handelSelect} />}     */}
-        {isChecked && <div className={styles.category}>
-          <select className={styles.select}
-            id="category"
-            name="category"
-            required={true}
-            type="select"
-            onChange={handelSelect} >
-            <option value="" selected disabled hidden >
-              Выберите категорию</option>
-            {options.map(({ _id, name }) => {
-              return (<option value={_id} key={_id} className={styles.option}>
+      <div className={styles.inputWrapper}>
+         {isChecked && <div className={styles.categoryWrapper}>
+            <Select className={styles.category}
+              id="category"
+              name="category"
+              required={true}
+              type="select"
+             onChange={handelSelect}>
+              {options.map(({ _id, name }) => {
+              return (<MenuItem value={_id} key={_id} className={styles.option}>
                 {name}
-              </option>)
-            })}
-          </select>
+              </MenuItem>)})}
+            </Select>
+          <label className={styles.selectLabel} > Выберите категорию </label>
         </div>
         }
-        {/* <div className={styles.inputGroup}> */}
+        <div className={styles.inputGroup}>
           <div className={styles.formField}>
             <input className={styles.input}
               id="amount"
@@ -143,9 +146,9 @@ const FormAddTrans = ({onClose, showModal}) => {
               value={formik.values.amount}
             />
           </div>
-          <div className={styles.formField}>
+          <div className={styles.reactDatepickerWrapper}>
             <DatePicker
-              className="react-datepicker"
+              className={styles.datepicker }
               name="date"
               type="date"
               dateFormat="Pp"
@@ -155,8 +158,8 @@ const FormAddTrans = ({onClose, showModal}) => {
             />
 
           </div>
-        {/* </div> */}
-        <div className={styles.formField}>
+        </div>
+
           <textarea className={styles.comment}
             id="comment"
             name="comment"
@@ -165,7 +168,7 @@ const FormAddTrans = ({onClose, showModal}) => {
             onChange={formik.handleChange}
             value={formik.values.comment}
           />
-        </div>
+
       </div>
       <button type="submit"  className={styles.addBtn}>Добавить</button>
       <button onClick={onClose} className={styles.CancelBtn}  > Отмена </button>
