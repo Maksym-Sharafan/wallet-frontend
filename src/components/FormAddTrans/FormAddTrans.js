@@ -91,12 +91,12 @@ const FormAddTrans = ({onClose, showModal}) => {
 
   return (
     <>
-    <form onSubmit={formik.handleSubmit} className={styles.formWraper}>
+    <form onSubmit={formik.handleSubmit} className={styles.formWrapper}>
       <div className={styles.header}>
         <h1 className={styles.hText}>Добавить транзакцию</h1>
       </div>
       <div className={styles.inputGroup}>
-        <div className={styles.switchWraper}>
+        <div className={styles.switchWrapper}>
           <span className={styles.income}
             style={{ color: isChecked ? "#E0E0E0" : "#24CCA7" }}>
             Доход
@@ -110,7 +110,7 @@ const FormAddTrans = ({onClose, showModal}) => {
             style={{ color: isChecked ? "#FF6596" : "#E0E0E0" }}>Расход</span>
         </div>
       </div>
-      <div className={styles.inputGroup}>
+      <div className={styles.inputWrapper}>
         {/* { isChecked &&  < CustomizedSelects  options={options} handleChange = {handelSelect} />}     */}
         {isChecked && <div className={styles.category}>
           <select className={styles.select}
@@ -129,7 +129,7 @@ const FormAddTrans = ({onClose, showModal}) => {
           </select>
         </div>
         }
-        {/* <div className={styles.inputGroup}> */}
+        <div className={styles.inputGroup}>
           <div className={styles.formField}>
             <input className={styles.input}
               id="amount"
@@ -143,9 +143,9 @@ const FormAddTrans = ({onClose, showModal}) => {
               value={formik.values.amount}
             />
           </div>
-          <div className={styles.formField}>
+          <div className={styles.reactDatepickerWrapper}>
             <DatePicker
-              className="react-datepicker"
+              className={styles.datepicker }
               name="date"
               type="date"
               dateFormat="Pp"
@@ -155,8 +155,8 @@ const FormAddTrans = ({onClose, showModal}) => {
             />
 
           </div>
-        {/* </div> */}
-        <div className={styles.formField}>
+        </div>
+
           <textarea className={styles.comment}
             id="comment"
             name="comment"
@@ -165,7 +165,7 @@ const FormAddTrans = ({onClose, showModal}) => {
             onChange={formik.handleChange}
             value={formik.values.comment}
           />
-        </div>
+
       </div>
       <button type="submit"  className={styles.addBtn}>Добавить</button>
       <button onClick={onClose} className={styles.CancelBtn}  > Отмена </button>
