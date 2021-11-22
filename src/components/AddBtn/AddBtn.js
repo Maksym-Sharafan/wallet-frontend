@@ -30,7 +30,7 @@ export default function  AddBtn () {
     dispatch(transactionsOperations.fetchTransactions());
     // dispatch(authOperations.fetchCurrentUser());
               
-            }, 3000);}
+            }, 2000);}
   }, [ShowModal]);
 
   return (

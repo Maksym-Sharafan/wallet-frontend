@@ -57,7 +57,7 @@ const FormAddTrans = ({onClose, showModal}) => {
       const correctValues = { ...values, type: transType, category: isSelected, date: date }
       // const correctValues = { ...values, type: transType, category: isSelected, date: moment(date).format() }
       // console.log(correctValues);
-      alert(JSON.stringify(correctValues, null, 2));
+      // alert(JSON.stringify(correctValues, null, 2));
       dispatch(transactionsOperations.addTransaction(correctValues));
       resetForm()
 
@@ -69,7 +69,7 @@ const FormAddTrans = ({onClose, showModal}) => {
       onClose()
       
       }
-      }, 5000);
+      }, 2000);
 
       // window.location.reload();
     }
