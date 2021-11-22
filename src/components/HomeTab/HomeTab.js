@@ -1,10 +1,8 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { shallowEqual, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { transactionsSelectors } from '../../redux/transactions';
 import { transactionsOperations } from '../../redux/transactions';
 import categoriesList from '../../redux/categories/categories';
-import { Table } from '@material-ui/core';
 import moment from 'moment';
 import Media from 'react-media';
 import styles from './hometab.module.css';
@@ -55,16 +53,12 @@ const HomeTab = () => {
                             <td className={styles.item}>
                               {moment(date).format('DD.MM.YY')}
                             </td>
-                            {/* </tr> */}
 
-                            {/* <tr className={styles.row}> */}
                             <th className={styles.tableHead}>Тип</th>
                             <td className={styles.item}>
                               {type === 'cost' ? '-' : '+'}
                             </td>
-                            {/* </tr> */}
 
-                            {/* <tr className={styles.row}> */}
                             <th className={styles.tableHead}>Категория</th>
                             <td className={styles.item}>
                               {category
@@ -73,14 +67,10 @@ const HomeTab = () => {
                                   ).name
                                 : 'Регулярный доход'}
                             </td>
-                            {/* </tr> */}
 
-                            {/* <tr className={styles.row}> */}
                             <th className={styles.tableHead}>Комментарий</th>
                             <td className={styles.item}>{comment}</td>
-                            {/* </tr> */}
 
-                            {/* <tr className={styles.row}> */}
                             <th className={styles.tableHead}>Сумма</th>
                             <td
                               className={
@@ -91,9 +81,7 @@ const HomeTab = () => {
                             >
                               {amount.toFixed(2)}
                             </td>
-                            {/* </tr> */}
 
-                            {/* <tr className={styles.row}> */}
                             <th className={styles.tableHead}>Баланс</th>
                             <td className={styles.item}>
                               {balance.toFixed(2)}
@@ -105,7 +93,7 @@ const HomeTab = () => {
                 </tbody>
               </table>
             )}
-            {/* ********************************************************** */}
+
             {matches.large && (
               <div className={styles.table}>
                 <table className={styles.table}>
