@@ -1,6 +1,10 @@
-@media screen and (min-width: 1200px) {
+.navigation_container {
+  background-color: #fff;
+}
+
+@media screen and (min-width: 1280px) {
   .navigation_container {
-    width: 1110px;
+    max-width: 1110px;
     height: 80px;
     margin: auto;
   }
@@ -26,7 +30,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: #bdbdbd;
+    color: #fff;
   }
 
   .navigation_header_title {
@@ -79,7 +83,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: #bdbdbd;
+    color: #fff;
   }
   .navigation_header_title {
     margin-right: 14px;
@@ -117,6 +121,7 @@
   }
   .navigation_header_wallet {
     display: block;
+    margin-left: 10px;
     margin-right: 5px;
     font-family: Poppins;
     font-style: normal;
@@ -131,7 +136,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: #bdbdbd;
+    margin-right: 10px;
+    /* color: #fff; */
   }
 
   .navigation_header_title {
