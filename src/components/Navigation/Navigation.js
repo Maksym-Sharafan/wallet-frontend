@@ -2,10 +2,6 @@ import { NavLink } from 'react-router-dom';
 import styles from './Navigation.module.css';
 import Icons from '../../components/Icons';
 
-// const isActiveFn2 = ({ isActive }) => {
-
-//   return isActive ? styles.active : styles.navigation_link;
-// }
 const isActiveFn = ({ isActive }) => {
 
   return isActive ? styles.active : styles.navigation_link;
