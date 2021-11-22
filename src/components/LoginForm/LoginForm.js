@@ -80,7 +80,9 @@ const LoginForm = () => {
           </Grid>
 
           <Grid className={classes.btnContainer} item xs={12}>
-            <Button className={classes.btnPrimary}>Вход</Button>
+            <Button className={classes.btnPrimary} type="submit">
+              Вход
+            </Button>
           </Grid>
           <Grid className={classes.btnContainer} item xs={12}>
             <Link to="/signup">
