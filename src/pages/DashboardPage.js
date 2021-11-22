@@ -21,9 +21,9 @@ export default function DashboardPage() {
                     <div className={styles.main_content}>
                         <Outlet />
                     </div>
-                    <div className={styles.wrapper_addBtn}>
-                        <AddBtn />
-                    </div>
+
+                    <AddBtn />
+
                 </div>
             </main>
         </>

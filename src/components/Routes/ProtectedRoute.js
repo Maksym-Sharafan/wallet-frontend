@@ -9,6 +9,6 @@ export default function ProtectedRoute({
 }) {
   const IsAuth = useSelector(authSelectors.IsAuth);
   const isError = useSelector(authSelectors.getError);
-  // return IsAuth && !isError ? <Navigate to={redirectTo} /> : children;
+
   return IsAuth && !isError ? children : <Navigate to={redirectTo} />;
 }
