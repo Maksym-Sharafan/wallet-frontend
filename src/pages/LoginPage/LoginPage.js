@@ -2,7 +2,7 @@ import React from 'react';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import { Typography } from '@material-ui/core';
 import styles from '../RegistrationPage/RegistrationPage.module.css';
-
+import 'react-toastify/dist/ReactToastify.css';
 const LoginPage = () => {
   return (
     <>

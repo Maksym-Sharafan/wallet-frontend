@@ -39,6 +39,7 @@ const login = credentials => async dispatch => {
     dispatch(authActions.loginUsersSuccess(data.data));
   } catch (error) {
     dispatch(authActions.loginUsersError(error.message));
+    toast.error('Пользователь с таким логином и паролем не найден. ');
   }
 };
 
@@ -66,7 +67,6 @@ const fetchCurrentUser = () => async (dispatch, getState) => {
   dispatch(authActions.fetchCurrentUserRequest());
   try {
     const { data } = await axios.get('/auth/current');
-    // console.log(data.data);
     dispatch(authActions.fetchCurrentUserSuccess(data.data));
   } catch (error) {
     dispatch(authActions.fetchCurrentUserError(error.message));
