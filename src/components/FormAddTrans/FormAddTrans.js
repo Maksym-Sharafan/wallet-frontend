@@ -38,7 +38,7 @@ const FormAddTrans = ({onClose, showModal}) => {
 
   const handelSelect = (e) => {
     const categoryId = e.target.value;
-    setIsSelected(categoryId)
+    setIsSelected(categoryId);
   }
 
   useEffect(()=>{
@@ -106,6 +106,7 @@ const FormAddTrans = ({onClose, showModal}) => {
       <div className={styles.inputWrapper}>
          {isChecked && <div className={styles.categoryWrapper}>
             <Select className={styles.category}
+              value={isSelected}
               id="category"
               name="category"
               required={true}
@@ -159,6 +160,8 @@ const FormAddTrans = ({onClose, showModal}) => {
       <button type="submit"  className={styles.addBtn}>Добавить</button>
       <button onClick={onClose} className={styles.CancelBtn}  > Отмена </button>
     </form>
+
+{/* <ToastContainer /> */}
 
 </>
   );

@@ -8,9 +8,6 @@ import { isModalAddTransactionOpen } from '../../redux/modalAddTransaction/modal
 import { useState } from 'react';
 import { transactionsOperations } from "../../redux/transactions";
 
-
-
-
 export default function  AddBtn () {
   const dispatch = useDispatch();
   const [ShowModal, setShowModal] = useState(false)
@@ -22,12 +19,15 @@ export default function  AddBtn () {
 
   }
 
-    useEffect(() => {
-          if (ShowModal === false) {
-            setTimeout(() => {
-    dispatch(transactionsOperations.fetchTransactions());
-            }, 2000);}
-  }, [dispatch, ShowModal]);
+  //   useEffect(() => {
+  //         if (ShowModal === false) {
+  //           setTimeout(() => {
+  //   dispatch(transactionsOperations.fetchTransactions());
+  //   // dispatch(authOperations.fetchCurrentUser());
+              
+  //           }, 2000);}
+  // }, [ShowModal]);
+
 
   return (
     <>

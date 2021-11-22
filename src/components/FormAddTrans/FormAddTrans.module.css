@@ -1,3 +1,4 @@
+@import '../../stylesheet/fonts.css';
 
 .error {
   color: red;
@@ -23,7 +24,7 @@
 
 }
 .hText {
-font-family: Poppins;
+font-family: 'Poppins';
 font-style: normal;
 font-weight: normal;
 font-size: 24px;
@@ -32,6 +33,7 @@ display: flex;
 align-items: center;
 text-align: center;
 color: #000000;
+letter-spacing: 1,5px;
 }
 
 .inputGroup{
@@ -182,7 +184,11 @@ color: #000000;
   height: 34px;
   width: 280px;
   padding-left: 20px;
-  /* margin-top: 40px; */
+ font-family: Circe;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 27px;
   border: none;
   border-bottom: 1px solid #E0E0E0;
 }
@@ -209,12 +215,19 @@ color: #000000;
   display: block;
 } */
 .comment{
-  height: 34px;
+  height: 74px;
   width: 280px;
+  resize: none;
   padding-left: 20px;
   margin-top: 40px;
   border: none;
   border-bottom: 1px solid #E0E0E0;
+  font-family: Circe;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 27px;
+  color: #BDBDBD;
 }
 .formLabel {
   position: absolute;
@@ -233,6 +246,15 @@ margin-right: auto;
 background: #24CCA7;
 border: none;
 border-radius: 20px;
+font-family: Circe;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 27px;
+text-align: center;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: #FFFFFF;
 }
 .CancelBtn{
   width: 280px ;
@@ -245,6 +267,15 @@ border-radius: 20px;
 border: 1px solid #4A56E2;
 box-sizing: border-box;
 border-radius: 20px;
+font-family: Circe;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 27px;
+text-align: center;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: #4A56E2;
 }
 
 @media screen and (min-width: 767px){
