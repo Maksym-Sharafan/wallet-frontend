@@ -4,7 +4,6 @@ import styles from './hometab.module.css';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { transactionsOperations } from "../../redux/transactions";
-import { Table } from '@material-ui/core';
 import moment from 'moment'
 import categoriesList from '../../redux/categories/categories'
 
@@ -14,7 +13,7 @@ import categoriesList from '../../redux/categories/categories'
 const HomeTab = () => {
   const dispatch = useDispatch();
  
-  const transactions = useSelector(transactionsSelectors.GetTransactionsList);
+  const transactions = useSelector(transactionsSelectors.GetTransactionsList, shallowEqual);
 
 
   useEffect(() => {

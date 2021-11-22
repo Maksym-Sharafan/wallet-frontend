@@ -4,25 +4,22 @@ import { useDispatch, useSelector } from 'react-redux';
 import { v4 as id } from 'uuid';
 import Chart from '../Chart';
 import Table from '../Table';
+import categoriesList from '../../../redux/categories/categories'
+
 
 import styles from './DiagramTab.module.css';
 
 import date from './monthAndYear';
 import {
-  statisticsActions,
   statisticsOperations,
   statisticsSelectors,
 } from '../../../redux/statistics';
 
-import {
-  transactionsActions,
-  transactionsOperations,
-  transactionsSelectors
-} from '../../../redux/transactions';
 
 
 function DiagramTab() {
-  const [month, setMonth] = useState(date.currentMonth);
+  const currentMonthNumber = date.months.find(month => month.title === date.currentMonth).number
+  const [month, setMonth] = useState(currentMonthNumber);
 
   const handleChangeMonth = ({ target: { value } }) => {
     setMonth(value);
@@ -39,29 +36,25 @@ function DiagramTab() {
   useEffect(() => {
     dispatch(statisticsOperations.fetchStatistics(month, year));
 
-    return () => {
-      dispatch(statisticsActions.resetStatistics());
-    };
   }, [dispatch, month, year]);
 
-  // const statisticsData = useSelector(statisticsSelectors.getItems);
-  // const total = useSelector(statisticsSelectors.getBalance);
-  // const income = useSelector(statisticsSelectors.getIncome);
-  // const outlay = useSelector(statisticsSelectors.getOutlay);
-  // const statisticsData = useSelector(transactionsSelectors.getCosts);
-  // const total = useSelector(transactionsSelectors.getBalance);
-  // const income = useSelector(transactionsSelectors.getIncomes);
-  // const outlay = useSelector(transactionsSelectors.getOutlay);
+  const statisticsData = useSelector(statisticsSelectors.getItems);
 
-  const statisticsData = useSelector(transactionsSelectors.GetTransactionsList);
-  const total = useSelector(transactionsSelectors.getBalance);
-  const income = useSelector(transactionsSelectors.getIncomes);
-  const outlay = useSelector(transactionsSelectors.getCosts);
+  const income = statisticsData.filter(item=>item.type==="income").reduce((prev, cur)=>{return prev+cur.amount},0)
+  const outlay = statisticsData.filter(item => item.type === "cost").reduce((prev, cur) => { return prev + cur.amount }, 0)
+  const costs = statisticsData.filter(item => item.type === "cost")
 
+  const pivottable = costs.reduce((acc, cur, idx) => {
+    const cost = acc.find(itm => itm.id === cur.category)
+    cost ?
+      acc[acc.indexOf(cost)].count+=cur.amount:
+      acc.push({ id: cur.category, name: categoriesList.find(cat => cat._id === cur.category).name, count: cur.amount, color: categoriesList.find(cat => cat._id === cur.category).color })
+    return acc
+  }, [])
 
-  const data = statisticsData.map(({ count }) => count);
-  const backgroundColor = statisticsData.map(({ color }) => color);
-  const label = statisticsData.map(({ name }) => name);
+  const data = pivottable.map(({ count }) => count);
+  const backgroundColor = pivottable.map(({ color }) => color);
+  const label = pivottable.map(({ name }) => name);
 
   const chartData = {
     datasets: [
@@ -83,7 +76,7 @@ function DiagramTab() {
           <div className={styles.visualPart}>
             {statisticsData.length > 0 && (
               <h2 className={styles.chartTotal}>
-                ₴ {total ? total.toFixed(2) : 0}
+                ₴ {outlay ? outlay.toFixed(2) : 0}
               </h2>
             )}
             <Chart data={chartData} />
@@ -98,8 +91,8 @@ function DiagramTab() {
                 onChange={handleChangeMonth}
               >
                 {date.months.map(month => (
-                  <option value={month} key={id()}>
-                    {month}
+                  <option value={month.number} key={id()}>
+                    {month.title}
                   </option>
                 ))}
               </select>
@@ -119,12 +112,10 @@ function DiagramTab() {
             </div>
 
             {statisticsData.length ? (
-              <Table data={statisticsData} income={income} outlay={outlay} />
-              // <Table data={statisticsData} income={income} />
+              <Table data={pivottable} income={income} outlay={outlay} />
             ) : (
               <p className={styles.warning}>
-                {/* Please, add at least one transaction for this month */}
-                Пожалуйста, добавьте хотя бы одну транзакцию за этот месяц
+                За выбранный месяц транзакций нет
               </p>
             )}
           </div>

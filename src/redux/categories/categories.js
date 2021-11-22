@@ -4,7 +4,7 @@ const categoriesList =[
             type: "cost",
             name: "Продукты",
             owner: null,
-            colour: "green"
+            color: "#FED057"
         },
         {
             colour: null,
@@ -12,6 +12,7 @@ const categoriesList =[
             type: "cost",
             name: "Машина",
             owner: null,
+            color: "#FFD8D0"
         },
         {
             colour: null,
@@ -19,6 +20,7 @@ const categoriesList =[
             type: "cost",
             name: "Забота о себе",
             owner: null,
+            color: "#FD9498"
         },
         {
             colour: null,
@@ -26,6 +28,7 @@ const categoriesList =[
             type: "cost",
             name: "Забота о детях",
             owner: null,
+            color: "#C5BAFF"
         },
         {
             colour: null,
@@ -33,6 +36,7 @@ const categoriesList =[
             type: "cost",
             name: "Товары для дома",
             owner: null,
+            color: "#6E78E8"
         },
         {
             colour: null,
@@ -40,6 +44,7 @@ const categoriesList =[
             type: "cost",
             name: "Образование",
             owner: null,
+            color: "#4A56E2"
         },
         {
            colour: null,
@@ -47,6 +52,7 @@ const categoriesList =[
             type: "cost",
             name: "Досуг",
             owner: null,
+            color: "#81E1FF"
         },
         {
             colour: null,
@@ -54,6 +60,7 @@ const categoriesList =[
             type: "cost",
             name: "Спорт",
             owner: null,
+            color: "#24CCA7"
         },
         {
             colour: null,
@@ -61,6 +68,7 @@ const categoriesList =[
             type: "cost",
             name: "Другие расходы",
             owner: null,
+            color: "#00AD84"
         }
     ]
 

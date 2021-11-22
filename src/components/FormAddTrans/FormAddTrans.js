@@ -2,19 +2,16 @@ import React, { useState , useEffect} from 'react';
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import DatePicker from "react-datepicker";
 import { useFormik } from 'formik';
-import { ToastContainer, toast } from 'react-toastify';
+import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
 
 import categoriesList from '../../redux/categories/categories'
 import { transactionsOperations, transactionsSelectors } from "../../redux/transactions";
-import {isModalAddTransactionOpen} from '../../redux/modalAddTransaction/modal-actions'
 
 import styles from './FormAddTrans.module.css';
 import "react-datepicker/dist/react-datepicker.css";
-
-// import moment from 'moment'
 
 
 
@@ -30,7 +27,6 @@ const FormAddTrans = ({onClose, showModal}) => {
   // переключает тип и раскрашивает название типа
 
   const error = useSelector(transactionsSelectors.getError, shallowEqual)
-  // console.log(error)
 
 
   const handleChange = () => {
@@ -50,35 +46,25 @@ const FormAddTrans = ({onClose, showModal}) => {
       category: isSelected,
       amount: '',
       date: date,
-      // comment: ""
     },
     onSubmit: (values, {resetForm}) => {
-      // console.log(values);
       const correctValues = { ...values, type: transType, category: isSelected, date: date }
-      // const correctValues = { ...values, type: transType, category: isSelected, date: moment(date).format() }
-      // console.log(correctValues);
-      // alert(JSON.stringify(correctValues, null, 2));
       dispatch(transactionsOperations.addTransaction(correctValues));
       resetForm()
-
-      // onClose()
 
       setTimeout(() => {
       if (!error) {
         console.log(error)
       onClose()
-      
       }
       }, 2000);
 
-      // window.location.reload();
     }
   });
 
   useEffect(() => {
-    // console.log(typeof error)
    if (error) {
-     const errorMessage = (error) ? "Balance cannot be negative" : 'Транзакция'
+     const errorMessage = (error) ? "Итоговый баланс не может быть отрицательным." : 'Добавление транзакции успешно'
 
             toast.error(
             errorMessage,
@@ -111,7 +97,6 @@ const FormAddTrans = ({onClose, showModal}) => {
         </div>
       </div>
       <div className={styles.inputGroup}>
-        {/* { isChecked &&  < CustomizedSelects  options={options} handleChange = {handelSelect} />}     */}
         {isChecked && <div className={styles.category}>
           <select className={styles.select}
             id="category"
@@ -129,7 +114,6 @@ const FormAddTrans = ({onClose, showModal}) => {
           </select>
         </div>
         }
-        {/* <div className={styles.inputGroup}> */}
           <div className={styles.formField}>
             <input className={styles.input}
               id="amount"
@@ -148,14 +132,12 @@ const FormAddTrans = ({onClose, showModal}) => {
               className="react-datepicker"
               name="date"
               type="date"
-              dateFormat="Pp"
               selected={date}
               dateFormat="yyyy-MM-dd"
               onChange={(date) => { setDate(date) }}
             />
 
           </div>
-        {/* </div> */}
         <div className={styles.formField}>
           <textarea className={styles.comment}
             id="comment"
@@ -170,7 +152,6 @@ const FormAddTrans = ({onClose, showModal}) => {
       <button type="submit"  className={styles.addBtn}>Добавить</button>
       <button onClick={onClose} className={styles.CancelBtn}  > Отмена </button>
     </form>
-<ToastContainer />
 
 </>
   );

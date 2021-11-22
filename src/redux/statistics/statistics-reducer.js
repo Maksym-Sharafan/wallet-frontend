@@ -3,31 +3,43 @@ import { combineReducers } from 'redux';
 
 import actions from './statistics-actions';
 
-const { fetchStatisticsSuccess, fetchBalanceSuccess, resetStatistics } =
-  actions;
+const {fetchStatisticsRequest, fetchStatisticsError, fetchStatisticsSuccess,fetchBalanceRequest, fetchBalanceSuccess, fetchBalanceError } = actions;
 
 const items = createReducer([], {
-  [fetchStatisticsSuccess]: (_, { payload }) => [...payload.monthOutlay],
-  [resetStatistics]: (_, __) => [],
-});
-
-const income = createReducer(null, {
-  [fetchStatisticsSuccess]: (_, { payload }) => payload.income,
-});
-
-const outlay = createReducer(null, {
-  [fetchStatisticsSuccess]: (_, { payload }) => payload.outlay,
+  [fetchStatisticsSuccess]: (_, { payload }) => payload.transactionList,
 });
 
 const balance = createReducer(null, {
   [fetchBalanceSuccess]: (_, { payload }) => payload,
 });
 
+
+const error = createReducer(null, {
+  [fetchStatisticsRequest]: () => null,
+  [fetchStatisticsSuccess]: () => null,
+  [fetchStatisticsError]: (_, { payload }) => payload,
+
+  [fetchBalanceRequest]: () => null,
+  [fetchBalanceSuccess]: () => null,
+  [fetchBalanceError]: (_, { payload }) => payload,
+
+});
+
+const isLoading = createReducer(false, {
+  [fetchStatisticsRequest]: () => true,
+  [fetchStatisticsSuccess]: () => false,
+  [fetchStatisticsError]: () => false,
+  [fetchBalanceRequest]: () => true,
+  [fetchBalanceSuccess]: () => false,
+  [fetchBalanceError]: () => false,
+
+});
+
 const statisticsReducer = combineReducers({
   items,
-  income,
-  outlay,
   balance,
+  error,
+  isLoading
 });
 
 export default statisticsReducer;

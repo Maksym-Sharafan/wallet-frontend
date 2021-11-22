@@ -6,7 +6,6 @@ import { useState } from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import { Modal, Backdrop, Fade, Button } from '@material-ui/core';
-import { ThemeContext } from '@emotion/react';
 
 const useStyles = makeStyles(theme => ({
   modal: {

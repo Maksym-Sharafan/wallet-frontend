@@ -1,109 +1,110 @@
 @media screen and (min-width: 320px) {
-    .sectionTitle {
-        margin: 0;
-        margin-bottom: 10px;
-        padding: 0;
-        font-weight: 400;
-        font-size: 30px;
-        line-height: 1.5;
-    }
+  .sectionTitle {
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.5;
+  }
 
-    .visualPart {
-        position: relative;
-        height: 100%;
-    }
-      
-    .chartTotal {
-        position: absolute;
-        top: 62%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: transparent;
-        font-family: Circe, sans-serif;
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 1.5;
-    }
-      
-    .filter {
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-    }
-      
-    .dropdown {
-        outline: none;
-        appearance: none;
-        display: inline-flex;
-        margin-bottom: 20px;
-        padding: 12px 20px;
-        min-width: 280px;
-        max-height: 50px;
-        border: 1px solid #000;
-        border-radius: 25px;
-        align-items: center;
-        background-color: transparent;
-        font-family: Circe, sans-serif;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 1.5;
-        background: url(../../../img/arrow-bottom.svg) no-repeat right;
-        background-position-x: calc(100% - 20px);
-    }
-    
-    .dropdown:first-child, :focus {
-        cursor: pointer;
-    }
-      
-    .warning {
-        padding: 20px 0;
-        text-align: center;
-        color: #ff6596;
-        font-family: Circe, sans-serif;
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 1.5;
-    }
+  .visualPart {
+    position: relative;
+    height: 100%;
+  }
+
+  .chartTotal {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    font-family: Circe, sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .filter {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dropdown {
+    outline: none;
+    appearance: none;
+    display: inline-flex;
+    margin-bottom: 20px;
+    padding: 12px 20px;
+    min-width: 280px;
+    max-height: 50px;
+    border: 1px solid #000;
+    border-radius: 25px;
+    align-items: center;
+    background-color: transparent;
+    font-family: Circe, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    background: url(../../../img/arrow-bottom.svg) no-repeat right;
+    background-position-x: calc(100% - 20px);
+  }
+
+  .dropdown:first-child,
+  :focus {
+    cursor: pointer;
+  }
+
+  .warning {
+    padding: 20px 0;
+    text-align: center;
+    color: #ff6596;
+    font-family: Circe, sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.5;
+  }
 }
 
 @media screen and (min-width: 768px) {
-    .section {
-        padding: 40px 0px 0px 30px;
-        width: 100%;
-    }
+  .section {
+    padding: 40px 0px 0px 30px;
+    width: 100%;
+  }
 
-    .sectionTitle {
-        margin-bottom: 20px;
-    }
+  .sectionTitle {
+    margin-bottom: 20px;
+  }
 
-    .wrapper {
-        display: flex;
-        justify-content: space-around;
-    }
+  .wrapper {
+    display: flex;
+    justify-content: space-around;
+  }
 
-    .visualPart {
-        margin-right: 35px;
-        margin-bottom: 0px;
-    }
+  .visualPart {
+    margin-right: 35px;
+    margin-bottom: 0px;
+  }
 
-    .filter {
-        margin-bottom: 20px;
-        flex-direction: row;
-    }
+  .filter {
+    margin-bottom: 20px;
+    flex-direction: row;
+  }
 
-    .dropdown {
-        margin: 0;
-        min-width: 165px;
-    }
+  .dropdown {
+    margin: 0;
+    min-width: 165px;
+  }
 
-    .dropdown:first-child {
-        margin-right: 20px;
-    }
+  .dropdown:first-child {
+    margin-right: 20px;
+  }
 }
 
 @media screen and (max-width: 767px) {
-    .visualPart{
-        margin-bottom: 20px;
-    }
+  .visualPart {
+    margin-bottom: 20px;
+  }
 }

@@ -5,7 +5,6 @@ import transactionsActions from "./transactions-actions";
 
 const itemsReducer = createReducer([], {
     [transactionsActions.fetchTransactionSuccess]: (_, { payload }) => payload.transactionList,
-    // [transactionsActions.addTransactionSuccess]: (state, {payload})=>[...state, payload],
 });
 
 
