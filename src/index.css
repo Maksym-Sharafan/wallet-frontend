@@ -16,11 +16,10 @@ code {
     monospace;
 }
 
-@media (min-width: 768px) {
-  #root {
-    background-color: #e7eaf2;
-  }
-}
+/* #root {
+  background-color: #fff;
+} */
+
 p {
   margin: 0px;
 }

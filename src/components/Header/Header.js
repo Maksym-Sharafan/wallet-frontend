@@ -6,6 +6,7 @@ import { useState } from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import { Modal, Backdrop, Fade, Button } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   modal: {
@@ -29,18 +30,17 @@ export default function Header() {
     setShowModal(prev => !prev);
   };
   const dispatch = useDispatch();
- let name = useSelector(authSelectors.getUserName);
-  if (!name)
-  {
+  let name = useSelector(authSelectors.getUserName);
+  if (!name) {
     name = "Имя";
   }
   return (
     <header className={styles.navigation_container}>
       <div className={styles.navigation_row}>
-        <div className={styles.navigation_header_wallet}>
+        <Link className={styles.navigation_header_wallet} to="/home">
           <Icons name="wallet" className={styles.navigation_icon_wallet} />
           <p>Wallet</p>
-        </div>
+        </Link>
         <div className={styles.navigation_header}>
           <p className={styles.navigation_header_title}>{name}</p>
 

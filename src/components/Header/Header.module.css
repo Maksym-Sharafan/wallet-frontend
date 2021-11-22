@@ -1,6 +1,10 @@
+.navigation_container {
+  background-color: #fff;
+}
+
 @media screen and (min-width: 1280px) {
   .navigation_container {
-    width: 1280px;
+    max-width: 1110px;
     height: 80px;
     margin: auto;
   }
@@ -12,7 +16,7 @@
   }
   .navigation_header_wallet {
     display: block;
-    margin-left: 85px;
+
     font-family: Poppins;
     font-style: normal;
     font-weight: bold;
@@ -26,8 +30,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: #bdbdbd;
-    margin-right: 85px;
+    color: #fff;
   }
 
   .navigation_header_title {
@@ -54,7 +57,7 @@
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .navigation_container {
-    width: 768px;
+    width: 688px;
     height: 80px;
     margin: auto;
   }
@@ -66,7 +69,7 @@
   }
   .navigation_header_wallet {
     display: block;
-    margin-left: 62px;
+
     font-family: Poppins;
     font-style: normal;
     font-weight: bold;
@@ -80,8 +83,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: #bdbdbd;
-    margin-right: 28px;
+    color: #fff;
   }
   .navigation_header_title {
     margin-right: 14px;
@@ -95,7 +97,7 @@
   .navigation_icon_wallet {
     width: 40px;
     height: 40px;
-    margin-left: 13px;
+
     margin-right: 20px;
   }
   .navigation_icon_button_exit {
@@ -105,9 +107,11 @@
 }
 @media screen and (max-width: 767px) {
   .navigation_container {
-    width: 320px;
+    max-width: 350px;
+    min-width: 280px;
     height: 86px;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
   }
   .navigation_row {
     display: flex;
@@ -117,8 +121,8 @@
   }
   .navigation_header_wallet {
     display: block;
-    margin-left: 13px;
-    margin-right: 53px;
+    margin-left: 10px;
+    margin-right: 5px;
     font-family: Poppins;
     font-style: normal;
     font-weight: bold;
@@ -132,7 +136,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: #bdbdbd;
+    margin-right: 10px;
+    /* color: #fff; */
   }
 
   .navigation_header_title {

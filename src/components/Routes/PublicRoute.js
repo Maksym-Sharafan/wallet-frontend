@@ -6,7 +6,7 @@ const PublicRoute = ({ children, restricted = false }) => {
   const isAuth = useSelector(authSelectors.IsAuth);
   const shouldRedirect = isAuth && restricted;
 
-  return shouldRedirect ? <Navigate to="/" /> : children;
+  return shouldRedirect ? <Navigate to="/home" /> : children;
 };
 
 export default PublicRoute;

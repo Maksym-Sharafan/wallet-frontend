@@ -38,6 +38,7 @@ const login = credentials => async dispatch => {
     dispatch(authActions.loginUsersSuccess(data.data));
   } catch (error) {
     dispatch(authActions.loginUsersError(error.message));
+    toast.error('Пользователь с таким логином и паролем не найден. ');
   }
 };
 

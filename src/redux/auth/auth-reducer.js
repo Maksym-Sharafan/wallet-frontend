@@ -13,7 +13,6 @@ const initialState = {
 const user = createReducer(initialState.user, {
   [authActions.signupUsersSuccess]: (_, { payload }) => payload.user,
   [authActions.loginUsersSuccess]: (_, { payload }) => payload.user,
-  // [authActions.logoutUsersSuccess]: () => user.name,
   [authActions.logoutUsersSuccess]: () => initialState.user,
   [authActions.fetchCurrentUserSuccess]: (_, { payload }) => payload.user,
 });
@@ -46,7 +45,6 @@ const error = createReducer(initialState.error, {
 const isAuth = createReducer(initialState.isAuth, {
   [authActions.signupUsersRequest]: () => false,
   [authActions.signupUsersSuccess]: () => true,
-  // [authActions.loginUsersRequest]: () => false,
   [authActions.loginUsersSuccess]: () => true,
   [authActions.logoutUsersSuccess]: () => false,
   [authActions.fetchCurrentUserSuccess]: () => true,

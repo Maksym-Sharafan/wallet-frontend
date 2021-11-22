@@ -37,6 +37,14 @@ color: #000000;
 .inputGroup{
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
+}
+.inputWrapper{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .requiredGroup{
   width: 100%;
@@ -125,9 +133,14 @@ color: #000000;
   color: #E0E0E0;
 }
 
+.reactDatepickerWrapper {
+  width: 280px ;
+}
+.categoryWrapper{
+  position: relative;
+}
 .category {
   display:block;
-  position: relative;
   margin-top: 40px;
   margin-left: auto;
   margin-right: auto;
@@ -145,7 +158,7 @@ color: #000000;
 }
 .selectLabel {
   margin-top: 40px;
-  color:#E0E0E0;
+  color:#BDBDBD;
   position: absolute;
   bottom: -22px;
   left:0%;
@@ -169,7 +182,7 @@ color: #000000;
   height: 34px;
   width: 280px;
   padding-left: 20px;
-  margin-top: 40px;
+  /* margin-top: 40px; */
   border: none;
   border-bottom: 1px solid #E0E0E0;
 }
@@ -192,9 +205,9 @@ color: #000000;
   outline: none;
 }
 
-.datepicker-wrapper {
+/* .datepicker-wrapper {
   display: block;
-}
+} */
 .comment{
   height: 34px;
   width: 280px;
@@ -244,11 +257,21 @@ border-radius: 20px;
     font-size: 30px;
     line-height: 45px;
   }
+  .inputWrapper{
+  display: flex;
+  flex-direction: column;
+  width: 410px;
+  margin-left: auto;
+  margin-right: auto;
+}
   .inputGroup{
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  justify-content: space-between;
   }
+
   .requiredGroup{
   flex-direction: row;
   flex-wrap: wrap;
@@ -264,9 +287,13 @@ border-radius: 20px;
   .category{
   height: 34px;
   width: 410px;
+  position: relative;
   }
   .input{
   height: 34px;
+  width: 190px;
+  }
+  .reactDatepickerWrapper {
   width: 190px;
   }
   .comment{

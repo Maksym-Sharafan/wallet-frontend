@@ -1,28 +1,32 @@
+.main {
+  background-color: #e7eaf2;
+  padding-bottom: 50px;
+}
+
 .main_container {
   margin-left: auto;
   margin-right: auto;
+  position: relative;
 }
 
 @media screen and (min-width: 1280px) {
   .main {
-    background: url(../img/Rectangledesctop.jpg) no-repeat;
+    background-image: url(../img/Rectangledesctop.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
   }
 
   .main_container {
-    width: 1120px;
-        height: 720px;
+    width: 1110px;
+
+    display: flex;
   }
 
   .main_content {
+    margin-top: 46px;
     margin-left: 30px;
-  }
-
-  .main_container_HomTab{
-       position: sticky;
-    margin-left: -90px;
+    width: 700px;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
@@ -34,28 +38,21 @@
   }
 
   .main_container {
+    display: flex;
+    flex-direction: column;
     width: 688px;
-        height: 1024px;
-  }
-   .main_container_HomTab{
-       position: sticky;
- 
   }
 }
 @media screen and (max-width: 767px) {
   .main {
-    background: url(../img/Rectanglemob.jpg) no-repeat;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: #e7eaf2;
+    background-repeat: repeat-y;
+    background-size: 100%;
     background-position: center;
+    height: max-content;
   }
 
   .main_container {
     width: 280px;
-    height: 568px;
-  }
-   .main_container_HomTab{
-       position: sticky;
- 
   }
 }
