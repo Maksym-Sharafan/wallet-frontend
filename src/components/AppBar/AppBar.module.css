@@ -18,6 +18,10 @@
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .nav_balance_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
     margin-right: 20px;
   }
 
