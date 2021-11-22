@@ -136,10 +136,11 @@ color: #000000;
 .reactDatepickerWrapper {
   width: 280px ;
 }
-
+.categoryWrapper{
+  position: relative;
+}
 .category {
   display:block;
-  position: relative;
   margin-top: 40px;
   margin-left: auto;
   margin-right: auto;
@@ -157,7 +158,7 @@ color: #000000;
 }
 .selectLabel {
   margin-top: 40px;
-  color:#E0E0E0;
+  color:#BDBDBD;
   position: absolute;
   bottom: -22px;
   left:0%;
@@ -286,6 +287,7 @@ border-radius: 20px;
   .category{
   height: 34px;
   width: 410px;
+  position: relative;
   }
   .input{
   height: 34px;
