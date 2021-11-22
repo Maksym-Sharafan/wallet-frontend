@@ -7,15 +7,10 @@ import FormAddTrans from '../FormAddTrans/FormAddTrans'
 import { isModalAddTransactionOpen } from '../../redux/modalAddTransaction/modal-actions'
 import { useState } from 'react';
 import { transactionsOperations } from "../../redux/transactions";
-// import { authOperations } from "../../redux/auth";
-
-
-
 
 export default function  AddBtn () {
   const dispatch = useDispatch();
   const [ShowModal, setShowModal] = useState(false)
-  // const ShowModal= useSelector((state) => state.global)
   const toggleModal = () =>{
     setShowModal(!ShowModal)
 
@@ -32,6 +27,7 @@ export default function  AddBtn () {
               
   //           }, 2000);}
   // }, [ShowModal]);
+
 
   return (
     <>

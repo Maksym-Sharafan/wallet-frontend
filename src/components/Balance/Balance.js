@@ -4,7 +4,9 @@ import { transactionsSelectors } from '../../../src/redux/transactions';
 import styles from './Balance.module.css';
 
 const Balance = () => {
-  const balance = useSelector(transactionsSelectors.getBalance);
+  // const balance = useSelector(transactionsSelectors.getBalance);
+  const transactions = useSelector(transactionsSelectors.GetTransactionsList);
+  const balance = transactions.length > 0 ? transactions[0].balance : "0.00";
   // console.log(balance);
   return (
     <div className={styles.wrapper}>

@@ -27,7 +27,7 @@ const Table = ({ data, income, outlay }) => {
                   {name}
                 </td>
                 {/* <td className={styles.tableData}>{count.toFixed(1)}</td> */}
-                <td className={styles.tableData}>{count}</td>
+                <td className={styles.tableData}>{count.toFixed(2)}</td>
               </tr>
             ))}
           </tbody>
@@ -35,11 +35,11 @@ const Table = ({ data, income, outlay }) => {
           <tfoot className={styles.tableFoot}>
             <tr className={styles.footRaw}>
               <th className={styles.footTitle}>Расходы:</th>
-              <td className={styles.expenses}>{outlay ? outlay.toFixed(1) : 0}</td>
+              <td className={styles.expenses}>{outlay ? outlay.toFixed(2) : 0}</td>
             </tr>
             <tr className={styles.footRow}>
               <th className={styles.footTitle}>Доходы:</th>
-              <td className={styles.incomes}>{income ? income.toFixed(1) : 0}</td>
+              <td className={styles.incomes}>{income ? income.toFixed(2) : 0}</td>
             </tr>
           </tfoot>
         </table>
