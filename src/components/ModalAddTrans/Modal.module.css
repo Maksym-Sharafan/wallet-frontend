@@ -29,7 +29,6 @@
 @media screen and (min-width:767px) {
   .Modal__content {
     width: 540px;
-    height: 617px;
     padding-left: 0px;
   }
 }
