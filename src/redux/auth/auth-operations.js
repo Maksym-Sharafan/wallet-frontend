@@ -1,4 +1,3 @@
-// import { set } from "@reduxjs/toolkit/node_modules/immer/dist/internal";
 import axios from 'axios';
 import { authActions } from './auth-actions';
 import { toast } from 'react-toastify';
@@ -62,7 +61,6 @@ const fetchCurrentUser = () => async (dispatch, getState) => {
   if (!userToken) {
     return console.log('there is no token');
   }
-  console.log(userToken);
   token.set(userToken);
   dispatch(authActions.fetchCurrentUserRequest());
   try {

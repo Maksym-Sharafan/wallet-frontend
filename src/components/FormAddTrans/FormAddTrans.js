@@ -2,7 +2,7 @@ import React, { useState , useEffect} from 'react';
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import DatePicker from "react-datepicker";
 import { useFormik } from 'formik';
-import { ToastContainer, toast } from 'react-toastify';
+import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import Select from '@mui/material/Select';
@@ -14,8 +14,6 @@ import { transactionsOperations, transactionsSelectors } from "../../redux/trans
 
 import styles from './FormAddTrans.module.css';
 import "react-datepicker/dist/react-datepicker.css";
-
-// import moment from 'moment'
 
 
 
@@ -31,7 +29,6 @@ const FormAddTrans = ({onClose, showModal}) => {
   // переключает тип и раскрашивает название типа
 
   const error = useSelector(transactionsSelectors.getError, shallowEqual)
-  // console.log(error)
 
 
   const handleChange = () => {
@@ -56,35 +53,25 @@ const FormAddTrans = ({onClose, showModal}) => {
       category: isSelected,
       amount: '',
       date: date,
-      // comment: ""
     },
     onSubmit: (values, {resetForm}) => {
-      // console.log(values);
       const correctValues = { ...values, type: transType, category: isSelected, date: date }
-      // const correctValues = { ...values, type: transType, category: isSelected, date: moment(date).format() }
-      // console.log(correctValues);
-      // alert(JSON.stringify(correctValues, null, 2));
       dispatch(transactionsOperations.addTransaction(correctValues));
       resetForm()
-
-      // onClose()
 
       setTimeout(() => {
       if (!error) {
         console.log(error)
       onClose()
-      
       }
       }, 2000);
 
-      // window.location.reload();
     }
   });
 
   useEffect(() => {
-    // console.log(typeof error)
    if (error) {
-     const errorMessage = (error) ? "Balance cannot be negative" : 'Транзакция'
+     const errorMessage = (error) ? "Итоговый баланс не может быть отрицательным." : 'Добавление транзакции успешно'
 
             toast.error(
             errorMessage,
@@ -151,7 +138,6 @@ const FormAddTrans = ({onClose, showModal}) => {
               className={styles.datepicker }
               name="date"
               type="date"
-              dateFormat="Pp"
               selected={date}
               dateFormat="yyyy-MM-dd"
               onChange={(date) => { setDate(date) }}
@@ -173,7 +159,6 @@ const FormAddTrans = ({onClose, showModal}) => {
       <button type="submit"  className={styles.addBtn}>Добавить</button>
       <button onClick={onClose} className={styles.CancelBtn}  > Отмена </button>
     </form>
-<ToastContainer />
 
 </>
   );
