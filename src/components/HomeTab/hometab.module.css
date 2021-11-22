@@ -1,10 +1,9 @@
 @media screen and (min-width: 1280px) {
   .table {
     display: flex;
-    position: sticky;
+    flex-direction: column;
   }
   .headRow {
-    position: absolute;
     width: 700px;
     height: 58px;
     left: 495px;
@@ -60,14 +59,13 @@
     width: 688px;
     height: 58px;
     margin: auto;
-    position: sticky;
+
     margin-top: -156px;
   }
   .table {
     margin: auto;
   }
   .headRow {
-    position: absolute;
     width: 688px;
     height: 58px;
     left: 20px;
@@ -124,14 +122,13 @@
     width: 320px;
     height: 568px;
     margin: auto;
-    position: sticky;
+
     margin-top: -174px;
   }
   .table {
     margin: auto;
   }
   .headRow {
-    position: absolute;
     width: 280px;
     height: 282px;
     left: 20px;
