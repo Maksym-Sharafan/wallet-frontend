@@ -84,6 +84,7 @@ const FormAddTrans = ({onClose, showModal}) => {
 
   return (
     <>
+    <button type="submit"  onClick={onClose} className={styles.onClose}></button>
     <form onSubmit={formik.handleSubmit} className={styles.formWrapper}>
       <div className={styles.header}>
         <h1 className={styles.hText}>Добавить транзакцию</h1>

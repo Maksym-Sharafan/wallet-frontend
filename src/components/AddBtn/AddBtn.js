@@ -19,14 +19,14 @@ export default function  AddBtn () {
 
   }
 
-  //   useEffect(() => {
-  //         if (ShowModal === false) {
-  //           setTimeout(() => {
-  //   dispatch(transactionsOperations.fetchTransactions());
-  //   // dispatch(authOperations.fetchCurrentUser());
+    useEffect(() => {
+          if (ShowModal === false) {
+            setTimeout(() => {
+    dispatch(transactionsOperations.fetchTransactions());
+    // dispatch(authOperations.fetchCurrentUser());
               
-  //           }, 2000);}
-  // }, [ShowModal]);
+            }, 2000);}
+  }, [ShowModal]);
 
 
   return (
