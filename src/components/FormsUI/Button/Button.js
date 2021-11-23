@@ -1,6 +1,5 @@
-import { Button } from "@material-ui/core";
-import { useFormikContext } from "formik";
-import "./styles.js";
+import { Button } from '@material-ui/core';
+import { useFormikContext } from 'formik';
 
 const ButtonWrapper = ({ children, ...otherProps }) => {
   const { submitForm } = useFormikContext();
@@ -9,8 +8,8 @@ const ButtonWrapper = ({ children, ...otherProps }) => {
   };
 
   const configButton = {
-    variant: "contained",
-    color: "primary",
+    variant: 'contained',
+    color: 'primary',
     fullWidth: true,
     onClick: handleSubmit,
   };
