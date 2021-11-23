@@ -5,17 +5,17 @@
   font-size: 15px;
 }
 
-.onClose{
+.onClose {
   position: absolute;
   top: 21px;
   right: 15px;
   width: 16px;
   height: 16px;
   border: none;
-  background-image: url("../../img/close.png");
+  background-image: url('../../img/close.png');
 }
 
-.formWrapper{
+.formWrapper {
   width: 320px;
   /* height: 617px; */
   display: flex;
@@ -23,42 +23,40 @@
   margin-left: auto;
   margin-right: auto;
   padding: 20px 20px 65px 20px;
-
 }
 
-.header{
+.header {
   display: flex;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-
 }
 .hText {
-font-family: Poppins;
-font-style: normal;
-font-weight: normal;
-font-size: 24px;
-line-height: 36px;
-display: flex;
-align-items: center;
-text-align: center;
-color: #000000;
-letter-spacing: 1,5px;
+  /* font-family: Poppins; */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 36px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+  letter-spacing: 1, 5px;
 }
 
-.inputGroup{
+.inputGroup {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
 }
-.inputWrapper{
+.inputWrapper {
   display: flex;
   flex-direction: column;
   width: 300px;
   margin-left: auto;
   margin-right: auto;
 }
-.requiredGroup{
+.requiredGroup {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -72,7 +70,6 @@ letter-spacing: 1,5px;
   display: flex;
   align-items: center;
   width: 220px;
-
 }
 .switch {
   position: relative;
@@ -84,7 +81,6 @@ letter-spacing: 1,5px;
   background-color: #fff;
 }
 
-
 /* The slider */
 .slider {
   position: absolute;
@@ -94,41 +90,40 @@ letter-spacing: 1,5px;
   right: 0;
   bottom: 0;
   border-radius: 34px;
-  border: 1px solid #E0E0E0;
+  border: 1px solid #e0e0e0;
   background-color: #fff;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider:before {
   position: absolute;
-  content: "";
+  content: '';
   height: 40px;
   width: 40px;
   /* left: 4px; */
   /* bottom: 2px; */
   border-radius: 50%;
-  background-color:#24CCA7;
-  background-image: url("../../img/plus.png");
+  background-color: #24cca7;
+  background-image: url('../../img/plus.png');
   background-repeat: no-repeat;
   background-position: 50% 50%;
   /* -webkit-transition: .4s;
   transition: .4s; */
 }
 
-.sliderInput{
+.sliderInput {
   appearance: none;
 }
 
 .sliderInput:checked + .slider:before {
   transform: translateX(40px);
-  background-color: #FF6596;
-  background-image: url("../../img/minus.png");
+  background-color: #ff6596;
+  background-image: url('../../img/minus.png');
 }
 
-
 .income {
-  color:#24CCA7;
+  color: #24cca7;
   font-family: Circe;
   font-style: normal;
   font-weight: bold;
@@ -142,65 +137,65 @@ letter-spacing: 1,5px;
   font-weight: bold;
   font-size: 16px;
   line-height: 24px;
-  color: #E0E0E0;
+  color: #e0e0e0;
 }
 
 .reactDatepickerWrapper {
-  width: 280px ;
+  width: 280px;
 }
-.categoryWrapper{
+.categoryWrapper {
   position: relative;
 }
 .category {
-  display:block;
+  display: block;
   margin-top: 40px;
   margin-left: auto;
   margin-right: auto;
   height: 34px;
   width: 280px;
   border: none;
-  border-bottom: 1px solid #E0E0E0;
+  border-bottom: 1px solid #e0e0e0;
 }
 
-.formField{
+.formField {
   /* position: relative; */
-  margin-top: 40px; 
-  margin-left: auto; 
-   margin-right: auto;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .selectLabel {
   margin-top: 40px;
-  color:#BDBDBD;
+  color: #bdbdbd;
   position: absolute;
   bottom: -22px;
-  left:0%;
+  left: 0%;
 }
-.picerWrapper{
-   position: relative;
+.picerWrapper {
+  position: relative;
 }
-.select{
+.select {
   position: relative;
   margin-left: auto;
   margin-right: auto;
   height: 34px;
   width: 280px;
   border: none;
-  border-bottom: 1px solid #E0E0E0;
+  border-bottom: 1px solid #e0e0e0;
 }
 .select:focus {
   outline: none;
 }
-.input{
+.input {
   height: 34px;
   width: 280px;
   padding-left: 20px;
- font-family: Circe;
+  font-family: Circe;
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
   line-height: 27px;
   border: none;
-  border-bottom: 1px solid #E0E0E0;
+  border-bottom: 1px solid #e0e0e0;
 }
 .datepicker {
   height: 34px;
@@ -210,11 +205,10 @@ letter-spacing: 1,5px;
   margin-top: 40px;
   margin-right: auto;
   margin-left: auto;
-  border-bottom: 1px solid #E0E0E0;
+  border-bottom: 1px solid #e0e0e0;
   background-image: url('../../img/calendar.svg');
-  background-repeat:no-repeat;
-  background-position: right; 
-
+  background-repeat: no-repeat;
+  background-position: right;
 }
 
 .datepicker:focus {
@@ -224,125 +218,123 @@ letter-spacing: 1,5px;
 /* .datepicker-wrapper {
   display: block;
 } */
-.comment{
+.comment {
   height: 74px;
   width: 280px;
   resize: none;
   padding-left: 20px;
   margin-top: 40px;
   border: none;
-  border-bottom: 1px solid #E0E0E0;
+  border-bottom: 1px solid #e0e0e0;
   font-family: Circe;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 27px;
-  color: #BDBDBD;
+  color: #000000;
 }
 .formLabel {
   position: absolute;
-  top:50%;
+  top: 50%;
   left: 30px;
   transform: translateY(-50%);
-
 }
 .addBtn {
-width: 280px;
-height: 50px;
-padding: 0px;
-margin-top: 50px;
-margin-left: auto;
-margin-right: auto;
-background: #24CCA7;
-border: none;
-border-radius: 20px;
-font-family: Circe;
-font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 27px;
-text-align: center;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-color: #FFFFFF;
+  width: 280px;
+  height: 50px;
+  padding: 0px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #24cca7;
+  border: none;
+  border-radius: 20px;
+  font-family: Circe;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffffff;
 }
-.CancelBtn{
-  width: 280px ;
+.CancelBtn {
+  width: 280px;
   height: 50px;
   padding: 0px;
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
-  background: #FFFFFF;
-border: 1px solid #4A56E2;
-box-sizing: border-box;
-border-radius: 20px;
-font-family: Circe;
-font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 27px;
-text-align: center;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-color: #4A56E2;
+  background: #ffffff;
+  border: 1px solid #4a56e2;
+  box-sizing: border-box;
+  border-radius: 20px;
+  font-family: Circe;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #4a56e2;
 }
 
-@media screen and (min-width: 767px){
-  .formWrapper{
+@media screen and (min-width: 767px) {
+  .formWrapper {
     width: 540px;
     padding: 40px 40px 60px 40px;
   }
 
-  .hText{
+  .hText {
     font-size: 30px;
     line-height: 45px;
   }
-  .inputWrapper{
-  display: flex;
-  flex-direction: column;
-  width: 410px;
-  margin-left: auto;
-  margin-right: auto;
-}
-  .inputGroup{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: flex-end;
-  justify-content: space-between;
+  .inputWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 410px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .inputGroup {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+    justify-content: space-between;
   }
 
-  .requiredGroup{
-  flex-direction: row;
-  flex-wrap: wrap;
+  .requiredGroup {
+    flex-direction: row;
+    flex-wrap: wrap;
   }
   .formField {
-  width: 410px;
+    width: 410px;
   }
-  .select{
+  .select {
     width: 100%;
   }
-  
-  
-  .category{
-  height: 34px;
-  width: 410px;
-  position: relative;
+
+  .category {
+    height: 34px;
+    width: 410px;
+    position: relative;
   }
-  .input{
-  height: 34px;
-  width: 190px;
+  .input {
+    height: 34px;
+    width: 190px;
   }
   .reactDatepickerWrapper {
-  width: 190px;
+    width: 190px;
   }
-  .comment{
-  height: 34px;
-  width: 410px;
-  display: block;
+  .comment {
+    height: 34px;
+    width: 410px;
+    display: block;
   }
   .datepicker {
-  width: 190px;
-}
+    width: 190px;
+  }
 }

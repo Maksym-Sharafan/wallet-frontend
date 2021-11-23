@@ -1,6 +1,7 @@
 .main {
   background-color: #e7eaf2;
   padding-bottom: 50px;
+  height: 100vh;
 }
 
 .main_container {
@@ -49,7 +50,6 @@
     background-repeat: repeat-y;
     background-size: 100%;
     background-position: center;
-    height: max-content;
   }
 
   .main_container {
