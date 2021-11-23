@@ -1,3 +1,4 @@
+@import '../../stylesheet/fonts.css';
 .wrapper {
   height: 80px;
   padding: 8px 40px 13px;
@@ -29,7 +30,7 @@
   line-height: 1.5;
   text-transform: uppercase;
   margin: 0;
-
+  font-family: 'Circe';
   color: #a6a6a6;
 }
 
