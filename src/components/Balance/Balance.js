@@ -4,10 +4,8 @@ import { transactionsSelectors } from '../../../src/redux/transactions';
 import styles from './Balance.module.css';
 
 const Balance = () => {
-  // const balance = useSelector(transactionsSelectors.getBalance);
   const transactions = useSelector(transactionsSelectors.GetTransactionsList);
-  const balance = transactions.length > 0 ? transactions[0].balance : "0.00";
-  // console.log(balance);
+  const balance = transactions.length > 0 ? new Intl.NumberFormat('uk', {minimumFractionDigits: 2}).format(transactions[0].balance) : "0.00";
   return (
     <div className={styles.wrapper}>
       <h2 className={styles.title}>Current Balance</h2>
