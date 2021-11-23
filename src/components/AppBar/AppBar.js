@@ -6,17 +6,12 @@ import styles from './AppBar.module.css';
 
 export default function AppBar() {
   return (
-    <div className={styles.appBar} >
+    <div className={styles.appBar}>
       <div className={styles.nav_balance_wrapper}>
         <Navigation />
         <Balance />
       </div>
-      <Media query="(min-width: 768px)" render={() =>
-      (
-        <Currency />
-      )}
-      />
+      <Media query="(min-width: 768px)" render={() => <Currency />} />
     </div>
   );
 }
-// className = { styles.navigation_header }

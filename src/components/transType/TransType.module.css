@@ -36,8 +36,6 @@
   content: '';
   height: 40px;
   width: 40px;
-  /* left: 4px; */
-  /* bottom: 2px; */
   border-radius: 50%;
   background-color: #24cca7;
   -webkit-transition: 0.4s;
@@ -45,7 +43,6 @@
 }
 
 .sliderInput {
-  /* display: none; */
   appearance: none;
 }
 
@@ -62,9 +59,7 @@
   font-size: 16px;
   line-height: 24px;
 }
-/* .no_checked {
-  color:#E0E0E0;
-} */
+
 .cost {
   font-family: Circe;
   font-style: normal;

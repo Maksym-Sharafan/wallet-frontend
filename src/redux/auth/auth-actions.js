@@ -12,11 +12,9 @@ const logoutUsersRequest = createAction('auth/logoutUsersRequest');
 const logoutUsersSuccess = createAction('auth/logoutUsersSuccess');
 const logoutUsersError = createAction('auth/logoutUsersError');
 
-// add17/11
 const fetchCurrentUserRequest = createAction('auth/fetchCurrentUserRequest');
 const fetchCurrentUserSuccess = createAction('auth/fetchCurrentUserSuccess');
 const fetchCurrentUserError = createAction('auth/fetchCurrentUserError');
-//
 
 export const authActions = {
   signupUsersRequest,

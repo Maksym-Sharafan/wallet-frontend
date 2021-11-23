@@ -49,7 +49,6 @@
     margin-right: 20px;
   }
   .navigation_icon_button_exit {
-    /* margin-right: 10px; */
     border: none;
     background-color: white;
   }
@@ -137,7 +136,6 @@
     align-items: center;
     justify-content: space-between;
     margin-right: 10px;
-    /* color: #fff; */
   }
 
   .navigation_header_title {
