@@ -4,6 +4,17 @@
   color: red;
   font-size: 15px;
 }
+
+.onClose{
+  position: absolute;
+  top: 21px;
+  right: 15px;
+  width: 16px;
+  height: 16px;
+  border: none;
+  background-image: url("../../img/close.png");
+}
+
 .formWrapper{
   width: 320px;
   /* height: 617px; */
@@ -18,13 +29,12 @@
 .header{
   display: flex;
   align-items: center;
-  /* margin-top: 40px; */
   margin-left: auto;
   margin-right: auto;
 
 }
 .hText {
-font-family: 'Poppins';
+font-family: Poppins;
 font-style: normal;
 font-weight: normal;
 font-size: 24px;
