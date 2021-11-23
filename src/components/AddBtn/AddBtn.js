@@ -26,7 +26,7 @@ export default function  AddBtn () {
     // dispatch(authOperations.fetchCurrentUser());
               
             }, 2000);}
-  }, [ShowModal]);
+  }, [dispatch, ShowModal]);
 
 
   return (

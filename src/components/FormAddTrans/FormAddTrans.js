@@ -61,10 +61,9 @@ const FormAddTrans = ({onClose, showModal}) => {
 
       setTimeout(() => {
       if (!error) {
-        console.log(error)
       onClose()
       }
-      }, 2000);
+      }, 1000);
 
     }
   });
