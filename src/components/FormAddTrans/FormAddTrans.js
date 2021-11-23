@@ -22,7 +22,7 @@ import "react-datepicker/dist/react-datepicker.css";
 const FormAddTrans = ({onClose, showModal}) => {
   const dispatch = useDispatch();
   const [date, setDate] = useState(new Date());
-  // состояние для выбора типа транзакции 
+  // состояние чекбокса типа транзакции 
   const [isChecked, setIsChecked] = useState(false);
   // сщстояние для типа трансакции
   const [transType, setTransType] = useState('income');
