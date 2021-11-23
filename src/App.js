@@ -14,20 +14,11 @@ import HomeTab from './components/HomeTab';
 import Currency from './components/Currency';
 import Loader from './components/Spinner';
 
-//2011
 import { useDispatch, useSelector } from 'react-redux';
 import { authSelectors } from './redux/auth';
 import { authOperations } from './redux/auth';
-//
 
 import { ToastContainer } from 'react-toastify';
-
-// import RegistrationForm from "./components/RegistrationForm";
-// import ModalComponent from './components/modal'
-
-// import ModalComponent from './components/modal/modal_1'
-
-// import AddBtn from './components/AddBtn/AddBtn'
 
 const RegistrationPage = lazy(() =>
   import(
@@ -40,25 +31,17 @@ const LoginPage = lazy(() =>
 const DashboardPage = lazy(() =>
   import('./pages/DashboardPage' /* webpackChunkName: "home-view" */),
 );
-// const DiagramPage = lazy(() =>
-//   import('./pages/DiagramPage' /* webpackChunkName: "diagram-view" */),
-// );
 const NotFoundPage = lazy(() =>
   import('./pages/NotFoundPage' /* webpackChunkName: "notFound-view" */),
 );
-// const ExcludePage = lazy(() =>
-//   import('./pages/ExcludePage' /* webpackChunkName: "exclude-view" */),
-// );
 
 export default function App() {
-  //20/11
   const dispatch = useDispatch();
   const isGettingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
-  //
   return (
     !isGettingCurrentUser && (
       <div>
@@ -109,7 +92,6 @@ export default function App() {
 
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
-          {/* <ModalComponent /> */}
         </Suspense>
         <ToastContainer
           position="top-right"

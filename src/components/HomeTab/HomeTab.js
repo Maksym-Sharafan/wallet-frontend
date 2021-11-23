@@ -140,10 +140,8 @@ const HomeTab = () => {
                               {new Intl.NumberFormat('ru-RU', {
                                 minimumFractionDigits: 2,
                               }).format(amount)}
-                              {/* {amount.toFixed(2)} */}
                             </td>
                             <td className={styles.item}>
-                              {/* {balance.toFixed(2)} */}
                               {new Intl.NumberFormat('ru-RU', {
                                 minimumFractionDigits: 2,
                               }).format(balance)}
@@ -158,15 +156,7 @@ const HomeTab = () => {
           </>
         )}
       </Media>
-
-      {/* <div className={styles.table}> */}
-
-      {/* </div> */}
     </div>
-
-    // <div>
-    //
-    // </div>
   );
 };
 

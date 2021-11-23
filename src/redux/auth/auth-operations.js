@@ -59,8 +59,9 @@ const fetchCurrentUser = () => async (dispatch, getState) => {
   } = getState();
 
   if (!userToken) {
-    return console.log('there is no token');
+    return;
   }
+
   token.set(userToken);
   dispatch(authActions.fetchCurrentUserRequest());
   try {

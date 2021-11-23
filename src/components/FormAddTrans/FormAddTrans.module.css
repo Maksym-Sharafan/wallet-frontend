@@ -17,7 +17,6 @@
 
 .formWrapper {
   width: 320px;
-  /* height: 617px; */
   display: flex;
   flex-flow: column;
   margin-left: auto;
@@ -32,7 +31,6 @@
   margin-right: auto;
 }
 .hText {
-  /* font-family: Poppins; */
   font-style: normal;
   font-weight: normal;
   font-size: 24px;
@@ -101,15 +99,11 @@
   content: '';
   height: 40px;
   width: 40px;
-  /* left: 4px; */
-  /* bottom: 2px; */
   border-radius: 50%;
   background-color: #24cca7;
   background-image: url('../../img/plus.png');
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  /* -webkit-transition: .4s;
-  transition: .4s; */
 }
 
 .sliderInput {
@@ -158,7 +152,6 @@
 }
 
 .formField {
-  /* position: relative; */
   margin-top: 40px;
   margin-left: auto;
   margin-right: auto;
@@ -215,9 +208,6 @@
   outline: none;
 }
 
-/* .datepicker-wrapper {
-  display: block;
-} */
 .comment {
   height: 74px;
   width: 280px;
