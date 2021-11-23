@@ -18,8 +18,6 @@ export default function  AddBtn () {
   // const ShowModal= useSelector((state) => state.global)
   const toggleModal = () =>{
     setShowModal(!ShowModal)
-
-    //удалить, если не испольуется
     dispatch(isModalAddTransactionOpen())
 
   }

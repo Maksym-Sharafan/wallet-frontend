@@ -31,8 +31,6 @@ const FormAddTrans = ({onClose, showModal}) => {
   // переключает тип и раскрашивает название типа
 
   const error = useSelector(transactionsSelectors.getError, shallowEqual)
-  // console.log(error)
-
 
   const handleChange = () => {
     setIsChecked(!isChecked);
@@ -56,18 +54,11 @@ const FormAddTrans = ({onClose, showModal}) => {
       category: isSelected,
       amount: '',
       date: date,
-      // comment: ""
     },
     onSubmit: (values, {resetForm}) => {
-      // console.log(values);
       const correctValues = { ...values, type: transType, category: isSelected, date: date }
-      // const correctValues = { ...values, type: transType, category: isSelected, date: moment(date).format() }
-      // console.log(correctValues);
-      // alert(JSON.stringify(correctValues, null, 2));
       dispatch(transactionsOperations.addTransaction(correctValues));
       resetForm()
-
-      // onClose()
 
       setTimeout(() => {
       if (!error) {
@@ -97,6 +88,7 @@ const FormAddTrans = ({onClose, showModal}) => {
 
   return (
     <>
+    <button type="submit"  onClick={onClose} className={styles.onClose}></button>
     <form onSubmit={formik.handleSubmit} className={styles.formWrapper}>
       <div className={styles.header}>
         <h1 className={styles.hText}>Добавить транзакцию</h1>
@@ -154,6 +146,7 @@ const FormAddTrans = ({onClose, showModal}) => {
               type="date"
               dateFormat="Pp"
               selected={date}
+              // eslint-disable-next-line react/jsx-no-duplicate-props
               dateFormat="yyyy-MM-dd"
               onChange={(date) => { setDate(date) }}
             />
@@ -175,7 +168,6 @@ const FormAddTrans = ({onClose, showModal}) => {
       <button onClick={onClose} className={styles.CancelBtn}  > Отмена </button>
     </form>
 {/* <ToastContainer /> */}
-
 </>
   );
 };
