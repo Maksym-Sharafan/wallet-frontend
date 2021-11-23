@@ -40,54 +40,50 @@ const HomeTab = () => {
                         comment,
                         balance,
                       }) => (
-                        <>
-                          <tr
-                            key={id}
+                        <tr
+                          key={id}
+                          className={
+                            type === 'cost'
+                              ? `${styles.cost} ${styles.row}`
+                              : `${styles.income} ${styles.row}`
+                          }
+                        >
+                          <th className={styles.tableHead}>Дата</th>
+                          <td className={styles.item}>
+                            {moment(date).format('DD.MM.YY')}
+                          </td>
+
+                          <th className={styles.tableHead}>Тип</th>
+                          <td className={styles.item}>
+                            {type === 'cost' ? '-' : '+'}
+                          </td>
+
+                          <th className={styles.tableHead}>Категория</th>
+                          <td className={styles.item}>
+                            {category
+                              ? categoriesList.find(
+                                  ({ _id: id }) => id === category,
+                                ).name
+                              : 'Регулярный доход'}
+                          </td>
+
+                          <th className={styles.tableHead}>Комментарий</th>
+                          <td className={styles.item}>{comment}</td>
+
+                          <th className={styles.tableHead}>Сумма</th>
+                          <td
                             className={
                               type === 'cost'
-                                ? `${styles.cost} ${styles.row}`
-                                : `${styles.income} ${styles.row}`
+                                ? `${styles.cost} ${styles.item}`
+                                : `${styles.income} ${styles.item}`
                             }
                           >
-                            <th className={styles.tableHead}>Дата</th>
-                            <td className={styles.item}>
-                              {moment(date).format('DD.MM.YY')}
-                            </td>
+                            {amount.toFixed(2)}
+                          </td>
 
-                            <th className={styles.tableHead}>Тип</th>
-                            <td className={styles.item}>
-                              {type === 'cost' ? '-' : '+'}
-                            </td>
-
-                            <th className={styles.tableHead}>Категория</th>
-                            <td className={styles.item}>
-                              {category
-                                ? categoriesList.find(
-                                    ({ _id: id }) => id === category,
-                                  ).name
-                                : 'Регулярный доход'}
-                            </td>
-
-                            <th className={styles.tableHead}>Комментарий</th>
-                            <td className={styles.item}>{comment}</td>
-
-                            <th className={styles.tableHead}>Сумма</th>
-                            <td
-                              className={
-                                type === 'cost'
-                                  ? `${styles.cost} ${styles.item}`
-                                  : `${styles.income} ${styles.item}`
-                              }
-                            >
-                              {amount.toFixed(2)}
-                            </td>
-
-                            <th className={styles.tableHead}>Баланс</th>
-                            <td className={styles.item}>
-                              {balance.toFixed(2)}
-                            </td>
-                          </tr>
-                        </>
+                          <th className={styles.tableHead}>Баланс</th>
+                          <td className={styles.item}>{balance.toFixed(2)}</td>
+                        </tr>
                       ),
                     )}
                 </tbody>
@@ -141,12 +137,16 @@ const HomeTab = () => {
                                   : `${styles.income} ${styles.item}`
                               }
                             >
-                              { new Intl.NumberFormat('ru-RU', {minimumFractionDigits:2}).format(amount)}
+                              {new Intl.NumberFormat('ru-RU', {
+                                minimumFractionDigits: 2,
+                              }).format(amount)}
                               {/* {amount.toFixed(2)} */}
                             </td>
                             <td className={styles.item}>
                               {/* {balance.toFixed(2)} */}
-                              { new Intl.NumberFormat('ru-RU', {minimumFractionDigits:2}).format(balance)}
+                              {new Intl.NumberFormat('ru-RU', {
+                                minimumFractionDigits: 2,
+                              }).format(balance)}
                             </td>
                           </tr>
                         ),
